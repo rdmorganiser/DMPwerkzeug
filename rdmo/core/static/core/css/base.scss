@@ -3,6 +3,7 @@
 html, body {
     height: 100%;
     background-color: $background-color;
+    font-size: 14px;
 }
 
 h1, h2, h3, h4 {
@@ -71,11 +72,19 @@ code {
     word-wrap: break-word;
 }
 
+.caret-off::before {
+    display: none;
+}
+.caret-off::after {
+    display: none;
+}
+
 /* navbar */
 
 .navbar-default {
     background-color: $navigation-background-color;
     border-bottom: none;
+    line-height: 1em;
 
     .navbar-brand,
     .navbar-nav > li > a,
@@ -92,7 +101,39 @@ code {
         background-color: $navigation-hover-background-color;
     }
 
+    .navbar-toggler {
+        color: $navigation-color;
+        border-color: $navigation-color;
+    }
+
     .dropdown li.divider:first-child {
+        display: none;
+    }
+
+    .dropdown-item:active {
+        background-color: $modal-border-color;
+    }
+
+    a.dropdown-item:visited {
+        color: $navigation-dropdown-color;
+    }
+
+    .hovnodecorate a:hover {
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .toggle-block {
+        display: block;
+    }
+
+    .dropdown-toggle {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .dropdown-toggle::after {
         display: none;
     }
 }
@@ -100,7 +141,7 @@ code {
 /* content */
 
 .content {
-    padding-top: 50px; /* same height as the navbar */
+    padding-top: 70px; /* same height as the navbar */
 }
 .page, .sidebar {
     height: 100%;
@@ -147,7 +188,7 @@ code {
 /* forms */
 
 .form-label {
-    margin-bottom: 5px;
+    // margin-bottom: 5px;
     font-weight: 700;
 }
 
@@ -210,12 +251,12 @@ form .yesno label {
 
 /* panels */
 
-.panel-body {
+.card-body {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.panel li > p:last-child {
+.card li > p:last-child {
     margin-bottom: 0;
 }
 
@@ -240,11 +281,11 @@ ul.list-arrow li {
 .form-errors {
     margin-bottom: 20px;
 }
-li > a.control-label > i {
+li > a.form-label > i {
     display: none;
 }
-li.has-error > a.control-label > i,
-li.has-warning > a.control-label > i {
+li.has-error > a.form-label > i,
+li.has-warning > a.form-label > i {
     display: inline;
 }
 .email-form label,

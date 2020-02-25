@@ -2,22 +2,22 @@
 {% get_available_languages as languages %}
 
     <div class="modal" id="options-form-modal" tabindex="-1">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h2 class="modal-title ml-1">
+                        {% trans 'Option' %}
+                    </h2>
                     <button type="button" class="close" data-dismiss="modal" tabindex="-1">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h2 class="modal-title">
-                        {% trans 'Option' %}
-                    </h2>
                 </div>
 
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group" ng-class="{'has-error': service.errors.uri_prefix }">
-                                <label class="control-label" for="uri_prefix">
+                                <label class="form-label" for="uri_prefix">
                                     {{ meta.Option.uri_prefix.verbose_name }}
                                 </label>
 
@@ -104,13 +104,13 @@
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
                             {% for lang_code, lang in languages %}
-                            <li role="presentation" class="{{ forloop.first|yesno:'active,' }}" ng-class="{
+                            <li role="presentation" class="nav-item" ng-class="{
                                 'has-error':
                                     service.errors.text_{{ lang_code }},
                                 'has-warning':
                                     service.values.id && !service.values.text_{{ lang_code }}
                             }">
-                                <a role="tab" class="control-label" data-toggle="tab"
+                                <a role="tab" class="nav-link form-label {{ forloop.first|yesno:'active,' }}" data-toggle="tab"
                                     href="#options-{{ lang_code }}" aria-controls="options-{{ lang_code }}">
 
                                     {{ lang }}

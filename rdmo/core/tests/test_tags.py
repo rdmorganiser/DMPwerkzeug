@@ -19,6 +19,6 @@ def test_i18n_switcher(rf):
     rendered_template = Template(template).render(context)
     for language in settings.LANGUAGES:
         if language == settings.LANGUAGES[0]:
-            assert '<a href="/i18n/%s/"><u>%s</u></a>' % language in rendered_template
+            assert '<a class="dropdown-item" href="/i18n/%s/"><u>%s</u></a>' % language in rendered_template
         else:
-            assert'<a href="/i18n/%s/">%s</a>' % language in rendered_template
+            assert'<a class="dropdown-item" href="/i18n/%s/">%s</a>' % language in rendered_template

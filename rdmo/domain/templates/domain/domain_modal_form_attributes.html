@@ -1,22 +1,22 @@
 {% load i18n %}
 
     <div class="modal" id="attributes-form-modal" tabindex="-1">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h2 class="modal-title ml-1">
+                        {% trans 'Attribute' %}
+                    </h2>
                     <button type="button" class="close" data-dismiss="modal" tabindex="-1">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h2 class="modal-title">
-                        {% trans 'Attribute' %}
-                    </h2>
                 </div>
 
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group" ng-class="{'has-error': service.errors.uri_prefix }">
-                                <label class="control-label" for="uri_prefix">
+                                <label class="form-label" for="uri_prefix">
                                     {{ meta.Attribute.uri_prefix.verbose_name }}
                                 </label>
 

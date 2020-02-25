@@ -6,7 +6,7 @@
     {% with field|widget_type as type %}
     {% if type == 'radioselect' %}
 
-    <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
     {% for choice in field %}
     <div class="radio">
         <label>
@@ -18,7 +18,7 @@
 
     {% elif type == 'yesno' %}
 
-    <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
     <div class="radio">
     {% for choice in field %}
         <label class="radio-inline">
@@ -39,7 +39,7 @@
 
     {% elif type == 'checkboxselectmultiple' %}
 
-    <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
     {% for choice in field %}
     <div class="checkbox">
         <label>
@@ -51,7 +51,7 @@
 
     {% else %}
 
-    <label for="{{ field.id_for_label }}" class="control-label">{{ field.label }}</label>
+    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
     {% render_field field class="form-control" %}
 
     {% endif %}

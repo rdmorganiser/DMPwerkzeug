@@ -80,9 +80,9 @@
 
     <div ng-repeat="task in service.tasks | orderBy: 'title' | filter: service.filter" ng-cloak>
 
-        <div class="panel panel-default">
+        <div class="card mb-4">
 
-            <div class="panel-heading">
+            <div class="card-header">
                 <div class="pull-right">
                     <span class="fa fa-warning text-warning"
                         title="{% trans 'Some languages are not configured' %}"

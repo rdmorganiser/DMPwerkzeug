@@ -3,19 +3,16 @@
 {% load accounts_tags %}
 {% load rules %}
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar fixed-top navbar-expand-lg navbar-default py-0">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'home' %}">{{ request.site.name }}</a>
+            <a class="navbar-brand p-3 mr-0" href="{% url 'home' %}">{{ request.site.name }}</a>
         </div>
+        <button class="navbar-toggler py-2 ml-0" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="fa fa-bars"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="navbar-nav">
                 {% has_perm 'questions.view_catalog' request.user as can_view_catalog %}
                 {% has_perm 'domain.view_attribute' request.user as can_view_attribute %}
                 {% has_perm 'options.view_optionset' request.user as can_view_optionset %}
@@ -24,60 +21,48 @@
                 {% has_perm 'views.view_view' request.user as can_view_view %}
 
                 {% if can_view_catalog or can_view_attribute or can_view_optionset or can_view_condition or can_view_task or can_view_view %}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        {% trans 'Management' %}<span class="caret"></span>
+                <li class="dropdown-toggle dropdown nav-item nav-link py-3 px-0 hovnodecorate">
+                    <a href="#" class="dropdown-toggle p-3 toggle-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        {% trans 'Management' %}
                     </a>
                     <ul class="dropdown-menu">
                         {% if can_view_catalog %}
-                        <li>
-                            <a href="{% url 'catalogs' %}">{% trans 'Questions' %}</a>
-                        </li>
+                            <a class="dropdown-item" href="{% url 'catalogs' %}">{% trans 'Questions' %}</a>
                         {% endif %}
                         {% if can_view_attribute %}
-                        <li>
-                            <a href="{% url 'domain' %}">{% trans 'Domain' %}</a>
-                        </li>
+                            <a class="dropdown-item" href="{% url 'domain' %}">{% trans 'Domain' %}</a>
                         {% endif %}
                         {% if can_view_optionset %}
-                        <li>
-                            <a href="{% url 'options' %}">{% trans 'Options' %}</a>
-                        </li>
+                            <a class="dropdown-item" href="{% url 'options' %}">{% trans 'Options' %}</a>
                         {% endif %}
                         {% if can_view_condition %}
-                        <li>
-                            <a href="{% url 'conditions' %}">{% trans 'Conditions' %}</a>
-                        </li>
+                            <a class="dropdown-item" href="{% url 'conditions' %}">{% trans 'Conditions' %}</a>
                         {% endif %}
                         {% if can_view_task %}
-                        <li>
-                            <a href="{% url 'tasks' %}">{% trans 'Tasks' %}</a>
-                        </li>
+                            <a class="dropdown-item" href="{% url 'tasks' %}">{% trans 'Tasks' %}</a>
                         {% endif %}
                         {% if can_view_view %}
-                        <li>
-                            <a href="{% url 'views' %}">{% trans 'Views' %}</a>
-                        </li>
+                            <a class="dropdown-item" href="{% url 'views' %}">{% trans 'Views' %}</a>
                         {% endif %}
                     </ul>
                 </li>
                 {% endif %}
                 {% if user.is_superuser %}
-                <li>
-                    <a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
+                <li class="nav-item nav-link py-3 px-0 hovnodecorate">
+                    <a class="p-3 toggle-block" href="{% url 'admin:index' %}">{% trans 'Admin' %}</a>
                 </li>
                 {% endif %}
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="navbar-nav ml-auto">
                 <li>
                     <p class="navbar-text">
                         <pending></pending>
                     </p>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans 'Language' %}<span class="caret"></span></a>
+                <li class="dropdown dropdown-toggle nav-item nav-link py-3 px-0 hovnodecorate">
+                    <a href="#" class="dropdown-toggle p-3 toggle-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans 'Language' %}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         {% i18n_switcher %}
                     </ul>
@@ -85,25 +70,22 @@
 
                 {% if user.is_authenticated %}
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% full_name user %}<span class="caret"></span></a>
+                <li class="dropdown dropdown-toggle nav-item nav-link py-3 px-0 hovnodecorate">
+                    <a href="#" class="dropdown-toggle p-3 toggle-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% full_name user %}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
 
                         {% url 'about' as about_url %}
                         {% if about_url %}
-                        <li>
-                            <a href="{{ about_url }}">
-                                {% trans 'About RDMO' %}
+                            <a class="dropdown-item" href="{{ about_url }}">
+                                    {% trans 'About RDMO' %}
                             </a>
-                        </li>
-                        <li role="separator" class="divider"></li>
+                            <li role="separator" class="dropdown-divider"></li>
                         {% endif %}
 
                         {% if settings.PROFILE_UPDATE %}
-                        <li>
-                            <a href="{% url 'profile_update' %}">
-                                {% trans 'Update profile' %}
-                            </a>
+                        <a class="dropdown-item"  href="{% url 'profile_update' %}">
+                            {% trans 'Update profile' %}
+                        </a>
                         </li>
                         {% endif %}
 
@@ -115,7 +97,7 @@
                             {% include 'core/base_navigation_socialaccount.html' %}
                         {% endif %}
 
-                        <li role="separator" class="divider"></li>
+                        <li role="separator" class="dropdown-divider"></li>
 
                         {% if settings.ACCOUNT or settings.SOCIALACCOUNT %}
                         <li>

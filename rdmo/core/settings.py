@@ -204,17 +204,17 @@ VENDOR = {
         ]
     },
     'bootstrap': {
-        'url': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/',
+        'url': 'https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/',
         'js': [
             {
                 'path': 'js/bootstrap.min.js',
-                'sri': 'sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd',
+                'sri': 'sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6',
             }
         ],
         'css': [
             {
                 'path': 'css/bootstrap.min.css',
-                'sri': 'sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu',
+                'sri': 'sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh',
             }
         ]
     },

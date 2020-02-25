@@ -40,8 +40,8 @@
 
     <div ng-repeat="section in service.catalog.sections" ng-cloak>
 
-        <div class="panel panel-default panel-section">
-            <div class="panel-heading">
+        <div class="card mb-4">
+            <div class="card-header">
                 <div class="pull-right">
                     <span class="fa fa-warning text-warning"
                         title="{% trans 'Some languages are not configured' %}"
@@ -57,9 +57,9 @@
 
         <div ng-repeat="questionset in section.questionsets | filter: service.filter">
 
-            <div class="panel panel-default panel-questionset">
+            <div class="card card-questionset mb-4">
 
-                <div class="panel-heading">
+                <div class="card-header">
                     <div class="pull-right">
                         <span class="fa fa-warning text-danger"
                             title="{% trans 'No attribute set' %}"
