@@ -1,10 +1,13 @@
+import logging
 from urllib.parse import urlparse
 
+import requests
 from django import template
 
 from rdmo.core.constants import VALUE_TYPE_DATETIME, VALUE_TYPE_TEXT
 
 register = template.Library()
+log = logging.getLogger(__name__)
 
 
 @register.simple_tag(takes_context=True)
@@ -122,3 +125,13 @@ def render_set_value_list(context, set, attribute):
 @register.inclusion_tag('views/tags/value_inline_list.html', takes_context=True)
 def render_set_value_inline_list(context, set, attribute):
     return {'values': get_set_values(context, set, attribute)}
+
+
+@register.simple_tag(takes_context=True)
+def httpget(context, url):
+    r = requests.get(url, auth=('user', 'pass'))
+    if r.status_code == 200:
+        return r.text
+    else:
+        log.error("View httpget failed %s, %s", url, r.status_code)
+    return ''
