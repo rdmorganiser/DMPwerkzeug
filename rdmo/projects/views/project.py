@@ -18,6 +18,7 @@ from django_filters.views import FilterView
 from rdmo.accounts.utils import is_site_manager
 from rdmo.core.plugins import get_plugin, get_plugins
 from rdmo.core.views import ObjectPermissionMixin, RedirectViewMixin
+from rdmo.questions.models import Catalog
 
 from ..filters import ProjectFilter
 from ..models import Integration, Invite, Membership, Project, Value
@@ -102,6 +103,9 @@ class ProjectDetailView(ObjectPermissionMixin, DetailView):
                                         .select_related('user')
 
         integrations = Integration.objects.filter(project__in=ancestors)
+        context['catalogs'] = Catalog.objects.filter_current_site() \
+                                             .filter_group(self.request.user) \
+                                             .filter_availability(self.request.user)
         context['memberships'] = memberships.order_by('user__last_name', '-project__level')
         context['integrations'] = integrations.order_by('provider_key', '-project__level')
         context['providers'] = get_plugins('SERVICE_PROVIDERS')

@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% if can_change_project %}
+<p class="pull-right">
+    <a href="{% url 'project_update_information' project.pk %}" title="{% trans 'Update project information' %}">
+        <i class="fa fa-pencil"></i>
+    </a>
+</p>
+{% endif %}
+{% if project.description %}
+{{ project.description }}
+{% else %}
+{% trans 'No description available.' %}
+{% endif %}

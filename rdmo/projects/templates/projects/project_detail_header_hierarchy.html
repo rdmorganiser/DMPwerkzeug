@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load projects_tags %}
+
+{% if can_change_project %}
+<p class="pull-right">
+    <a href="{% url 'project_update_parent' project.pk %}" title="{% trans 'Update parent project' %}">
+        <i class="fa fa-pencil"></i>
+    </a>
+</p>
+{% endif %}
+
+<ul class="list-unstyled">
+{% for node in project_tree %}
+    <li>
+        {% projects_indent node.level %}
+        <a href="{% url 'project' node.id %}">
+            {% if node.id == project.id %}
+            <strong>{{ node.title }}</strong>
+            {% else %}
+            {{ node.title }}
+            {% endif %}
+        </a>
+    </li>
+{% endfor %}
+</ul>

@@ -2,7 +2,6 @@
 {% load rules %}
 {% load mptt_tags %}
 {% load accounts_tags %}
-{% load projects_tags %}
 
 {% has_perm 'projects.change_project_object' request.user project as can_change_project %}
 
@@ -16,18 +15,7 @@
                     <strong>{% trans 'Description' %}</strong>
                 </td>
                 <td>
-                    {% if can_change_project %}
-                    <p class="pull-right">
-                        <a href="{% url 'project_update_information' project.pk %}" title="{% trans 'Update project information' %}">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                    </p>
-                    {% endif %}
-                    {% if project.description %}
-                    {{ project.description }}
-                    {% else %}
-                    {% trans 'No description available.' %}
-                    {% endif %}
+                    {% include 'projects/project_detail_header_description.html' %}
                 </td>
             </tr>
             <tr>
@@ -35,18 +23,9 @@
                     <strong>{% trans 'Catalog' %}</strong>
                 </td>
                 <td>
-                    {% if can_change_project %}
-                    <p class="pull-right">
-                        <a href="{% url 'project_update_catalog' project.pk %}" title="{% trans 'Update project catalog' %}">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                    </p>
-                    {% endif %}
-                    <strong>{{ project.catalog.title }}</strong><br/>
-                    {{ project.catalog.help }}
+                    {% include 'projects/project_detail_header_catalog.html' %}
                 </td>
             </tr>
-
             {% if project.is_child_node or project.get_descendant_count %}
             {% drilldown_tree_for_node project as project_tree all_descendants %}
             <tr>
@@ -54,28 +33,7 @@
                     <strong>{% trans 'Project hierarchy' %}</strong>
                 </td>
                 <td>
-                    {% if can_change_project %}
-                    <p class="pull-right">
-                        <a href="{% url 'project_update_parent' project.pk %}" title="{% trans 'Update parent project' %}">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                    </p>
-                    {% endif %}
-
-                    <ul class="list-unstyled">
-                    {% for node in project_tree %}
-                        <li>
-                            {% projects_indent node.level %}
-                            <a href="{% url 'project' node.id %}">
-                                {% if node.id == project.id %}
-                                <strong>{{ node.title }}</strong>
-                                {% else %}
-                                {{ node.title }}
-                                {% endif %}
-                            </a>
-                        </li>
-                    {% endfor %}
-                    </ul>
+                    {% include 'projects/project_detail_header_hierarchy.html' %}
                 </td>
             </tr>
             {% endif %}

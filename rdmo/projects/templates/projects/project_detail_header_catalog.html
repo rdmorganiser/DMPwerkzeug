@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% if can_change_project  %}
+<p class="pull-right">
+    <a href="{% url 'project_update_catalog' project.pk %}" title="{% trans 'Update project catalog' %}">
+        <i class="fa fa-pencil"></i>
+    </a>
+</p>
+{% endif %}
+
+<strong>{{ project.catalog.title }}</strong><br/>
+{{ project.catalog.help }}
