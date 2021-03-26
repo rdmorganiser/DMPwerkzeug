@@ -12,7 +12,9 @@ from django.apps import apps
 from django.conf import settings
 from django.http import Http404, HttpResponse, HttpResponseBadRequest
 from django.template.loader import get_template
+from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
+from markdown import markdown
 
 log = logging.getLogger(__name__)
 
@@ -300,3 +302,14 @@ def human2bytes(string):
         return number * 1024**4
     elif unit == 'pib':
         return number * 1024**5
+
+
+def markdown2html(markdown_string):
+    # adoption of the normal markdown function which also converts
+    # `[<string>]{<title>}` to <u title="<title>"><string></u> to
+    # allow for underlined tooltips
+    html = markdown(force_text(markdown_string))
+    html = re.sub(r'\[(.*?)\]\{(.*?)\}',
+                  r'<u data-toggle="tooltip" data-placement="bottom" data-html="true" title="\2">\1</u>',
+                  html)
+    return html

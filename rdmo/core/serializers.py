@@ -1,12 +1,8 @@
-from markdown import markdown as markdown_function
-
 from django.contrib.auth.models import Group
 from django.contrib.sites.models import Site
-from django.utils.encoding import force_text
-
 from rest_framework import serializers
 
-from rdmo.core.utils import get_languages
+from rdmo.core.utils import get_languages, markdown2html
 
 
 class RecursiveField(serializers.Serializer):
@@ -36,7 +32,7 @@ class MarkdownSerializerMixin(serializers.Serializer):
 
         for markdown_field in self.markdown_fields:
             if markdown_field in response and response[markdown_field]:
-                response[markdown_field] = markdown_function(force_text(response[markdown_field]))
+                response[markdown_field] = markdown2html(response[markdown_field])
 
         return response
 

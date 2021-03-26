@@ -6,13 +6,12 @@ from django.template.loader import get_template, render_to_string
 from django.urls import resolve, reverse
 from django.urls.resolvers import Resolver404
 from django.utils import translation
-from django.utils.encoding import force_text
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import get_language, to_locale
-from markdown import markdown as markdown_function
 
 from rdmo import __version__
+from rdmo.core.utils import markdown2html
 
 register = template.Library()
 
@@ -160,7 +159,7 @@ def back_to_project_link(context):
 @register.filter(is_safe=True)
 @stringfilter
 def markdown(value):
-    return mark_safe(markdown_function(force_text(value)))
+    return mark_safe(markdown2html(value))
 
 
 @register.simple_tag

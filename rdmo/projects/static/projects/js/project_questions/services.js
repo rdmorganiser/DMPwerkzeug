@@ -136,6 +136,9 @@ angular.module('project_questions')
                 $window.scrollTo(0, 0);
                 back = false;
 
+                $timeout(function() {
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
             }, function (result) {
                 if (result === false) {
                     // checkConditions returned $q.reject
