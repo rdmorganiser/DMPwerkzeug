@@ -229,6 +229,21 @@
                                         </div>
                                     </div>
                                     <div class="row">
+                                        <div class="col-sm-6">
+
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <formgroup
+                                                data-id="question_is_optional"
+                                                data-type="checkbox"
+                                                data-label="{{ meta.Question.is_optional.verbose_name }}"
+                                                data-help="{{ meta.Question.is_optional.help_text }}"
+                                                data-model="service.values.is_optional"
+                                                data-errors="service.errors.is_optional">
+                                            </formgroup>
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-sm-4">
                                             <formgroup
                                                 data-id="question_widget_type"

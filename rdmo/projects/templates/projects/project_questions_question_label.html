@@ -1,0 +1,6 @@
+{% load i18n %}
+
+<div class="form-label" ng-class="{'text-muted': question.is_optional}">
+    {$ question.text $}
+    <span ng-show="question.is_optional">{% trans '(optional)' %}</span>
+</div>

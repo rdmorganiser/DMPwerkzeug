@@ -1,11 +1,8 @@
 {% load i18n %}
 
     <div class="form-group" ng-if="question.widget_type === 'radio'">
-        <div class="form-label">
-            {$ question.text $}
-        </div>
-
-        <div class="help-text" ng-bind-html="question.help"></div>
+        {% include 'projects/project_questions_question_label.html' %}
+        {% include 'projects/project_questions_question_help.html' %}
 
         <div ng-if="question.is_collection">
             {% include 'projects/project_questions_add_field_help.html' %}

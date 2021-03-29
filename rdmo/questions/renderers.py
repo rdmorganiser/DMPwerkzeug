@@ -76,6 +76,7 @@ class XMLRenderer(BaseXMLRenderer):
         self.render_text_element(xml, 'attribute', {'dc:uri': question['attribute']}, None)
         self.render_text_element(xml, 'questionset', {'dc:uri': question['questionset']}, None)
         self.render_text_element(xml, 'is_collection', {}, question['is_collection'])
+        self.render_text_element(xml, 'is_optional', {}, question['is_optional'])
         self.render_text_element(xml, 'order', {}, question['order'])
 
         for lang_code, lang_string, lang_field in get_languages():

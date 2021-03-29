@@ -23,6 +23,7 @@ class QuestionExportSerializer(TranslationSerializerMixin, serializers.ModelSeri
             'attribute',
             'questionset',
             'is_collection',
+            'is_optional',
             'order',
             'widget_type',
             'value_type',

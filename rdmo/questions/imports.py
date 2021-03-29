@@ -128,6 +128,7 @@ def import_question(element, parent_uri=False, save=False):
 
     question.attribute = get_foreign_field(question, element.get('attribute'), Attribute)
     question.is_collection = element.get('is_collection')
+    question.is_optional = element.get('is_optional')
     question.order = element.get('order')
 
     set_lang_field(question, 'text', element)

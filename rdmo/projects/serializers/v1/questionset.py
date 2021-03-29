@@ -95,7 +95,8 @@ class QuestionSerializer(MarkdownSerializerMixin, serializers.ModelSerializer):
             'step',
             'attribute',
             'optionsets',
-            'is_collection'
+            'is_collection',
+            'is_optional'
         )
 
     def get_optionsets(self, obj):

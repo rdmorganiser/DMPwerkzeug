@@ -116,6 +116,7 @@ class QuestionSerializer(TranslationSerializerMixin, serializers.ModelSerializer
             'attribute',
             'questionset',
             'is_collection',
+            'is_optional',
             'order',
             'maximum',
             'minimum',
@@ -215,6 +216,7 @@ class QuestionNestedSerializer(serializers.ModelSerializer):
             'text',
             'attribute',
             'is_collection',
+            'is_optional',
             'warning',
             'xml_url'
         )

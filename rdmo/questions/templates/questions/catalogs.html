@@ -121,11 +121,13 @@
                                 <span class="fa fa-warning text-warning"
                                     title="{% trans 'Some languages are not configured' %}"
                                     ng-show="question.warning" ></span>
-
+                                <span class="fa fa-asterisk text-muted"
+                                    title="{% trans 'Optional' %}"
+                                    ng-show="question.is_optional" ></span>
                                 {% include 'questions/catalogs_options_questions.html' %}
                             </div>
                             <p>
-                                <strong>{% trans 'Question' %}</strong>
+                                <strong ng-class="{'text-muted': question.is_optional}">{% trans 'Question' %}</strong>
                                 <code class="code-order">{$ question.order $}</code>
                                 <code class="code-questions">{$ question.uri $}</code>
                                 <span>{$ question.text $}</span>

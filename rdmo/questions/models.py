@@ -586,6 +586,11 @@ class Question(Model, TranslationMixin):
         verbose_name=_('is collection'),
         help_text=_('Designates whether this question is a collection.')
     )
+    is_optional = models.BooleanField(
+        default=False,
+        verbose_name=_('is optional'),
+        help_text=_('Designates whether this question is optional.')
+    )
     order = models.IntegerField(
         default=0,
         verbose_name=_('Order'),

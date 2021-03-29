@@ -87,10 +87,17 @@ class Project(MPTTModel, Model):
 
     @property
     def progress(self):
-        questions = Question.objects.filter(attribute_id=OuterRef('pk'), questionset__section__catalog_id=self.catalog.id)
+        # create a queryset for the attributes of the catalog for this project
+        # the subquery is used to query only attributes which have a question in the catalog, which is not optional
+        questions = Question.objects.filter(attribute_id=OuterRef('pk'), questionset__section__catalog_id=self.catalog.id) \
+                                    .exclude(is_optional=True)
         attributes = Attribute.objects.annotate(active=Exists(questions)).filter(active=True).distinct()
 
+        # query the total number of attributes from the qs above
         total = attributes.count()
+
+        # query all current values with attributes from the qs above, but where the text, option, or file field is set,
+        # and count only one value per attribute
         values = self.values.filter(snapshot=None) \
                             .filter(attribute__in=attributes) \
                             .exclude((models.Q(text='') | models.Q(text=None)) & models.Q(option=None) &

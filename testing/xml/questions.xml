@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <rdmo xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<catalog dc:uri="http://example.com/terms/questions/catalog">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>catalog</key>
 		<dc:comment/>
 		<order>0</order>
@@ -9,7 +9,7 @@
 		<title lang="de">Katalog</title>
 	</catalog>
 	<section dc:uri="http://example.com/terms/questions/catalog/individual">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>individual</key>
 		<path>catalog/individual</path>
 		<dc:comment/>
@@ -18,41 +18,42 @@
 		<title lang="en">Single questions</title>
 		<title lang="de">Einzelne Fragen</title>
 	</section>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-text">
-		<uri_prefix/>
-		<key>single-text</key>
-		<path>catalog/individual/single-text</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/text">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text</key>
+		<path>catalog/individual/text</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
 		<order>11</order>
-		<title lang="en">Regular questions</title>
-		<title lang="de">Normale Fragen</title>
+		<title lang="en">Text</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/single-text/text">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/text/text">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text</key>
-		<path>catalog/individual/single-text/text</path>
+		<path>catalog/individual/text/text</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-text"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/text"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Text?</text>
-		<text lang="de">￼Text?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">￼Text?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -63,41 +64,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-textarea">
-		<uri_prefix/>
-		<key>single-textarea</key>
-		<path>catalog/individual/single-textarea</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/textarea">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>textarea</key>
+		<path>catalog/individual/textarea</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
 		<order>12</order>
-		<title lang="en">Regular questions</title>
-		<title lang="de">Normale Fragen</title>
+		<title lang="en">Textarea</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Textarea</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/single-textarea/textarea">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/textarea/textarea">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>textarea</key>
-		<path>catalog/individual/single-textarea/textarea</path>
+		<path>catalog/individual/textarea/textarea</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/textarea"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-textarea"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/textarea"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Textarea?</text>
-		<text lang="de">Textarea?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Textarea?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>textarea</widget_type>
 		<value_type>text</value_type>
@@ -108,41 +110,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-bool">
-		<uri_prefix/>
-		<key>single-bool</key>
-		<path>catalog/individual/single-bool</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/bool">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>bool</key>
+		<path>catalog/individual/bool</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
 		<order>13</order>
-		<title lang="en">Regular questions</title>
-		<title lang="de">Normale Fragen</title>
+		<title lang="en">Yes or no</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Ja oder Nein</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/single-bool/bool">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/bool/bool">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>bool</key>
-		<path>catalog/individual/single-bool/bool</path>
+		<path>catalog/individual/bool/bool</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/bool"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-bool"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/bool"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Yes or no?</text>
-		<text lang="de">Ja oder Nein?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ja oder Nein?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>yesno</widget_type>
 		<value_type>boolean</value_type>
@@ -153,41 +156,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-radio">
-		<uri_prefix/>
-		<key>single-radio</key>
-		<path>catalog/individual/single-radio</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/radio">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>radio</key>
+		<path>catalog/individual/radio</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
 		<order>14</order>
-		<title lang="en">Regular questions</title>
-		<title lang="de">Normale Fragen</title>
+		<title lang="en">Radio buttons</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Radio-Buttons</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/single-radio/radio">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/radio/radio">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>radio</key>
-		<path>catalog/individual/single-radio/radio</path>
+		<path>catalog/individual/radio/radio</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/radio"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-radio"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/radio"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Radio buttons?</text>
-		<text lang="de">Radio-Buttons?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Radio-Buttons?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -200,41 +204,42 @@
 		</optionsets>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-select">
-		<uri_prefix/>
-		<key>single-select</key>
-		<path>catalog/individual/single-select</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/select">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>select</key>
+		<path>catalog/individual/select</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
 		<order>15</order>
-		<title lang="en">Regular questions</title>
-		<title lang="de">Normale Fragen</title>
+		<title lang="en">Select drop-down</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Select-Aufklappmenü</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/single-select/select">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/select/select">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>select</key>
-		<path>catalog/individual/single-select/select</path>
+		<path>catalog/individual/select/select</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/select"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-select"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/select"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Select drop-down?</text>
-		<text lang="de">Select-Aufklappmenü?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Select-Aufklappmenü?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>select</widget_type>
 		<value_type>option</value_type>
@@ -247,41 +252,42 @@
 		</optionsets>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-range">
-		<uri_prefix/>
-		<key>single-range</key>
-		<path>catalog/individual/single-range</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/range">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>range</key>
+		<path>catalog/individual/range</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
 		<order>16</order>
-		<title lang="en">Regular questions</title>
-		<title lang="de">Normale Fragen</title>
+		<title lang="en">Range slider</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Bereichs-Schieber</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/single-range/range">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/range/range">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>range</key>
-		<path>catalog/individual/single-range/range</path>
+		<path>catalog/individual/range/range</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/range"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-range"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/range"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Range slider?</text>
-		<text lang="de">Bereichs-Schieber?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Bereichs-Schieber?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>range</widget_type>
 		<value_type>float</value_type>
@@ -292,41 +298,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-datetime">
-		<uri_prefix/>
-		<key>single-datetime</key>
-		<path>catalog/individual/single-datetime</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/datetime">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>datetime</key>
+		<path>catalog/individual/datetime</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
 		<order>17</order>
-		<title lang="en">Regular questions</title>
-		<title lang="de">Normale Fragen</title>
+		<title lang="en">Datetime</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Datetime</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/single-datetime/datetime">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/datetime/datetime">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>datetime</key>
-		<path>catalog/individual/single-datetime/datetime</path>
+		<path>catalog/individual/datetime/datetime</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/datetime"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/single-datetime"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/datetime"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Date picker?</text>
-		<text lang="de">Datumsauswahl?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Datumsauswahl?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>date</widget_type>
 		<value_type>datetime</value_type>
@@ -337,41 +344,98 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-text">
-		<uri_prefix/>
-		<key>collection-text</key>
-		<path>catalog/individual/collection-text</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/individual/file</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
 		<is_collection>False</is_collection>
-		<order>21</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<order>18</order>
+		<title lang="en">File</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">File</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-text/text">
-		<uri_prefix/>
-		<key>text</key>
-		<path>catalog/individual/collection-text/text</path>
+	<question dc:uri="http://example.com/terms/questions/catalog/individual/file/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/individual/file/file</path>
 		<dc:comment/>
-		<attribute dc:uri="http://example.com/terms/domain/individual/collection/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-text"/>
-		<is_collection>True</is_collection>
+		<attribute dc:uri="http://example.com/terms/domain/individual/single/file"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/file"/>
+		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
-		<text lang="en">Text?</text>
-		<text lang="de">￼Text?</text>
+		<text lang="en">File?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">File?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>file</widget_type>
+		<value_type>file</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
+	<section dc:uri="http://example.com/terms/questions/catalog/collections">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>collections</key>
+		<path>catalog/collections</path>
+		<dc:comment/>
+		<catalog dc:uri="http://example.com/terms/questions/catalog"/>
+		<order>2</order>
+		<title lang="en">Collections</title>
+		<title lang="de">Sammlungen</title>
+	</section>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/text">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text</key>
+		<path>catalog/collections/text</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
+		<is_collection>False</is_collection>
+		<order>21</order>
+		<title lang="en">Text</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Text</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions/>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/text/text">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text</key>
+		<path>catalog/collections/text/text</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/individual/collection/text"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/text"/>
+		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">Text?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">￼Text?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -382,41 +446,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-textarea">
-		<uri_prefix/>
-		<key>collection-textarea</key>
-		<path>catalog/individual/collection-textarea</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/textarea">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>textarea</key>
+		<path>catalog/collections/textarea</path>
 		<dc:comment/>
 		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
 		<is_collection>False</is_collection>
 		<order>22</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<title lang="en">Textarea</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Textarea</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-textarea/textarea">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/textarea/textarea">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>textarea</key>
-		<path>catalog/individual/collection-textarea/textarea</path>
+		<path>catalog/collections/textarea/textarea</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/textarea"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-textarea"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/textarea"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Textarea?</text>
-		<text lang="de">Textarea?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Textarea?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>textarea</widget_type>
 		<value_type>text</value_type>
@@ -427,41 +492,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-bool">
-		<uri_prefix/>
-		<key>collection-bool</key>
-		<path>catalog/individual/collection-bool</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/bool">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>bool</key>
+		<path>catalog/collections/bool</path>
 		<dc:comment/>
 		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
 		<is_collection>False</is_collection>
 		<order>23</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<title lang="en">Yes or no</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Ja oder Nein</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-bool/bool">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/bool/bool">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>bool</key>
-		<path>catalog/individual/collection-bool/bool</path>
+		<path>catalog/collections/bool/bool</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/bool"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-bool"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/bool"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Yes or no?</text>
-		<text lang="de">Ja oder Nein?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ja oder Nein?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>yesno</widget_type>
 		<value_type>boolean</value_type>
@@ -472,41 +538,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-radio">
-		<uri_prefix/>
-		<key>collection-radio</key>
-		<path>catalog/individual/collection-radio</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/radio">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>radio</key>
+		<path>catalog/collections/radio</path>
 		<dc:comment/>
 		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
 		<is_collection>False</is_collection>
 		<order>24</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<title lang="en">Radio buttons</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Radio-Buttons</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-radio/radio">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/radio/radio">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>radio</key>
-		<path>catalog/individual/collection-radio/radio</path>
+		<path>catalog/collections/radio/radio</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/radio"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-radio"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/radio"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Radio buttons?</text>
-		<text lang="de">Radio-Buttons?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Radio-Buttons?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -519,41 +586,42 @@
 		</optionsets>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-select">
-		<uri_prefix/>
-		<key>collection-select</key>
-		<path>catalog/individual/collection-select</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/select">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>select</key>
+		<path>catalog/collections/select</path>
 		<dc:comment/>
 		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
 		<is_collection>False</is_collection>
 		<order>25</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<title lang="en">Select drop-down</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Select-Aufklappmenü</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-select/select">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/select/select">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>select</key>
-		<path>catalog/individual/collection-select/select</path>
+		<path>catalog/collections/select/select</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/select"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-select"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/select"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Select drop-down?</text>
-		<text lang="de">Select-Aufklappmenü?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Select-Aufklappmenü?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>select</widget_type>
 		<value_type>option</value_type>
@@ -566,41 +634,42 @@
 		</optionsets>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-range">
-		<uri_prefix/>
-		<key>collection-range</key>
-		<path>catalog/individual/collection-range</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/range">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>range</key>
+		<path>catalog/collections/range</path>
 		<dc:comment/>
 		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
 		<is_collection>False</is_collection>
 		<order>26</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<title lang="en">Range slider</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Bereichs-Schieber</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-range/range">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/range/range">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>range</key>
-		<path>catalog/individual/collection-range/range</path>
+		<path>catalog/collections/range/range</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/range"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-range"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/range"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Range slider?</text>
-		<text lang="de">Bereichs-Schieber?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Bereichs-Schieber?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>range</widget_type>
 		<value_type>float</value_type>
@@ -611,41 +680,42 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-datetime">
-		<uri_prefix/>
-		<key>collection-datetime</key>
-		<path>catalog/individual/collection-datetime</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/datetime">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>datetime</key>
+		<path>catalog/collections/datetime</path>
 		<dc:comment/>
 		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
 		<is_collection>False</is_collection>
 		<order>27</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<title lang="en">Date picker</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Datumsauswahl</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-datetime/datetime">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/datetime/datetime">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>datetime</key>
-		<path>catalog/individual/collection-datetime/datetime</path>
+		<path>catalog/collections/datetime/datetime</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/datetime"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-datetime"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/datetime"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Date picker?</text>
-		<text lang="de">Datumsauswahl?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Datumsauswahl?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>date</widget_type>
 		<value_type>datetime</value_type>
@@ -656,41 +726,88 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-checkbox">
-		<uri_prefix/>
-		<key>collection-checkbox</key>
-		<path>catalog/individual/collection-checkbox</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/collections/file</path>
 		<dc:comment/>
 		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/individual"/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
 		<is_collection>False</is_collection>
 		<order>28</order>
-		<title lang="en">Collection questions</title>
-		<title lang="de">Fragensammlungen</title>
+		<title lang="en">File</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">File</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/individual/collection-checkbox/checkbox">
-		<uri_prefix/>
-		<key>checkbox</key>
-		<path>catalog/individual/collection-checkbox/checkbox</path>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/file/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/collections/file/file</path>
 		<dc:comment/>
-		<attribute dc:uri="http://example.com/terms/domain/individual/collection/checkbox"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/individual/collection-checkbox"/>
+		<attribute dc:uri="http://example.com/terms/domain/individual/collection/file"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/file"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
-		<text lang="en">Checkbox?</text>
-		<text lang="de">Ankreuzfelder?</text>
+		<text lang="en">File?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">File?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>file</widget_type>
+		<value_type>file</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/collections/checkbox">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>checkbox</key>
+		<path>catalog/collections/checkbox</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/collections"/>
+		<is_collection>False</is_collection>
+		<order>30</order>
+		<title lang="en">Checkbox</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Ankreuzfelder</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions/>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/collections/checkbox/checkbox">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>checkbox</key>
+		<path>catalog/collections/checkbox/checkbox</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/individual/collection/checkbox"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/collections/checkbox"/>
+		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">Checkbox?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ankreuzfelder?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>checkbox</widget_type>
 		<value_type>option</value_type>
@@ -704,17 +821,17 @@
 		<conditions/>
 	</question>
 	<section dc:uri="http://example.com/terms/questions/catalog/set">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>set</key>
 		<path>catalog/set</path>
 		<dc:comment/>
 		<catalog dc:uri="http://example.com/terms/questions/catalog"/>
-		<order>2</order>
+		<order>3</order>
 		<title lang="en">Sets</title>
 		<title lang="de">Sets</title>
 	</section>
 	<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>individual-single</key>
 		<path>catalog/set/individual-single</path>
 		<dc:comment/>
@@ -722,32 +839,33 @@
 		<section dc:uri="http://example.com/terms/questions/catalog/set"/>
 		<is_collection>False</is_collection>
 		<order>11</order>
-		<title lang="en">Individual question sets</title>
-		<title lang="de">Einzelne Fragensets</title>
+		<title lang="en">Individual sets I</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Einzelne Sets I</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/text">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text</key>
 		<path>catalog/set/individual-single/text</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/text"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Text?</text>
-		<text lang="de">Text?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Text?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -759,21 +877,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/textarea">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>textarea</key>
 		<path>catalog/set/individual-single/textarea</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/textarea"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>1</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Textarea?</text>
-		<text lang="de">Textarea?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Textarea?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>textarea</widget_type>
 		<value_type>text</value_type>
@@ -785,21 +904,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/bool">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>bool</key>
 		<path>catalog/set/individual-single/bool</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/bool"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>3</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Yes or no?</text>
-		<text lang="de">Ja oder Nein?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ja oder Nein?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>yesno</widget_type>
 		<value_type>boolean</value_type>
@@ -811,21 +931,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/radio">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>radio</key>
 		<path>catalog/set/individual-single/radio</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/radio"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>4</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Radio buttons?</text>
-		<text lang="de">Radio-Buttons?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Radio-Buttons?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -839,21 +960,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/select">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>select</key>
 		<path>catalog/set/individual-single/select</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/select"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>5</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Select drop-down?</text>
-		<text lang="de">Select-Aufklappmenü?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Select-Aufklappmenü?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>select</widget_type>
 		<value_type>option</value_type>
@@ -867,21 +989,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/range">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>range</key>
 		<path>catalog/set/individual-single/range</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/range"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>6</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Range slider?</text>
-		<text lang="de">Bereichs-Schieber?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Bereichs-Schieber?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>range</widget_type>
 		<value_type>float</value_type>
@@ -893,21 +1016,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/datetime">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>datetime</key>
 		<path>catalog/set/individual-single/datetime</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/single/datetime"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>7</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Date picker?</text>
-		<text lang="de">Datumsauswahl?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Datumsauswahl?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>date</widget_type>
 		<value_type>datetime</value_type>
@@ -918,8 +1042,35 @@
 		<optionsets/>
 		<conditions/>
 	</question>
+	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-single/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/set/individual-single/file</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/individual/single/file"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-single"/>
+		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
+		<order>9</order>
+		<help lang="en"/>
+		<text lang="en">File?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">File?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>file</widget_type>
+		<value_type>file</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
 	<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>individual-collection</key>
 		<path>catalog/set/individual-collection</path>
 		<dc:comment/>
@@ -927,32 +1078,33 @@
 		<section dc:uri="http://example.com/terms/questions/catalog/set"/>
 		<is_collection>False</is_collection>
 		<order>12</order>
-		<title lang="en">Individual question sets</title>
-		<title lang="de">Einzelne Fragensets</title>
+		<title lang="en">Individual sets II</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Einzelne Sets II</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/text">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text</key>
 		<path>catalog/set/individual-collection/text</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/text"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Text?</text>
-		<text lang="de">Text?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Text?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -964,21 +1116,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/textarea">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>textarea</key>
 		<path>catalog/set/individual-collection/textarea</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/textarea"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>1</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Textarea?</text>
-		<text lang="de">Textarea?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Textarea?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>textarea</widget_type>
 		<value_type>text</value_type>
@@ -990,21 +1143,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/bool">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>bool</key>
 		<path>catalog/set/individual-collection/bool</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/bool"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>3</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Yes or no?</text>
-		<text lang="de">Ja oder Nein?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ja oder Nein?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>yesno</widget_type>
 		<value_type>boolean</value_type>
@@ -1016,21 +1170,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/radio">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>radio</key>
 		<path>catalog/set/individual-collection/radio</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/radio"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>4</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Radio buttons?</text>
-		<text lang="de">Radio-Buttons?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Radio-Buttons?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -1044,21 +1199,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/select">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>select</key>
 		<path>catalog/set/individual-collection/select</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/select"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>5</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Select drop-down?</text>
-		<text lang="de">Select-Aufklappmenü?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Select-Aufklappmenü?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>select</widget_type>
 		<value_type>option</value_type>
@@ -1072,21 +1228,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/range">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>range</key>
 		<path>catalog/set/individual-collection/range</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/range"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>6</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Range slider?</text>
-		<text lang="de">Bereichs-Schieber?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Bereichs-Schieber?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>range</widget_type>
 		<value_type>float</value_type>
@@ -1098,21 +1255,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/datetime">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>datetime</key>
 		<path>catalog/set/individual-collection/datetime</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/datetime"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>7</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Date picker?</text>
-		<text lang="de">Datumsauswahl?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Datumsauswahl?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>date</widget_type>
 		<value_type>datetime</value_type>
@@ -1124,21 +1282,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/checkbox">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>checkbox</key>
 		<path>catalog/set/individual-collection/checkbox</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/individual/collection/checkbox"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>8</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Checkbox?</text>
-		<text lang="de">Ankreuzfelder?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ankreuzfelder?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>checkbox</widget_type>
 		<value_type>option</value_type>
@@ -1151,8 +1310,35 @@
 		</optionsets>
 		<conditions/>
 	</question>
+	<question dc:uri="http://example.com/terms/questions/catalog/set/individual-collection/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/set/individual-collection/file</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/individual/collection/file"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/set/individual-collection"/>
+		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
+		<order>9</order>
+		<help lang="en"/>
+		<text lang="en">File?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">File?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>file</widget_type>
+		<value_type>file</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
 	<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>collection-single</key>
 		<path>catalog/set/collection-single</path>
 		<dc:comment/>
@@ -1160,32 +1346,33 @@
 		<section dc:uri="http://example.com/terms/questions/catalog/set"/>
 		<is_collection>True</is_collection>
 		<order>21</order>
-		<title lang="en">Collection</title>
-		<title lang="de">Collection</title>
+		<title lang="en">Set collections I</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Sammlungs-Sets I</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/text">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text</key>
 		<path>catalog/set/collection-single/text</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/single/text"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Text?</text>
-		<text lang="de">Text?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Text?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1197,21 +1384,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/textarea">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>textarea</key>
 		<path>catalog/set/collection-single/textarea</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/single/textarea"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>1</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Textarea?</text>
-		<text lang="de">Textarea?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Textarea?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>textarea</widget_type>
 		<value_type>text</value_type>
@@ -1223,21 +1411,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/bool">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>bool</key>
 		<path>catalog/set/collection-single/bool</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/single/bool"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>3</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Yes or no?</text>
-		<text lang="de">Ja oder Nein?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ja oder Nein?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>yesno</widget_type>
 		<value_type>boolean</value_type>
@@ -1249,21 +1438,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/radio">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>radio</key>
 		<path>catalog/set/collection-single/radio</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/single/radio"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>4</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Radio buttons?</text>
-		<text lang="de">Radio-Buttons?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Radio-Buttons?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -1277,21 +1467,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/select">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>select</key>
 		<path>catalog/set/collection-single/select</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/single/select"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>5</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Select drop-down?</text>
-		<text lang="de">Select-Aufklappmenü?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Select-Aufklappmenü?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>select</widget_type>
 		<value_type>option</value_type>
@@ -1305,21 +1496,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/range">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>range</key>
 		<path>catalog/set/collection-single/range</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/single/range"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>6</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Range slider?</text>
-		<text lang="de">Bereichs-Schieber?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Bereichs-Schieber?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>range</widget_type>
 		<value_type>float</value_type>
@@ -1331,21 +1523,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/datetime">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>datetime</key>
 		<path>catalog/set/collection-single/datetime</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/single/datetime"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>7</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Date picker?</text>
-		<text lang="de">Datumsauswahl?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Datumsauswahl?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>date</widget_type>
 		<value_type>datetime</value_type>
@@ -1356,8 +1549,35 @@
 		<optionsets/>
 		<conditions/>
 	</question>
+	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-single/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/set/collection-single/file</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/set/single/file"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-single"/>
+		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
+		<order>8</order>
+		<help lang="en"/>
+		<text lang="en">File?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">File?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>file</widget_type>
+		<value_type>file</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
 	<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>collection-collection</key>
 		<path>catalog/set/collection-collection</path>
 		<dc:comment/>
@@ -1365,32 +1585,33 @@
 		<section dc:uri="http://example.com/terms/questions/catalog/set"/>
 		<is_collection>True</is_collection>
 		<order>22</order>
-		<title lang="en">Collection</title>
-		<title lang="de">Collection</title>
+		<title lang="en">Set collections II</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Sammlungs-Sets II</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions/>
 	</questionset>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/text">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text</key>
 		<path>catalog/set/collection-collection/text</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/text"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Text?</text>
-		<text lang="de">Text?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Text?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1402,21 +1623,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/textarea">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>textarea</key>
 		<path>catalog/set/collection-collection/textarea</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/textarea"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>1</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Textarea?</text>
-		<text lang="de">Textarea?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Textarea?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>textarea</widget_type>
 		<value_type>text</value_type>
@@ -1428,21 +1650,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/bool">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>bool</key>
 		<path>catalog/set/collection-collection/bool</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/bool"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>3</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Yes or no?</text>
-		<text lang="de">Ja oder Nein?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ja oder Nein?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>yesno</widget_type>
 		<value_type>boolean</value_type>
@@ -1454,21 +1677,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/radio">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>radio</key>
 		<path>catalog/set/collection-collection/radio</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/radio"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>4</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Radio buttons?</text>
-		<text lang="de">Radio-Buttons?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Radio-Buttons?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -1482,21 +1706,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/select">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>select</key>
 		<path>catalog/set/collection-collection/select</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/select"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>5</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Select drop-down?</text>
-		<text lang="de">Select-Aufklappmenü?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Select-Aufklappmenü?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>select</widget_type>
 		<value_type>option</value_type>
@@ -1510,21 +1735,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/range">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>range</key>
 		<path>catalog/set/collection-collection/range</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/range"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>6</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Range slider?</text>
-		<text lang="de">Bereichs-Schieber?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Bereichs-Schieber?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>range</widget_type>
 		<value_type>float</value_type>
@@ -1536,21 +1762,22 @@
 		<conditions/>
 	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/datetime">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>datetime</key>
 		<path>catalog/set/collection-collection/datetime</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/datetime"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
 		<order>7</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Date picker?</text>
-		<text lang="de">Datumsauswahl?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Datumsauswahl?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>date</widget_type>
 		<value_type>datetime</value_type>
@@ -1561,22 +1788,52 @@
 		<optionsets/>
 		<conditions/>
 	</question>
+	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/file">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>file</key>
+		<path>catalog/set/collection-collection/file</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/set/collection/file"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
+		<is_collection>True</is_collection>
+		<is_optional>False</is_optional>
+		<order>8</order>
+		<help lang="en"/>
+		<text lang="en">File?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">File?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>file</widget_type>
+		<value_type>file</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets>
+			<optionset dc:uri="http://example.com/terms/options/one_two_three_other"/>
+		</optionsets>
+		<conditions/>
+	</question>
 	<question dc:uri="http://example.com/terms/questions/catalog/set/collection-collection/checkbox">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>checkbox</key>
 		<path>catalog/set/collection-collection/checkbox</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/set/collection/checkbox"/>
 		<questionset dc:uri="http://example.com/terms/questions/catalog/set/collection-collection"/>
 		<is_collection>True</is_collection>
-		<order>8</order>
+		<is_optional>False</is_optional>
+		<order>9</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">Checkbox?</text>
-		<text lang="de">Ankreuzfelder?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">Ankreuzfelder?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>checkbox</widget_type>
 		<value_type>option</value_type>
@@ -1590,52 +1847,53 @@
 		<conditions/>
 	</question>
 	<section dc:uri="http://example.com/terms/questions/catalog/conditions">
-		<uri_prefix/>
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>conditions</key>
 		<path>catalog/conditions</path>
 		<dc:comment/>
 		<catalog dc:uri="http://example.com/terms/questions/catalog"/>
-		<order>3</order>
+		<order>4</order>
 		<title lang="en">Conditions</title>
 		<title lang="de">Bedingungen</title>
 	</section>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_contains">
-		<uri_prefix/>
-		<key>text-text_contains</key>
-		<path>catalog/conditions/text-text_contains</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_contains">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_contains</key>
+		<path>catalog/conditions/text_contains</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>12</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text I</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text I</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_contains_test"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_contains/text_contains">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_contains/text_contains">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_contains</key>
-		<path>catalog/conditions/text-text_contains/text_contains</path>
+		<path>catalog/conditions/text_contains/text_contains</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_contains"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_contains"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_contains?</text>
-		<text lang="de">text_contains?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_contains?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1646,43 +1904,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_empty">
-		<uri_prefix/>
-		<key>text-text_empty</key>
-		<path>catalog/conditions/text-text_empty</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_empty</key>
+		<path>catalog/conditions/text_empty</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>12</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text II</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text II</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_empty"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_empty/text_empty">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_empty/text_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_empty</key>
-		<path>catalog/conditions/text-text_empty/text_empty</path>
+		<path>catalog/conditions/text_empty/text_empty</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_empty"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_empty"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text empty?</text>
-		<text lang="de">text empty?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text empty?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1693,43 +1952,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_equal">
-		<uri_prefix/>
-		<key>text-text_equal</key>
-		<path>catalog/conditions/text-text_equal</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_equal</key>
+		<path>catalog/conditions/text_equal</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>13</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text III</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text III</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_equal_test"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_equal/text_equal">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_equal/text_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_equal</key>
-		<path>catalog/conditions/text-text_equal/text_equal</path>
+		<path>catalog/conditions/text_equal/text_equal</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_equal"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_equal"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_equal?</text>
-		<text lang="de">text_equal?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_equal?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1740,43 +2000,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_greater_than">
-		<uri_prefix/>
-		<key>text-text_greater_than</key>
-		<path>catalog/conditions/text-text_greater_than</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_greater_than">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_greater_than</key>
+		<path>catalog/conditions/text_greater_than</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>14</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text IV</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text IV</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_greater_than_0"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_greater_than/text_greater_than">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_greater_than/text_greater_than">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_greater_than</key>
-		<path>catalog/conditions/text-text_greater_than/text_greater_than</path>
+		<path>catalog/conditions/text_greater_than/text_greater_than</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_greater_than"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_greater_than"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_greater_than?</text>
-		<text lang="de">text_greater_than?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_greater_than?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1787,43 +2048,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_greater_than_equal">
-		<uri_prefix/>
-		<key>text-text_greater_than_equal</key>
-		<path>catalog/conditions/text-text_greater_than_equal</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_greater_than_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_greater_than_equal</key>
+		<path>catalog/conditions/text_greater_than_equal</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>15</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text V</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text V</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_greater_than_equal_0"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_greater_than_equal/text_greater_than_equal">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_greater_than_equal/text_greater_than_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_greater_than_equal</key>
-		<path>catalog/conditions/text-text_greater_than_equal/text_greater_than_equal</path>
+		<path>catalog/conditions/text_greater_than_equal/text_greater_than_equal</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_greater_than_equal"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_greater_than_equal"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_greater_than_equal?</text>
-		<text lang="de">text_greater_than_equal?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_greater_than_equal?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1834,43 +2096,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_lesser_than">
-		<uri_prefix/>
-		<key>text-text_lesser_than</key>
-		<path>catalog/conditions/text-text_lesser_than</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_lesser_than">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_lesser_than</key>
+		<path>catalog/conditions/text_lesser_than</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>16</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text VI</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text VI</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_lesser_than_0"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_lesser_than/text_lesser_than">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_lesser_than/text_lesser_than">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_lesser_than</key>
-		<path>catalog/conditions/text-text_lesser_than/text_lesser_than</path>
+		<path>catalog/conditions/text_lesser_than/text_lesser_than</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_lesser_than"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_lesser_than"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_lesser_than?</text>
-		<text lang="de">text_lesser_than?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_lesser_than?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1881,43 +2144,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_lesser_than_equal">
-		<uri_prefix/>
-		<key>text-text_lesser_than_equal</key>
-		<path>catalog/conditions/text-text_lesser_than_equal</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_lesser_than_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_lesser_than_equal</key>
+		<path>catalog/conditions/text_lesser_than_equal</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>17</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text VII</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text VII</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_lesser_than_equal_0"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_lesser_than_equal/text_lesser_than_equal">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_lesser_than_equal/text_lesser_than_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_lesser_than_equal</key>
-		<path>catalog/conditions/text-text_lesser_than_equal/text_lesser_than_equal</path>
+		<path>catalog/conditions/text_lesser_than_equal/text_lesser_than_equal</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_lesser_than_equal"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_lesser_than_equal"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_lesser_than_equal?</text>
-		<text lang="de">text_lesser_than_equal?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_lesser_than_equal?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1928,43 +2192,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_not_empty">
-		<uri_prefix/>
-		<key>text-text_not_empty</key>
-		<path>catalog/conditions/text-text_not_empty</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_not_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_not_empty</key>
+		<path>catalog/conditions/text_not_empty</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>18</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text VIII</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text VIII</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_not_empty"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_not_empty/text_not_empty">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_not_empty/text_not_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_not_empty</key>
-		<path>catalog/conditions/text-text_not_empty/text_not_empty</path>
+		<path>catalog/conditions/text_not_empty/text_not_empty</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_not_empty"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_not_empty"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_not_empty?</text>
-		<text lang="de">text_not_empty?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_not_empty?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -1975,43 +2240,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_not_equal">
-		<uri_prefix/>
-		<key>text-text_not_equal</key>
-		<path>catalog/conditions/text-text_not_equal</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_not_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>text_not_equal</key>
+		<path>catalog/conditions/text_not_equal</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
 		<order>19</order>
-		<title lang="en">Text</title>
-		<title lang="de">Text</title>
+		<title lang="en">Text IX</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Text IX</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/text_not_equal_test"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_not_equal/text_not_equal">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/text_not_equal/text_not_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>text_not_equal</key>
-		<path>catalog/conditions/text-text_not_equal/text_not_equal</path>
+		<path>catalog/conditions/text_not_equal/text_not_equal</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/text"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text-text_not_equal"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/text_not_equal"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">text_not_equal?</text>
-		<text lang="de">text_not_equal?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">text_not_equal?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>text</widget_type>
 		<value_type>text</value_type>
@@ -2022,43 +2288,44 @@
 		<optionsets/>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_empty">
-		<uri_prefix/>
-		<key>options-option_empty</key>
-		<path>catalog/conditions/options-option_empty</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option_empty</key>
+		<path>catalog/conditions/option_empty</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
-		<order>22</order>
-		<title lang="en">Options</title>
-		<title lang="de">Optionen</title>
+		<order>21</order>
+		<title lang="en">Options I</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Optionen I</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/options_empty"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_empty/option_empty">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/option_empty/option_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>option_empty</key>
-		<path>catalog/conditions/options-option_empty/option_empty</path>
+		<path>catalog/conditions/option_empty/option_empty</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/option"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_empty"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_empty"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">option_empty?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
 		<text lang="de">option_empty?</text>
-		<verbose_name lang="en"/>
 		<verbose_name lang="de"/>
-		<verbose_name_plural lang="en"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -2071,92 +2338,44 @@
 		</optionsets>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_not_empty">
-		<uri_prefix/>
-		<key>options-option_not_empty</key>
-		<path>catalog/conditions/options-option_not_empty</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option_equal</key>
+		<path>catalog/conditions/option_equal</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
-		<order>23</order>
-		<title lang="en">Options</title>
-		<title lang="de">Optionen</title>
+		<order>22</order>
+		<title lang="en">Options II</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
-		<verbose_name_plural lang="de"/>
-		<conditions>
-			<condition dc:uri="http://example.com/terms/conditions/options_not_empty"/>
-		</conditions>
-	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_not_empty/option_not_empty">
-		<uri_prefix/>
-		<key>option_not_empty</key>
-		<path>catalog/conditions/options-option_not_empty/option_not_empty</path>
-		<dc:comment/>
-		<attribute dc:uri="http://example.com/terms/domain/conditions/option"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_not_empty"/>
-		<is_collection>False</is_collection>
-		<order>0</order>
-		<help lang="en"/>
+		<title lang="de">Optionen II</title>
 		<help lang="de"/>
-		<text lang="en">option_not_empty?</text>
-		<text lang="de">option_not_empty?</text>
-		<verbose_name lang="en"/>
 		<verbose_name lang="de"/>
-		<verbose_name_plural lang="en"/>
-		<verbose_name_plural lang="de"/>
-		<widget_type>radio</widget_type>
-		<value_type>option</value_type>
-		<maximum/>
-		<minimum/>
-		<step/>
-		<unit/>
-		<optionsets>
-			<optionset dc:uri="http://example.com/terms/options/one_two_three"/>
-		</optionsets>
-		<conditions/>
-	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_equal">
-		<uri_prefix/>
-		<key>options-option_equal</key>
-		<path>catalog/conditions/options-option_equal</path>
-		<dc:comment/>
-		<attribute/>
-		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
-		<is_collection>False</is_collection>
-		<order>23</order>
-		<title lang="en">Options</title>
-		<title lang="de">Optionen</title>
-		<help lang="en"/>
-		<help lang="de"/>
-		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
-		<verbose_name_plural lang="en"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
 			<condition dc:uri="http://example.com/terms/conditions/options_equal_one"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_equal/option_equal">
-		<uri_prefix/>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/option_equal/option_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
 		<key>option_equal</key>
-		<path>catalog/conditions/options-option_equal/option_equal</path>
+		<path>catalog/conditions/option_equal/option_equal</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/option"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_equal"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_equal"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
 		<text lang="en">option_equal?</text>
-		<text lang="de">option_equal?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">option_equal?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -2169,43 +2388,44 @@
 		</optionsets>
 		<conditions/>
 	</question>
-	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_not_equal">
-		<uri_prefix/>
-		<key>options-option_not_equal</key>
-		<path>catalog/conditions/options-option_not_equal</path>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_not_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option_not_empty</key>
+		<path>catalog/conditions/option_not_empty</path>
 		<dc:comment/>
 		<attribute/>
 		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
 		<is_collection>False</is_collection>
-		<order>24</order>
-		<title lang="en">Options</title>
-		<title lang="de">Optionen</title>
+		<order>23</order>
+		<title lang="en">Options III</title>
 		<help lang="en"/>
-		<help lang="de"/>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<title lang="de">Optionen III</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<conditions>
-			<condition dc:uri="http://example.com/terms/conditions/options_not_equal_one"/>
+			<condition dc:uri="http://example.com/terms/conditions/options_not_empty"/>
 		</conditions>
 	</questionset>
-	<question dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_not_equal/option_not_equal">
-		<uri_prefix/>
-		<key>option_not_equal</key>
-		<path>catalog/conditions/options-option_not_equal/option_not_equal</path>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/option_not_empty/option_not_empty">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option_not_empty</key>
+		<path>catalog/conditions/option_not_empty/option_not_empty</path>
 		<dc:comment/>
 		<attribute dc:uri="http://example.com/terms/domain/conditions/option"/>
-		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/options-option_not_equal"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_not_empty"/>
 		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
 		<order>0</order>
 		<help lang="en"/>
-		<help lang="de"/>
-		<text lang="en">option_not_equal?</text>
-		<text lang="de">option_not_equal?</text>
+		<text lang="en">option_not_empty?</text>
 		<verbose_name lang="en"/>
-		<verbose_name lang="de"/>
 		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">option_not_empty?</text>
+		<verbose_name lang="de"/>
 		<verbose_name_plural lang="de"/>
 		<widget_type>radio</widget_type>
 		<value_type>option</value_type>
@@ -2215,6 +2435,300 @@
 		<unit/>
 		<optionsets>
 			<optionset dc:uri="http://example.com/terms/options/one_two_three"/>
+		</optionsets>
+		<conditions/>
+	</question>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_not_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option_not_equal</key>
+		<path>catalog/conditions/option_not_equal</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/conditions"/>
+		<is_collection>False</is_collection>
+		<order>24</order>
+		<title lang="en">Options IV</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Optionen IV</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions>
+			<condition dc:uri="http://example.com/terms/conditions/options_not_equal_one"/>
+		</conditions>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/conditions/option_not_equal/option_not_equal">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option_not_equal</key>
+		<path>catalog/conditions/option_not_equal/option_not_equal</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/conditions/option"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/conditions/option_not_equal"/>
+		<is_collection>False</is_collection>
+		<is_optional>False</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">option_not_equal?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">option_not_equal?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>radio</widget_type>
+		<value_type>option</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets>
+			<optionset dc:uri="http://example.com/terms/options/one_two_three"/>
+		</optionsets>
+		<conditions/>
+	</question>
+	<section dc:uri="http://example.com/terms/questions/catalog/options">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>options</key>
+		<path>catalog/options</path>
+		<dc:comment/>
+		<catalog dc:uri="http://example.com/terms/questions/catalog"/>
+		<order>5</order>
+		<title lang="en">Options</title>
+		<title lang="de">Optionen</title>
+	</section>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/options/order">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>order</key>
+		<path>catalog/options/order</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/options"/>
+		<is_collection>False</is_collection>
+		<order>0</order>
+		<title lang="en">Order</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Order</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions/>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/options/order/option">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option</key>
+		<path>catalog/options/order/option</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/options/order"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/options/order"/>
+		<is_collection>False</is_collection>
+		<is_optional>True</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">order?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">order?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>checkbox</widget_type>
+		<value_type>text</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets>
+			<optionset dc:uri="http://example.com/terms/options/one_two_three"/>
+		</optionsets>
+		<conditions/>
+	</question>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/options/radio">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>radio</key>
+		<path>catalog/options/radio</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/options"/>
+		<is_collection>False</is_collection>
+		<order>2</order>
+		<title lang="en">Radio</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Radio</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions/>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/options/radio/radio">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>radio</key>
+		<path>catalog/options/radio/radio</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/options/plugin/radio"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/options/radio"/>
+		<is_collection>False</is_collection>
+		<is_optional>True</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">radio?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">radio?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>radio</widget_type>
+		<value_type>text</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/options/select">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>select</key>
+		<path>catalog/options/select</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/options"/>
+		<is_collection>False</is_collection>
+		<order>3</order>
+		<title lang="en">Select</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Select</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions/>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/options/select/select">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>select</key>
+		<path>catalog/options/select/select</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/options/plugin/select"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/options/select"/>
+		<is_collection>False</is_collection>
+		<is_optional>True</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">select?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">select?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>select</widget_type>
+		<value_type>text</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/options/checkboxes">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>checkboxes</key>
+		<path>catalog/options/checkboxes</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/options"/>
+		<is_collection>False</is_collection>
+		<order>4</order>
+		<title lang="en">Checkboxes</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Checkboxes</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions/>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/options/checkboxes/checkboxes">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>checkboxes</key>
+		<path>catalog/options/checkboxes/checkboxes</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/options/plugin/checkboxes"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/options/checkboxes"/>
+		<is_collection>False</is_collection>
+		<is_optional>True</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">checkboxes?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">checkboxes?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>checkbox</widget_type>
+		<value_type>text</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets/>
+		<conditions/>
+	</question>
+	<questionset dc:uri="http://example.com/terms/questions/catalog/options/combined">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>combined</key>
+		<path>catalog/options/combined</path>
+		<dc:comment/>
+		<attribute/>
+		<section dc:uri="http://example.com/terms/questions/catalog/options"/>
+		<is_collection>False</is_collection>
+		<order>5</order>
+		<title lang="en">Combined</title>
+		<help lang="en"/>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<title lang="de">Combined</title>
+		<help lang="de"/>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<conditions/>
+	</questionset>
+	<question dc:uri="http://example.com/terms/questions/catalog/options/combined/option">
+		<uri_prefix>http://example.com/terms</uri_prefix>
+		<key>option</key>
+		<path>catalog/options/combined/option</path>
+		<dc:comment/>
+		<attribute dc:uri="http://example.com/terms/domain/options/plugin/combined"/>
+		<questionset dc:uri="http://example.com/terms/questions/catalog/options/combined"/>
+		<is_collection>False</is_collection>
+		<is_optional>True</is_optional>
+		<order>0</order>
+		<help lang="en"/>
+		<text lang="en">combined?</text>
+		<verbose_name lang="en"/>
+		<verbose_name_plural lang="en"/>
+		<help lang="de"/>
+		<text lang="de">combined?</text>
+		<verbose_name lang="de"/>
+		<verbose_name_plural lang="de"/>
+		<widget_type>radio</widget_type>
+		<value_type>text</value_type>
+		<maximum/>
+		<minimum/>
+		<step/>
+		<unit/>
+		<optionsets>
+			<optionset dc:uri="http://example.com/terms/options/one_two_three_other"/>
 		</optionsets>
 		<conditions/>
 	</question>
