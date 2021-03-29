@@ -203,7 +203,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12">
                                             <formgroup
                                                 data-id="question_attribute"
                                                 data-type="selectnumber"
@@ -217,6 +217,8 @@
                                                 data-quicksearch="true">
                                             </formgroup>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-sm-6">
                                             <formgroup
                                                 data-id="question_is_collection"
@@ -226,11 +228,6 @@
                                                 data-model="service.values.is_collection"
                                                 data-errors="service.errors.is_collection">
                                             </formgroup>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-
                                         </div>
                                         <div class="col-sm-6">
                                             <formgroup
@@ -322,6 +319,17 @@
                                                 data-help="{% trans 'The plural verbose name for this question.' %}"
                                                 data-model="service.values.verbose_name_plural_{{ lang_code }}"
                                                 data-errors="service.errors.verbose_name_plural_{{ lang_code }}">
+                                            </formgroup>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <formgroup
+                                                data-id="question_default_text_{{ lang_code }}"
+                                                data-type="textarea"
+                                                data-label="{% trans 'Default answer text' %} ({{ lang }})"
+                                                data-help="{% trans 'The default answer text for this question set.' %}"
+                                                data-model="service.values.default_text_{{ lang_code }}"
+                                                data-errors="service.errors.default_text_{{ lang_code }}"
+                                                rows="2">
                                             </formgroup>
                                         </div>
                                     </div>

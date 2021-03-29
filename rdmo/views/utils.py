@@ -1,5 +1,8 @@
+from django.db.models import Q
 from django.utils.functional import cached_property
 from mptt.utils import get_cached_trees
+
+from rdmo.questions.models import Question
 
 
 class ProjectWrapper(object):
@@ -47,6 +50,23 @@ class ProjectWrapper(object):
     @cached_property
     def _values(self):
         return list(self._project.values.filter(snapshot=self._snapshot).select_related('attribute', 'option'))
+
+    @cached_property
+    def _defaults(self):
+        questions = Question.objects.filter(questionset__section__catalog_id=self._project.catalog.id) \
+                                    .exclude((Q(default_text_lang1=None) | Q(default_text_lang1='')) &
+                                             (Q(default_text_lang2=None) | Q(default_text_lang2='')) &
+                                             (Q(default_text_lang3=None) | Q(default_text_lang3='')) &
+                                             (Q(default_text_lang4=None) | Q(default_text_lang4='')) &
+                                             (Q(default_text_lang5=None) | Q(default_text_lang5=''))) \
+                                    .select_related('attribute')
+
+        return [{
+            'uri': question.attribute.uri,
+            'path': question.attribute.path,
+            'text': question.default_text,
+            'type': question.value_type
+        } for question in questions if question.attribute]
 
     def _build_tree(self, projects):
         return [{

@@ -85,6 +85,7 @@ class QuestionSerializer(MarkdownSerializerMixin, serializers.ModelSerializer):
             'order',
             'help',
             'text',
+            'default_text',
             'verbose_name',
             'verbose_name_plural',
             'widget_type',

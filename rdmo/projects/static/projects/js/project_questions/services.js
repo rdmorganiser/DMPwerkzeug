@@ -17,14 +17,19 @@ angular.module('project_questions')
     /* configure factories */
 
     var factories = {
-        values: function(attribute_id) {
+        values: function(question) {
+            var text = '';
+            if (['text', 'textarea', 'yesno', 'range', 'date'].indexOf(question.widget_type) > -1) {
+                text = question.default_text;
+            }
+
             return {
-                text: '',
+                text: text,
                 option: null,
                 file: null,
                 selected: null,
                 project: service.project.id,
-                attribute: attribute_id
+                attribute: question.attribute.id
             };
         },
         valuesets: function() {
@@ -373,7 +378,7 @@ angular.module('project_questions')
                     valueset.values[attribute_id] = service.initCheckbox(valueset.values[attribute_id], question);
                 } else {
                     if (angular.isUndefined(valueset.values[attribute_id])) {
-                        valueset.values[attribute_id] = [factories.values(attribute_id)];
+                        valueset.values[attribute_id] = [factories.values(question)];
                     }
                 }
 
@@ -438,7 +443,7 @@ angular.module('project_questions')
                 value.removed = false;
             } else {
                 // create a new value for this option
-                value = factories.values(question.attribute.id);
+                value = factories.values(question);
                 value.removed = true;
 
                 if (option.provider) {
@@ -629,7 +634,7 @@ angular.module('project_questions')
     };
 
     service.addValue = function(question) {
-        var value = factories.values(question.attribute.id);
+        var value = factories.values(question);
 
         //  add new value to service.values
         if (angular.isUndefined(service.values[question.attribute.id])) {
@@ -742,7 +747,7 @@ angular.module('project_questions')
                 valueset.values[attribute_id] = service.initCheckbox(valueset.values[attribute_id], question);
             } else {
                 if (angular.isUndefined(valueset.values[attribute_id])) {
-                    valueset.values[attribute_id] = [factories.values(attribute_id)];
+                    valueset.values[attribute_id] = [factories.values(question)];
                 }
             }
 

@@ -219,12 +219,10 @@ form .yesno label {
     }
 
     @media (min-width: $screen-xs-max) {
-        [class^="col-"] formgroup {
-            .checkbox,
-            .radio {
-                margin-top: 32px;
-                margin-bottom: 11px;
-            }
+        .checkbox-padding .checkbox,
+        .radio-padding .radio {
+            margin-top: 32px;
+            margin-bottom: 11px;
         }
     }
 }

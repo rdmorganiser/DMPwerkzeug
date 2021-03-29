@@ -646,6 +646,31 @@ class Question(Model, TranslationMixin):
         verbose_name=_('Text (quinary)'),
         help_text=_('The text for this question in the quinary language.')
     )
+    default_text_lang1 = models.TextField(
+        null=True, blank=True,
+        verbose_name=_('Default text value (primary)'),
+        help_text=_('The default text value for this question in the primary language.')
+    )
+    default_text_lang2 = models.TextField(
+        null=True, blank=True,
+        verbose_name=_('Default text value (secondary)'),
+        help_text=_('The default text value for this question in the secondary language.')
+    )
+    default_text_lang3 = models.TextField(
+        null=True, blank=True,
+        verbose_name=_('Default text value (tertiary)'),
+        help_text=_('The default text value for this question in the tertiary language.')
+    )
+    default_text_lang4 = models.TextField(
+        null=True, blank=True,
+        verbose_name=_('Default text value (quaternary)'),
+        help_text=_('The default text value for this question in the quaternary language.')
+    )
+    default_text_lang5 = models.TextField(
+        null=True, blank=True,
+        verbose_name=_('Default text value (quinary)'),
+        help_text=_('The default text value for this question in the quinary language.')
+    )
     verbose_name_lang1 = models.CharField(
         max_length=256, blank=True,
         verbose_name=_('Name (primary)'),
@@ -777,6 +802,10 @@ class Question(Model, TranslationMixin):
     @property
     def help(self):
         return self.trans('help')
+
+    @property
+    def default_text(self):
+        return self.trans('default_text')
 
     @property
     def verbose_name(self):

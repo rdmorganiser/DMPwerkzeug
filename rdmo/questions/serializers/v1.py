@@ -130,6 +130,7 @@ class QuestionSerializer(TranslationSerializerMixin, serializers.ModelSerializer
         trans_fields = (
             'text',
             'help',
+            'default_text',
             'verbose_name',
             'verbose_name_plural',
         )

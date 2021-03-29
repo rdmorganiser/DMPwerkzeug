@@ -3,6 +3,16 @@
     "model": "overlays.overlay",
     "pk": 1,
     "fields": {
+      "user": 1,
+      "site": 1,
+      "url_name": "projects",
+      "current": ""
+    }
+  },
+  {
+    "model": "overlays.overlay",
+    "pk": 2,
+    "fields": {
       "user": 4,
       "site": 1,
       "url_name": "projects",

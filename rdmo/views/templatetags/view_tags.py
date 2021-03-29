@@ -1,6 +1,7 @@
 from urllib.parse import urlparse
 
 from django import template
+
 from rdmo.core.constants import (VALUE_TYPE_DATETIME, VALUE_TYPE_INTEGER,
                                  VALUE_TYPE_TEXT)
 from rdmo.projects.models import Value
@@ -37,7 +38,23 @@ def get_values(context, attribute, set_index='*', index='*', project=None):
         if index != '*':
             values = filter(lambda value: value.collection_index == index, values)
 
-        return list(map(lambda value: value.as_dict, values))
+        values_list = list(map(lambda value: value.as_dict, values))
+        if values_list:
+            return values_list
+        else:
+            # if values_list is empty apply default_text from this catalog
+            defaults = project._defaults
+
+            if urlparse(attribute).scheme:
+                default_values = filter(lambda default: default['uri'] == attribute, defaults)
+            else:
+                default_values = filter(lambda default: default['path'] == attribute, defaults)
+
+            default_list = list(default_values)
+            if default_list:
+                return [Value(text=default_list[0]['text'], value_type=default_list[0]['type']).as_dict]
+            else:
+                return []
 
 
 @register.simple_tag(takes_context=True)

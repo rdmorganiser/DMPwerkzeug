@@ -133,6 +133,7 @@ def import_question(element, parent_uri=False, save=False):
 
     set_lang_field(question, 'text', element)
     set_lang_field(question, 'help', element)
+    set_lang_field(question, 'default_text', element)
     set_lang_field(question, 'verbose_name', element)
     set_lang_field(question, 'verbose_name_plural', element)
 

@@ -37,6 +37,7 @@ class QuestionExportSerializer(TranslationSerializerMixin, serializers.ModelSeri
         trans_fields = (
             'help',
             'text',
+            'default_text',
             'verbose_name',
             'verbose_name_plural',
         )

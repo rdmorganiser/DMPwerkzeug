@@ -16,7 +16,8 @@
 
                 <input type="text" class="form-control" ng-model="value.text"
                     ng-attr-id="id_{$ question.attribute.id $}_{$ $index $}"
-                    ng-disabled="service.project.read_only" />
+                    ng-disabled="service.project.read_only"
+                    placeholder="{$ question.default_text $}" />
             </div>
         </div>
 
