@@ -38,7 +38,7 @@
 
     <div ng-show="service.catalog.id" ng-cloak>
 
-        <div class="panel panel-default panel-sites">
+        <div class="panel panel-default panel-sites" ng-hide="service.hideCatalog(service.catalog)">
             <div class="panel-heading">
                 <div class="pull-right">
                     <span class="fa fa-warning text-warning"
@@ -84,8 +84,8 @@
 
         <div ng-repeat="section in service.catalog.sections">
 
-            <div class="panel panel-default panel-section">
-                <div class="panel-heading" ng-hide="service.hideSection(section)">
+            <div class="panel panel-default panel-section" ng-hide="service.hideSection(section)">
+                <div class="panel-heading">
                     <div class="pull-right">
                         <span class="fa fa-warning text-warning"
                             title="{% trans 'Some languages are not configured' %}"
@@ -106,9 +106,9 @@
 
             <div ng-repeat="questionset in section.questionsets">
 
-                <div class="panel panel-default panel-questionset">
+                <div class="panel panel-default panel-questionset" ng-hide="service.hideQuestionSet(questionset)">
 
-                    <div class="panel-heading" ng-hide="service.hideQuestionSet(questionset)">
+                    <div class="panel-heading">
                         <div class="pull-right">
                             <span class="fa fa-warning text-danger"
                                 title="{% trans 'No attribute set' %}"

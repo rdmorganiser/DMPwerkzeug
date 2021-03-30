@@ -97,8 +97,8 @@
 
     <div ng-repeat="optionset in service.optionsets" ng-cloak>
 
-        <div class="panel panel-default">
-            <div class="panel-heading" ng-hide="service.hideOptionSet(optionset)">
+        <div class="panel panel-default" ng-hide="service.hideOptionSet(optionset)">
+            <div class="panel-heading">
                 <div class="pull-right">
                     <i class="fa fa-lock text-danger" ng-show="optionset.locked"></i>
 
@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-            <ul class="list-group" ng-show="optionset.provider">
+            <ul class="list-group" ng-if="optionset.provider">
                 <li class="list-group-item">
                     <strong>{% trans 'Provider' %}</strong>
                     <code class="code-options-provider">{$ optionset.provider.class_name $}</code>
@@ -146,7 +146,7 @@
                 </li>
             </ul>
 
-            <ul class="list-group">
+            <ul class="list-group" ng-if="optionset.options">
                 <li class="list-group-item" ng-repeat="option in optionset.options"
                     ng-hide="service.hideOption(option)">
 

@@ -125,11 +125,20 @@ angular.module('options', ['core'])
     };
 
     service.hideOptionSet = function(item) {
+        var hide = false;
+
         if (service.filter && item.key.indexOf(service.filter) < 0) {
-            return true;
+            hide = true;
         }
         if (service.uri_prefix && item.uri_prefix != service.uri_prefix) {
-            return true;
+            hide = true;
+        }
+
+        if (hide === true) {
+            // hide only if all options of this optionsset are hidden
+            return item.options.every(function(option) {
+                return service.hideOption(option) === true;
+            });
         }
     };
 

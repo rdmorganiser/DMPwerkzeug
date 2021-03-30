@@ -66,7 +66,7 @@ angular.module('views', ['core'])
 
             // mark help safe
             service.views.map(function(view) {
-                view.help = $sce.trustAsHtml(view.help);
+                view.help_html = $sce.trustAsHtml(view.help);
             });
         }).$promise;
     };

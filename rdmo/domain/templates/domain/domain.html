@@ -108,9 +108,9 @@
 
     <script type="text/ng-template" id="nested_attribute.html">
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" ng-hide="service.hideAttribute(attribute)">
 
-        <div class="panel-body" ng-hide="service.hideAttribute(attribute)">
+        <div class="panel-body">
             <div class="pull-right">
                 {% include 'domain/domain_options.html' %}
             </div>

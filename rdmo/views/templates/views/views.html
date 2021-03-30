@@ -132,7 +132,7 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <p><strong>{$ view.title $}</strong></p>
-                    <div ng-bind-html="view.help"></div>
+                    <div ng-bind-html="view.help_html"></div>
                 </li>
             </ul>
 
@@ -148,8 +148,6 @@
             </div>
             {% endif %}
         </div>
-
-        <div class="panel panel-default" ng-show="service.hideView(view)"></div>
     </div>
 
     {% include 'views/views_modal_form_views.html' %}

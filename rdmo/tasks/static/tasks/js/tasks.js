@@ -70,7 +70,7 @@ angular.module('tasks', ['core'])
 
             // mark text safe
             service.tasks.map(function(task) {
-                task.text = $sce.trustAsHtml(task.text);
+                task.text_html = $sce.trustAsHtml(task.text);
             });
         }).$promise;
     };
