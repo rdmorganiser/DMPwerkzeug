@@ -48,7 +48,7 @@ projects = [1, 2, 3, 4, 5]
 conditions = [1]
 
 project_values = 34
-project_total = 41
+project_total = 36
 catalog_id = 1
 
 
