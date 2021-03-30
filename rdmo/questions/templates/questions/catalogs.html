@@ -36,12 +36,31 @@
 
     <h1>{% trans 'Questions' %}</h1>
 
-    <div ng-show="service.catalog" ng-cloak>
+    <div ng-show="service.catalog.id" ng-cloak>
 
-        <h2>{$ service.catalog.title $}</h2>
-
-        {% if settings.MULTISITE %}
         <div class="panel panel-default panel-sites">
+            <div class="panel-heading">
+                <div class="pull-right">
+                    <span class="fa fa-warning text-warning"
+                        title="{% trans 'Some languages are not configured' %}"
+                        ng-show="service.catalog.warning"></span>
+
+                    {% include 'questions/catalogs_options_catalog.html' %}
+                </div>
+                <p>
+                    <strong>{% trans 'Catalog' %}</strong>
+                    <code class="code-order">{$ service.catalog.order $}</code>
+                    <span>{$ service.catalog.title $}</span>
+                </p>
+                <p>
+                    {$ service.catalog.help $}
+                </p>
+                <div>
+                    <code class="code-questions" title="{% trans 'URI' %}">{$ service.catalog.uri $}</code>
+                </div>
+            </div>
+
+            {% if settings.MULTISITE %}
             <div class="panel-body">
                 <div class="row">
                     <div class="col-sm-3">
@@ -60,8 +79,8 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
-        {% endif %}
 
         <div ng-repeat="section in service.catalog.sections">
 
@@ -74,10 +93,14 @@
 
                         {% include 'questions/catalogs_options_sections.html' %}
                     </div>
-                    <strong>{% trans 'Section' %}</strong>
-                    <code class="code-order">{$ section.order $}</code>
-                    <code class="code-questions">{$ section.uri $}</code>
-                    <span>{$ section.title $}</span>
+                    <p>
+                        <strong>{% trans 'Section' %}</strong>
+                        <code class="code-order">{$ section.order $}</code>
+                        <span>{$ section.title $}</span>
+                    </p>
+                    <div>
+                        <code class="code-questions" title="{% trans 'URI' %}">{$ section.uri $}</code>
+                    </div>
                 </div>
             </div>
 
@@ -97,15 +120,16 @@
                             {% include 'questions/catalogs_options_questionsets.html' %}
                         </div>
 
-                        <div>
+                        <p>
                             <strong>{% trans 'Question set' %}</strong>
                             <code class="code-order">{$ questionset.order $}</code>
-                            <code class="code-questions">{$ questionset.uri $}</code>
                             <span>{$ questionset.title $}</span>
-                            <span ng-show="questionset.is_collection">
-                                &#8594;
-                                <code>{$ questionset.attribute.uri $}</code>
-                            </span>
+                        </p>
+                        <div>
+                            <code class="code-questions" title="{% trans 'URI' %}">{$ questionset.uri $}</code>
+                        </div>
+                        <div ng-show="questionset.is_collection">
+                            <code title="{% trans 'Attribute' %}">{$ questionset.attribute.uri $}</code>
                         </div>
                     </div>
 
@@ -129,12 +153,14 @@
                             <p>
                                 <strong ng-class="{'text-muted': question.is_optional}">{% trans 'Question' %}</strong>
                                 <code class="code-order">{$ question.order $}</code>
-                                <code class="code-questions">{$ question.uri $}</code>
                                 <span>{$ question.text $}</span>
                             </p>
-                            <p>
-                                &#8594; <code ng-show="question.attribute">{$ question.attribute.uri $}</code>
-                            </p>
+                            <div>
+                                <code class="code-questions" title="{% trans 'URI' %}">{$ question.uri $}</code>
+                            </div>
+                            <div>
+                                <code ng-show="question.attribute" title="{% trans 'Attribute' %}">{$ question.attribute.uri $}</code>
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -131,9 +131,11 @@
                         ng-click="service.openDeleteModal('optionsets', optionset)">
                     </a>
                 </div>
-                <strong>{% trans 'Option set' %}</strong>
-                <code class="code-order">{$ optionset.order $}</code>
-                <code class="code-options">{$ optionset.uri $}</code>
+                <div>
+                    <strong>{% trans 'Option set' %}</strong>
+                    <code class="code-order">{$ optionset.order $}</code>
+                    <code class="code-options" title="{% trans 'URI' %}">{$ optionset.uri $}</code>
+                </div>
             </div>
 
             <ul class="list-group" ng-show="optionset.provider">
@@ -177,10 +179,14 @@
                             ng-click="service.openDeleteModal('options', option)">
                         </a>
                     </div>
-                    <strong>{% trans 'Option' %}</strong>
-                    <code class="code-order">{$ option.order $}</code>
-                    <code class="code-options">{$ option.uri $}</code>
-                    <span>{$ option.text $}</span>
+                    <p>
+                        <strong>{% trans 'Option' %}</strong>
+                        <code class="code-order">{$ option.order $}</code>
+                        <span>{$ option.text $}</span>
+                    </p>
+                    <div>
+                        <code class="code-options" title="{% trans 'URI' %}">{$ option.uri $}</code>
+                    </div>
                 </li>
             </ul>
         </div>

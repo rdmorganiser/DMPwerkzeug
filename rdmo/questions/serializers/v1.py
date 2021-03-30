@@ -292,6 +292,7 @@ class CatalogNestedSerializer(TranslationSerializerMixin, serializers.ModelSeria
 
     sections = SectionNestedSerializer(many=True, read_only=True)
     sites = SiteSerializer(many=True, read_only=True)
+    warning = serializers.SerializerMethodField()
     xml_url = serializers.SerializerMethodField()
     export_urls = serializers.SerializerMethodField()
     projects_count = serializers.IntegerField(read_only=True)
@@ -307,7 +308,9 @@ class CatalogNestedSerializer(TranslationSerializerMixin, serializers.ModelSeria
             'order',
             'sites',
             'title',
+            'help',
             'sections',
+            'warning',
             'xml_url',
             'export_urls',
             'projects_count'
@@ -315,6 +318,9 @@ class CatalogNestedSerializer(TranslationSerializerMixin, serializers.ModelSeria
         trans_fields = (
             'title',
         )
+
+    def get_warning(self, obj):
+        return get_language_warning(obj, 'title')
 
     def get_xml_url(self, obj):
         return reverse('v1-questions:catalog-detail-export', args=[obj.pk])

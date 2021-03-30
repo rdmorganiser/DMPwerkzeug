@@ -1,0 +1,28 @@
+{% load i18n %}
+
+    <i class="fa fa-lock text-muted" ng-show="service.catalog.locked"></i>
+
+    <a href="" class="fa fa-plus"
+        title="{% trans 'Add section' %}"
+        ng-click="service.openFormModal('sections', service.catalog, true)">
+    </a>
+
+    <a href="" class="fa fa-pencil"
+        title="{% trans 'Update catalog' %}"
+        ng-click="service.openFormModal('catalogs', service.catalog)">
+    </a>
+
+    <a href="" class="fa fa-copy"
+        title="{% trans 'Copy catalog' %}"
+        ng-click="service.openFormModal('catalogs', service.catalog, false, true)">
+    </a>
+
+    <a href="{$ service.catalog.xml_url $}" class="fa fa-download"
+        title="{% trans 'Export catalog as XML' %}"
+        target="blank">
+    </a>
+
+    <a href="" class="fa fa-trash"
+        title="{% trans 'Delete catalog' %}"
+        ng-click="service.openDeleteModal('catalogs', service.catalog)">
+    </a>
