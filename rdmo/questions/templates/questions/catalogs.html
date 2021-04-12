@@ -49,7 +49,6 @@
                 </div>
                 <p>
                     <strong>{% trans 'Catalog' %}</strong>
-                    <code class="code-order">{$ service.catalog.order $}</code>
                     <span>{$ service.catalog.title $}</span>
                 </p>
                 <p>
@@ -57,6 +56,7 @@
                 </p>
                 <div>
                     <code class="code-questions" title="{% trans 'URI' %}">{$ service.catalog.uri $}</code>
+                    <code class="code-order">{$ service.catalog.order $}</code>
                 </div>
             </div>
 
@@ -95,11 +95,11 @@
                     </div>
                     <p>
                         <strong>{% trans 'Section' %}</strong>
-                        <code class="code-order">{$ section.order $}</code>
                         <span>{$ section.title $}</span>
                     </p>
                     <div>
                         <code class="code-questions" title="{% trans 'URI' %}">{$ section.uri $}</code>
+                        <code class="code-order">{$ section.order $}</code>
                     </div>
                 </div>
             </div>
@@ -122,11 +122,11 @@
 
                         <p>
                             <strong>{% trans 'Question set' %}</strong>
-                            <code class="code-order">{$ questionset.order $}</code>
                             <span>{$ questionset.title $}</span>
                         </p>
                         <div>
                             <code class="code-questions" title="{% trans 'URI' %}">{$ questionset.uri $}</code>
+                            <code class="code-order">{$ questionset.order $}</code>
                         </div>
                         <div ng-show="questionset.is_collection">
                             <code title="{% trans 'Attribute' %}">{$ questionset.attribute.uri $}</code>
@@ -152,14 +152,17 @@
                             </div>
                             <p>
                                 <strong ng-class="{'text-muted': question.is_optional}">{% trans 'Question' %}</strong>
-                                <code class="code-order">{$ question.order $}</code>
                                 <span>{$ question.text $}</span>
                             </p>
                             <div>
                                 <code class="code-questions" title="{% trans 'URI' %}">{$ question.uri $}</code>
+                                <code class="code-order">{$ question.order $}</code>
                             </div>
-                            <div>
-                                <code ng-show="question.attribute" title="{% trans 'Attribute' %}">{$ question.attribute.uri $}</code>
+                            <div ng-show="question.attribute">
+                                <code title="{% trans 'Attribute' %}">{$ question.attribute.uri $}</code>
+                            </div>
+                            <div ng-show="question.optionsets" ng-repeat="optionset in question.optionsets">
+                                <code class="code-options" title="{% trans 'Option set' %}">{$ optionset.uri $}</code>
                             </div>
                         </li>
                     </ul>

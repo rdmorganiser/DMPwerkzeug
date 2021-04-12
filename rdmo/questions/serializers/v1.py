@@ -5,6 +5,7 @@ from rest_framework.reverse import reverse
 from rdmo.core.serializers import SiteSerializer, TranslationSerializerMixin
 from rdmo.core.utils import get_language_warning
 from rdmo.domain.models import Attribute
+from rdmo.options.models import OptionSet
 
 from ..models import Catalog, Question, QuestionSet, Section
 from ..validators import (CatalogLockedValidator, CatalogUniqueURIValidator,
@@ -194,8 +195,17 @@ class AttributeNestedSerializer(serializers.ModelSerializer):
         model = Attribute
         fields = (
             'id',
-            'uri',
-            'path'
+            'uri'
+        )
+
+
+class OptionSetNestedSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = OptionSet
+        fields = (
+            'id',
+            'uri'
         )
 
 
@@ -203,6 +213,7 @@ class QuestionNestedSerializer(serializers.ModelSerializer):
 
     warning = serializers.SerializerMethodField()
     attribute = AttributeNestedSerializer(read_only=True)
+    optionsets = OptionSetNestedSerializer(read_only=True, many=True)
     xml_url = serializers.SerializerMethodField()
 
     class Meta:
@@ -216,6 +227,7 @@ class QuestionNestedSerializer(serializers.ModelSerializer):
             'order',
             'text',
             'attribute',
+            'optionsets',
             'is_collection',
             'is_optional',
             'warning',
