@@ -2,7 +2,7 @@
     <label class="control-label" for="id">{$ label $}</label>
 
     <select class="form-control" id="{$ id $}" ng-model="model" by-number>
-        <option ng-show="optionsNull" value="null">---</option>
+        <option ng-show="optionsNull" value="">---</option>
         <option value="{$ option.id $}"
             ng-repeat="option in options | filter: optionsFilter">
             {$ option[optionsLabel] $}

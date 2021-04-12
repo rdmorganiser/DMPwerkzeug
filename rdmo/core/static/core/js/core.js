@@ -129,7 +129,7 @@ angular.module('core', ['ngResource'])
             } else {
 
                 ngModel.$parsers.push(function(view_value) {
-                    if (view_value === 'null') {
+                    if (view_value === '') {
                         return null;
                     } else {
                         return parseInt(view_value, 10);
@@ -138,7 +138,7 @@ angular.module('core', ['ngResource'])
 
                 ngModel.$formatters.push(function(model_value) {
                     if (model_value === null) {
-                        return 'null';
+                        return '';
                     } else {
                         return '' + model_value;
                     }
