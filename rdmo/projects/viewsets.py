@@ -272,7 +272,12 @@ class ProjectQuestionSetViewSet(ProjectNestedViewSetMixin, RetrieveCacheResponse
     def get_continue(self, request, pk=None, parent_lookup_project=None):
         try:
             continuation = Continuation.objects.get(project=self.project, user=self.request.user)
-            questionset = continuation.questionset
+
+            if continuation.questionset.section.catalog == self.project.catalog:
+                questionset = continuation.questionset
+            else:
+                questionset = self.get_queryset().first()
+
         except Continuation.DoesNotExist:
             questionset = self.get_queryset().first()
 
