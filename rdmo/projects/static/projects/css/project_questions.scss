@@ -69,6 +69,7 @@
         right: 7px;
         z-index: 1020;
 
+        .unlock,
         .erase,
         .close {
             opacity: 0.8;
@@ -80,10 +81,12 @@
             margin-left: 2px;
         }
 
+        .unlock:hover,
         .erase:hover,
         .close:hover {
             opacity: 1;
         }
+        .unlock:focus,
         .erase:focus,
         .close:focus {
             outline: 0;
@@ -163,6 +166,44 @@
     .range-display {
         display: inline-block;
         min-width: 80px;
+    }
+
+    .autocomplete {
+        position: relative;
+
+        ul {
+            position: absolute;
+            margin-top: 5px;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+
+            li {
+                list-style: none;
+                cursor: pointer;
+                padding: 8px 15px;
+                border-bottom: 1px solid #ccc;
+
+                &.active,
+                &.active:hover {
+                    color: white;
+                    background-color: $link-color;
+                }
+
+                &:hover {
+                    background-color: $navigation-dropdown-hover-background-color;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .badge {
+            cursor: pointer;
+            background-color: $link-color;
+        }
     }
 }
 

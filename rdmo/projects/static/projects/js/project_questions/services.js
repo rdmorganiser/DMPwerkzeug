@@ -394,6 +394,8 @@ angular.module('project_questions')
         // get the index of the selected option to be used in radio and select widgets
         value.selected = null;
         angular.forEach(question.options, function(option, index) {
+            option.index = index;
+
             if (option.provider && option.external_id == value.external_id) {
                 value.selected = index
             } else if (value.option && option.id == value.option) {
@@ -420,6 +422,12 @@ angular.module('project_questions')
         if (question.widget_type === 'range') {
             if (!value.text) {
                 value.text = '0';
+            }
+        }
+
+        if (question.widget_type === 'autocomplete') {
+            if (value.option) {
+                value.locked = true;
             }
         }
     };
@@ -839,6 +847,80 @@ angular.module('project_questions')
             service.valueset_index = set_index;
             service.values = service.valuesets[set_index].values;
         }
+    };
+
+    service.filterAutocomplete = function(question, value) {
+        value.items = $filter('filter')(question.options, {text: value.autocomplete});
+    };
+
+    service.keydownAutocomplete = function(question, value, $event) {
+        if (['ArrowUp', 'ArrowDown', 'Enter', 'NumpadEnter', 'Escape'].indexOf($event.code) > -1) {
+            $event.preventDefault();
+
+            var active;
+            value.items.map(function (item) {
+                if (item.active) {
+                    active = item;
+                    item.active = false;
+                }
+            });
+
+            if ($event.code == 'ArrowUp' || $event.code == 'ArrowDown') {
+                var next;
+                if ($event.code == 'ArrowUp') {
+                    if (angular.isDefined(active)) {
+                        next = value.items[active.index - 1];
+                    } else {
+                        next = value.items[value.items.length - 1];
+                    }
+                } else if ($event.code == 'ArrowDown') {
+                    if (angular.isDefined(active)) {
+                        next = value.items[active.index + 1];
+                    } else {
+                        next = value.items[0];
+                    }
+                }
+                if (angular.isDefined(next)) {
+                    next.active = true;
+                    value.autocomplete = next.text;
+                }
+            } else if ($event.code == 'Enter' || $event.code == 'NumpadEnter') {
+                if (angular.isDefined(active)) {
+                    service.selectAutocomplete(value, active);
+                }
+            } else if ($event.code == 'Escape') {
+                if (value.selected === null) {
+                    value.autocomplete = '';
+                    service.filterAutocomplete(question, value);
+                } else {
+                    value.locked = true;
+                }
+            }
+        }
+    };
+
+    service.selectAutocomplete = function(value, option) {
+        value.locked = true;
+        value.selected = option.index;
+    }
+
+    service.blurAutocomplete = function(value) {
+        if (value.selected === null) {
+            value.autocomplete = '';
+            value.items = null;
+        } else {
+            value.locked = true;
+        }
+    }
+
+    service.unlockAutocomplete = function(question, value, index) {
+        if (value.selected === null) {
+            value.autocomplete = '';
+        } else {
+            value.autocomplete = question.options[value.selected].text;
+        }
+        value.locked = false;
+        service.focusField(question.attribute.id, index);
     };
 
     return service;

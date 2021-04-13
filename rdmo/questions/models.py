@@ -534,9 +534,10 @@ class Question(Model, TranslationMixin):
         ('checkbox', 'Checkboxes'),
         ('radio', 'Radio buttons'),
         ('select', 'Select drop-down'),
+        ('autocomplete', 'Autocomplete'),
         ('range', 'Range slider'),
         ('date', 'Date picker'),
-        ('file', 'File upload'),
+        ('file', 'File upload')
     )
 
     objects = QuestionManager()
