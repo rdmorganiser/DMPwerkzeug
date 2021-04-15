@@ -22,7 +22,11 @@ from .serializers.v1 import (OptionIndexSerializer, OptionSerializer,
 
 class OptionSetViewSet(CopyModelMixin, ModelViewSet):
     permission_classes = (HasModelPermission, )
-    queryset = OptionSet.objects.order_by('order').prefetch_related('conditions', 'questions', 'options')
+    queryset = OptionSet.objects.order_by('order').prefetch_related(
+        'conditions',
+        'questions',
+        'options'
+    )
     serializer_class = OptionSetSerializer
 
     filter_backends = (DjangoFilterBackend,)

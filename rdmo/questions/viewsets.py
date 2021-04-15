@@ -47,9 +47,10 @@ class CatalogViewSet(CopyModelMixin, ModelViewSet):
             'sections',
             'sections__questionsets',
             'sections__questionsets__attribute',
+            'sections__questionsets__conditions',
             'sections__questionsets__questions',
             'sections__questionsets__questions__attribute',
-            'sections__questionsets__questions__optionsets'
+            'sections__questionsets__questions__optionsets',
         )
         obj = get_object_or_404(queryset, pk=pk)
         serializer = CatalogNestedSerializer(obj)

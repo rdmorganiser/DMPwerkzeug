@@ -131,6 +131,9 @@
                         <div ng-show="questionset.is_collection">
                             <code title="{% trans 'Attribute' %}">{$ questionset.attribute.uri $}</code>
                         </div>
+                        <div ng-show="questionset.conditions" ng-repeat="condition in questionset.conditions">
+                            <code class="code-conditions" title="{% trans 'Condition' %}">{$ condition.uri $}</code>
+                        </div>
                     </div>
 
                     <ul class="list-group" ng-show="questionset.questions">

@@ -7,7 +7,7 @@ from rdmo.core.utils import get_language_warning
 from rdmo.domain.models import Attribute
 from rdmo.options.models import OptionSet
 
-from ..models import Catalog, Question, QuestionSet, Section
+from ..models import Catalog, Condition, Question, QuestionSet, Section
 from ..validators import (CatalogLockedValidator, CatalogUniqueURIValidator,
                           QuestionLockedValidator, QuestionSetLockedValidator,
                           QuestionSetUniqueURIValidator,
@@ -209,6 +209,16 @@ class OptionSetNestedSerializer(serializers.ModelSerializer):
         )
 
 
+class ConditionNestedSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Condition
+        fields = (
+            'id',
+            'uri'
+        )
+
+
 class QuestionNestedSerializer(serializers.ModelSerializer):
 
     warning = serializers.SerializerMethodField()
@@ -246,6 +256,7 @@ class QuestionSetNestedSerializer(serializers.ModelSerializer):
     questions = QuestionNestedSerializer(many=True, read_only=True)
     warning = serializers.SerializerMethodField()
     attribute = AttributeNestedSerializer(read_only=True)
+    conditions = ConditionNestedSerializer(many=True, read_only=True)
     xml_url = serializers.SerializerMethodField()
 
     class Meta:
@@ -259,6 +270,7 @@ class QuestionSetNestedSerializer(serializers.ModelSerializer):
             'order',
             'title',
             'attribute',
+            'conditions',
             'is_collection',
             'questions',
             'warning',
