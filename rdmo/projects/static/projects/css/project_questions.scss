@@ -173,9 +173,11 @@
 
         ul {
             position: absolute;
-            z-index: 1001;
-            margin-top: 5px;
+            z-index: 1030;
+            margin-top: 4px;
             width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
             background-color: white;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -183,7 +185,7 @@
             li {
                 list-style: none;
                 cursor: pointer;
-                padding: 8px 15px;
+                padding: 4px 15px;
                 border-bottom: 1px solid #ccc;
 
                 &.active,
@@ -201,9 +203,8 @@
             }
         }
 
-        .badge {
-            cursor: pointer;
-            background-color: $link-color;
+        .locked {
+            cursor: default;
         }
     }
 }

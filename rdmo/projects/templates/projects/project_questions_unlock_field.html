@@ -1,9 +1,0 @@
-{% load i18n %}
-
-    <a href="" class="unlock" tabindex="-1"
-        title="{% trans 'Edit input' %}"
-        ng-click="service.unlockAutocomplete(question, value, $index)"
-        ng-hide="service.project.read_only || !value.locked">
-
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-    </a>

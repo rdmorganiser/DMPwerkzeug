@@ -11,16 +11,14 @@
         <div ng-repeat="value in service.values[question.attribute.id] track by $index">
             <div class="collection" ng-hide="value.removed">
                 <div class="options">
-                    {% include 'projects/project_questions_unlock_field.html' %}
+                    {% include 'projects/project_questions_erase_field.html' %}
                     {% include 'projects/project_questions_remove_field.html' %}
                 </div>
 
                 <div class="autocomplete">
-                    <div class="form-control" ng-show="value.locked">
-                        <span class="badge locked"
-                              ng-click="service.unlockAutocomplete(question, value, $index)">
-                            {$ question.options[value.selected].text $}
-                        </span>
+                    <div class="form-control locked" ng-show="value.locked"
+                         ng-click="service.unlockAutocomplete(question, value, $index)">
+                        {$ question.options[value.selected].text $}
                     </div>
                     <div ng-hide="value.locked">
                         <input type="text" class="form-control" ng-model="value.autocomplete"

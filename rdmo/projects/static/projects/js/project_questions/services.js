@@ -858,9 +858,10 @@ angular.module('project_questions')
             $event.preventDefault();
 
             var active;
-            value.items.map(function (item) {
+            value.items.map(function (item, index) {
                 if (item.active) {
-                    active = item;
+                    // if by accident, two items are active, this will pick the last, which is ok
+                    active = index;
                     item.active = false;
                 }
             });
@@ -869,13 +870,13 @@ angular.module('project_questions')
                 var next;
                 if ($event.code == 'ArrowUp') {
                     if (angular.isDefined(active)) {
-                        next = value.items[active.index - 1];
+                        next = value.items[active - 1];
                     } else {
                         next = value.items[value.items.length - 1];
                     }
                 } else if ($event.code == 'ArrowDown') {
                     if (angular.isDefined(active)) {
-                        next = value.items[active.index + 1];
+                        next = value.items[active + 1];
                     } else {
                         next = value.items[0];
                     }
@@ -886,12 +887,12 @@ angular.module('project_questions')
                 }
             } else if ($event.code == 'Enter' || $event.code == 'NumpadEnter') {
                 if (angular.isDefined(active)) {
-                    service.selectAutocomplete(value, active);
+                    service.selectAutocomplete(value, value.items[active]);
                 }
             } else if ($event.code == 'Escape') {
                 if (value.selected === null) {
                     value.autocomplete = '';
-                    service.filterAutocomplete(question, value);
+                    service.filterAutocomplete(question, value.items[active]);
                 } else {
                     value.locked = true;
                 }
