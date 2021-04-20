@@ -42,6 +42,9 @@ class ProjectForm(forms.ModelForm):
         catalogs = kwargs.pop('catalogs')
         projects = kwargs.pop('projects')
         super().__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({
+            'autofocus': True
+        })
         self.fields['catalog'].queryset = catalogs
         self.fields['catalog'].empty_label = None
         self.fields['catalog'].initial = catalogs.first()
