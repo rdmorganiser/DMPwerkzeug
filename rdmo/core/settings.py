@@ -206,9 +206,23 @@ USER_API = True
 
 OVERLAYS = {
     'projects': [
-        'create-project',
         'projects-table',
+        'create-project',
         'import-project'
+    ],
+    'project': [
+        'project-questions',
+        'project-catalog',
+        'project-issues',
+        'project-views',
+        'project-memberships',
+        'project-snapshots',
+        'export-project',
+        'import-project'
+    ],
+    'issue_send': [
+        'issue-message',
+        'issue-attachments'
     ]
 }
 

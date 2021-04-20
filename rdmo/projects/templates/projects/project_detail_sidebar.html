@@ -11,7 +11,7 @@
 <h2>{% trans 'Options' %}</h2>
 
 <ul class="list-unstyled">
-    <li>
+    <li id="project-questions">
         <strong>
             {% if can_change_value %}
             <a href="{% url 'project_questions' project.pk %}">{% trans 'Answer questions' %}</a>
@@ -104,11 +104,11 @@
 
 {% has_perm 'projects.export_project_object' request.user project as can_export_project %}
 {% if settings.PROJECT_EXPORTS and can_export_project %}
-<h2>{% trans 'Export' %}</h2>
+<h2 id="export-project">{% trans 'Export' %}</h2>
 
 <ul class="list-unstyled">
     {% for key, label, class in settings.PROJECT_EXPORTS %}
-    <li >
+    <li>
         <a href="{% url 'project_export' project.pk key %}" target="_blank">
             {{ label }}
         </a>
@@ -119,7 +119,8 @@
 
 {% has_perm 'projects.import_project_object' request.user project as can_import_project %}
 {% if settings.PROJECT_IMPORTS and can_import_project %}
-<h2>{% trans 'Import values' %}</h2>
+
+<h2 id="import-project">{% trans 'Import values' %}</h2>
 
 <ul class="list-unstyled">
     <li>

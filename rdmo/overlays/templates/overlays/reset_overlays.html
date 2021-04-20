@@ -11,7 +11,7 @@
 
     <form method="post">
         {% csrf_token %}
-
+        <input type="hidden" name="next" value="{{ next }}" />
         <input type="submit" class="btn btn-primary" value="{% trans 'Reset overlays' %}" />
     </form>
 

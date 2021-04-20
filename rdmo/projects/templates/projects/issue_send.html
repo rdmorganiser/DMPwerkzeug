@@ -1,6 +1,20 @@
 {% extends 'core/base.html' %}
 {% load i18n %}
+{% load static %}
+{% load compress %}
 {% load core_tags %}
+
+{% block head %}
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'overlays/css/overlays.scss' %}" type="text/x-scss" />
+    {% endcompress %}
+    {% compress js %}
+    <script type="text/javascript" src="{% static 'overlays/js/overlays.js' %}" ></script>
+    {% endcompress %}
+    <script>
+        $(document).ready(function() { initOverlays('issue_send'); });
+    </script>
+{% endblock %}
 
 {% block content %}
 
@@ -14,12 +28,14 @@
 
                 <p>{% trans 'Sending a task will set the status to "in progress".' %}</p>
 
-                {% include 'core/bootstrap_form_field.html' with field=form.subject %}
-                {% include 'core/bootstrap_form_field.html' with field=form.message %}
+                <div id="issue-message">
+                    {% include 'core/bootstrap_form_field.html' with field=form.subject %}
+                    {% include 'core/bootstrap_form_field.html' with field=form.message %}
 
-                {% if mail_form.fields %}
-                {% include 'projects/issue_send_email.html'%}
-                {% endif %}
+                    {% if mail_form.fields %}
+                    {% include 'projects/issue_send_email.html'%}
+                    {% endif %}
+                </div>
 
                 {% if integrations %}
                     {% include 'projects/issue_send_integrations.html'%}
@@ -31,5 +47,8 @@
         </form>
     </div>
 </div>
+
+{% render_lang_template 'projects/overlays/issue_send_issue_message' %}
+{% render_lang_template 'projects/overlays/issue_send_issue_attachments' %}
 
 {% endblock %}

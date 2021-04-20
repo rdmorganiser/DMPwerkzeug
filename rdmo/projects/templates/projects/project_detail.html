@@ -2,16 +2,21 @@
 {% load i18n %}
 {% load static %}
 {% load compress %}
+{% load core_tags %}
 
 {% block head %}
     {% compress css %}
     <link rel="stylesheet" href="{% static 'projects/css/project.scss' %}" type="text/x-scss" />
+    <link rel="stylesheet" href="{% static 'overlays/css/overlays.scss' %}" type="text/x-scss" />
     {% endcompress %}
-
+    {% compress js %}
+    <script type="text/javascript" src="{% static 'overlays/js/overlays.js' %}" ></script>
+    {% endcompress %}
     <script>
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
+        $(document).ready(function() {
+            initOverlays('project');
+            $('[data-toggle="tooltip"]').tooltip()
+        });
     </script>
 {% endblock %}
 
@@ -30,5 +35,14 @@
     {% include 'projects/project_detail_invites.html' %}
     {% include 'projects/project_detail_snapshots.html' %}
     {% include 'projects/project_detail_integrations.html' %}
+
+    {% render_lang_template 'projects/overlays/project_project_questions' %}
+    {% render_lang_template 'projects/overlays/project_project_catalog' %}
+    {% render_lang_template 'projects/overlays/project_project_issues' %}
+    {% render_lang_template 'projects/overlays/project_project_views' %}
+    {% render_lang_template 'projects/overlays/project_project_memberships' %}
+    {% render_lang_template 'projects/overlays/project_project_snapshots' %}
+    {% render_lang_template 'projects/overlays/project_export_project' %}
+    {% render_lang_template 'projects/overlays/project_import_project' %}
 
 {% endblock %}
