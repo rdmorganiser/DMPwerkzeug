@@ -13,11 +13,12 @@
                 <div class="radio-control">
 
                     <div class="options">
+                        {% include 'projects/project_questions_default.html' %}
                         {% include 'projects/project_questions_erase_field.html' %}
                         {% include 'projects/project_questions_remove_field.html' %}
                     </div>
 
-                    <div class="radio yesno">
+                    <div class="radio yesno" ng-class="{'default-value': service.isDefaultValue(question, value)}">
                         <label>
                             <input type="radio" value="1"
                                 ng-model="value.text"
@@ -27,8 +28,8 @@
                         <label class=>
                             <input type="radio" value="0"
                                 ng-model="value.text"
-                                ng-disabled="service.project.read_only" />
-                            <span class="">{% trans 'No' %}</span>
+                                ng-disabled="service.project.read_only"/>
+                            <span>{% trans 'No' %}</span>
                         </label>
                     </div>
                 </div>

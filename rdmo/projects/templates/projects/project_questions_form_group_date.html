@@ -12,13 +12,15 @@
         <div ng-repeat="value in service.values[question.attribute.id] track by $index">
             <div class="collection" ng-hide="value.removed">
                 <div class="options">
+                    {% include 'projects/project_questions_default.html' %}
                     {% include 'projects/project_questions_remove_field.html' %}
                 </div>
 
                 <input type="text" class="form-control date date-input" data-language="{{ LANGUAGE_CODE }}"
                     ng-attr-id="id_{$ question.attribute.id $}_{$ $index $}"
                     ng-model="value.text"
-                    ng-disabled="service.project.read_only" />
+                    ng-disabled="service.project.read_only"
+                    ng-class="{'default-value': service.isDefaultValue(question, value)}"/>
             </div>
         </div>
 

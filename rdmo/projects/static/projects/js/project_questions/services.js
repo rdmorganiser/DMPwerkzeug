@@ -22,7 +22,6 @@ angular.module('project_questions')
             if (['text', 'textarea', 'yesno', 'range', 'date'].indexOf(question.widget_type) > -1) {
                 text = question.default_text;
             }
-
             return {
                 text: text,
                 option: null,
@@ -923,6 +922,10 @@ angular.module('project_questions')
         value.locked = false;
         service.focusField(question.attribute.id, index);
     };
+
+    service.isDefaultValue = function(question, value) {
+        return !value.id && question.default_text && (question.default_text == value.text)
+    }
 
     return service;
 

@@ -63,6 +63,10 @@
         }
     }
 
+    .default-value {
+        color: #999;
+    }
+
     .options {
         position: absolute;
         top: 7px;
@@ -90,6 +94,13 @@
         .erase:focus,
         .close:focus {
             outline: 0;
+        }
+
+        .badge-default-value {
+            color: #999;
+            border: 1px solid #999;
+            background-color: white;
+            margin-top: -2px;
         }
     }
 
