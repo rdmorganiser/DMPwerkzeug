@@ -172,6 +172,21 @@
                                         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                     </a>
                                 </li>
+                                <li role="presentation" ng-class="{
+                                    'has-error':
+                                        {% for lang_code, lang in languages %}
+                                        service.errors.text_{{ lang_code }} ||
+                                        {% endfor %}
+                                        service.errors.default_option ||
+                                        service.errors.default_external_id
+                                }">
+                                    <a class="control-label" href="#questions-default"
+                                        role="tab" data-toggle="tab" aria-controls="questions-default">
+
+                                        {% trans 'Default' %}
+                                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                    </a>
+                                </li>
                             </ul>
 
                             <div class="tab-content">
@@ -321,17 +336,6 @@
                                                 data-errors="service.errors.verbose_name_plural_{{ lang_code }}">
                                             </formgroup>
                                         </div>
-                                        <div class="col-sm-12">
-                                            <formgroup
-                                                data-id="question_default_text_{{ lang_code }}"
-                                                data-type="textarea"
-                                                data-label="{% trans 'Default answer text' %} ({{ lang }})"
-                                                data-help="{% trans 'The default answer text for this question set.' %}"
-                                                data-model="service.values.default_text_{{ lang_code }}"
-                                                data-errors="service.errors.default_text_{{ lang_code }}"
-                                                rows="2">
-                                            </formgroup>
-                                        </div>
                                     </div>
                                 </div>
                                 {% endfor %}
@@ -389,6 +393,47 @@
                                                 data-help="{{ meta.Question.step.help_text }}"
                                                 data-model="service.values.step"
                                                 data-errors="service.errors.step">
+                                            </formgroup>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="questions-default">
+                                    <div class="row">
+                                        {% for lang_code, lang in languages %}
+                                        <div class="col-sm-12">
+                                            <formgroup
+                                                data-id="question_default_text_{{ lang_code }}"
+                                                data-type="textarea"
+                                                data-label="{% trans 'Default answer text' %} ({{ lang }})"
+                                                data-help="{% trans 'The default answer text for this question.' %}"
+                                                data-model="service.values.default_text_{{ lang_code }}"
+                                                data-errors="service.errors.default_text_{{ lang_code }}"
+                                                rows="2">
+                                            </formgroup>
+                                        </div>
+                                        {% endfor %}
+                                        <div class="col-sm-8">
+                                            <formgroup
+                                                data-id="question_default_option"
+                                                data-type="selectnumber"
+                                                data-label="{{ meta.Question.default_option.verbose_name }}"
+                                                data-help="{{ meta.Question.default_option.help_text }}"
+                                                data-model="service.values.default_option"
+                                                data-errors="service.errors.default_option"
+                                                data-options="service.options"
+                                                data-options-label="uri"
+                                                data-options-null="1"
+                                                data-quicksearch="true">
+                                            </formgroup>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <formgroup
+                                                data-id="question_default_external_id"
+                                                data-type="text"
+                                                data-label="{{ meta.Question.default_external_id.verbose_name }}"
+                                                data-help="{{ meta.Question.default_external_id.help_text }}"
+                                                data-model="service.values.default_external_id"
+                                                data-errors="service.errors.default_external_id">
                                             </formgroup>
                                         </div>
                                     </div>

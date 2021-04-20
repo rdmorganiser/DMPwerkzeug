@@ -12,11 +12,13 @@
             <div class="collection" ng-hide="value.removed">
                 <div class="radio-control">
                     <div class="options">
+                        {% include 'projects/project_questions_default.html' %}
                         {% include 'projects/project_questions_erase_field.html' %}
                         {% include 'projects/project_questions_remove_field.html' %}
                     </div>
 
-                    <div class="radio" ng-repeat="option in question.options" ng-hide="option.hidden">
+                    <div class="radio" ng-repeat="option in question.options" ng-hide="option.hidden"
+                         ng-class="{'default-value': service.isDefaultValue(question, value)}">
                         <label>
                             <input type="radio" ng-value="$index"
                                 ng-model="value.selected"

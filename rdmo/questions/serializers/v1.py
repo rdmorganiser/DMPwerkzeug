@@ -122,6 +122,8 @@ class QuestionSerializer(TranslationSerializerMixin, serializers.ModelSerializer
             'maximum',
             'minimum',
             'step',
+            'default_option',
+            'default_external_id',
             'widget_type',
             'value_type',
             'unit',

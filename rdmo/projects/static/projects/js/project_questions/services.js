@@ -18,13 +18,10 @@ angular.module('project_questions')
 
     var factories = {
         values: function(question) {
-            var text = '';
-            if (['text', 'textarea', 'yesno', 'range', 'date'].indexOf(question.widget_type) > -1) {
-                text = question.default_text;
-            }
             return {
-                text: text,
-                option: null,
+                text: question.default_text,
+                option: question.default_option,
+                external_id: question.external_id,
                 file: null,
                 selected: null,
                 project: service.project.id,
@@ -924,7 +921,17 @@ angular.module('project_questions')
     };
 
     service.isDefaultValue = function(question, value) {
-        return !value.id && question.default_text && (question.default_text == value.text)
+        if (angular.isDefined(value.id)) {
+            return false;
+        }
+
+        if (question.default_text) {
+            return question.default_text == value.text;
+        } else if (question.default_option) {
+            return question.default_option == question.options[value.selected].id;
+        } else if (question.default_external_id) {
+            return question.default_external_id == value.external_id;
+        }
     }
 
     return service;

@@ -10,6 +10,7 @@ from rdmo.core.constants import VALUE_TYPE_CHOICES
 from rdmo.core.models import Model, TranslationMixin
 from rdmo.core.utils import copy_model, get_language_fields, join_url
 from rdmo.domain.models import Attribute
+from rdmo.options.models import Option
 
 from .managers import CatalogManager, QuestionManager, QuestionSetManager
 
@@ -671,6 +672,16 @@ class Question(Model, TranslationMixin):
         null=True, blank=True,
         verbose_name=_('Default text value (quinary)'),
         help_text=_('The default text value for this question in the quinary language.')
+    )
+    default_option = models.ForeignKey(
+        Option, blank=True, null=True, on_delete=models.SET_NULL,
+        verbose_name=_('Default option'),
+        help_text=_('The default option for this question. To be used with regular optionsets.')
+    )
+    default_external_id = models.CharField(
+        max_length=256, blank=True,
+        verbose_name=_('Default external id'),
+        help_text=_('The default external id for this question. To be used with dynamic optionsets.')
     )
     verbose_name_lang1 = models.CharField(
         max_length=256, blank=True,

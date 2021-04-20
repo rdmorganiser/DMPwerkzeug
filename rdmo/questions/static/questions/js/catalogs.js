@@ -61,7 +61,8 @@ angular.module('catalogs', ['core'])
                 questionset: (angular.isDefined(parent) && parent) ? parent.id : null,
                 attribute: null,
                 order: 0,
-                uri_prefix: (angular.isDefined(parent) && parent) ? parent.uri_prefix : service.settings.default_uri_prefix
+                uri_prefix: (angular.isDefined(parent) && parent) ? parent.uri_prefix : service.settings.default_uri_prefix,
+                default_option: null
             };
         }
     };
@@ -81,6 +82,7 @@ angular.module('catalogs', ['core'])
         service.groups = resources.groups.query();
         service.uri_prefixes = []
         service.uri_prefix = ''
+        service.options = []
 
         resources.catalogs.query({list_action: 'index'}, function(response) {
             service.catalogs = response;
@@ -262,6 +264,15 @@ angular.module('catalogs', ['core'])
         }
     };
 
+    service.updateOptions = function() {
+        service.options = service.optionsets.reduce(function (options, optionset) {
+            if (service.values.optionsets.indexOf(optionset.id) > -1) {
+                options = options.concat(optionset.options);
+            }
+            return options;
+        }, []);
+    }
+
     return service;
 
 }])
@@ -270,4 +281,17 @@ angular.module('catalogs', ['core'])
 
     $scope.service = CatalogsService;
     $scope.service.init();
+
+    // watch service.values.optionsets to recompute service.options
+    $scope.$watch(function() {
+        // to be evaluated each $digest cycle
+        if (angular.isDefined($scope.service.values)) {
+            return $scope.service.values.optionsets;
+        }
+    }, function(newValue, oldValue) {
+        if (angular.isDefined(newValue)) {
+            $scope.service.updateOptions();
+        }
+    });
+
 }]);

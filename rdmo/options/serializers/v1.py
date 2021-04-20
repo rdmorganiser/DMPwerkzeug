@@ -92,13 +92,26 @@ class OptionSerializer(TranslationSerializerMixin, serializers.ModelSerializer):
         )
 
 
+class OptionSetIndexOptionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Option
+        fields = (
+            'id',
+            'uri'
+        )
+
+
 class OptionSetIndexSerializer(serializers.ModelSerializer):
+
+    options = OptionSetIndexOptionSerializer(many=True)
 
     class Meta:
         model = OptionSet
         fields = (
             'id',
-            'uri'
+            'uri',
+            'options'
         )
 
 
