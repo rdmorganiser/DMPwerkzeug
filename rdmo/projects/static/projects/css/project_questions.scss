@@ -96,11 +96,19 @@
             outline: 0;
         }
 
+        .badge-imported-value,
+        .badge-default-value
+         {
+            background-color: white;
+            margin-top: -2px;
+        }
+        .badge-imported-value {
+            color: $success-color;
+            border: 1px solid $success-color;
+        }
         .badge-default-value {
             color: #999;
             border: 1px solid #999;
-            background-color: white;
-            margin-top: -2px;
         }
     }
 

@@ -6,6 +6,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django_cleanup import cleanup
+
 from rdmo.core.constants import (VALUE_TYPE_BOOLEAN, VALUE_TYPE_CHOICES,
                                  VALUE_TYPE_DATETIME, VALUE_TYPE_TEXT)
 from rdmo.core.models import Model
@@ -82,6 +83,11 @@ class Value(Model):
         max_length=256, blank=True,
         verbose_name=_('External id'),
         help_text=_('External id for this value.')
+    )
+    imported = models.BooleanField(
+        default=False,
+        verbose_name=_('Imported'),
+        help_text=_('Designates whether this value was imported.')
     )
 
     class Meta:

@@ -487,6 +487,7 @@ angular.module('project_questions')
             // store the current index in the list
             value.set_index = set_index;
             value.collection_index = collection_index;
+            value.imported = false;
 
             if (question === null) {
                 // this is the id of a new valueset

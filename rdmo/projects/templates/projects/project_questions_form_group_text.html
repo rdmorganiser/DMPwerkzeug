@@ -4,6 +4,7 @@
         {% include 'projects/project_questions_question_label.html' %}
         {% include 'projects/project_questions_question_help.html' %}
 
+
         <div ng-if="question.is_collection">
             {% include 'projects/project_questions_add_field_help.html' %}
         </div>
@@ -11,6 +12,7 @@
         <div ng-repeat="value in service.values[question.attribute.id] track by $index">
             <div class="collection" ng-hide="value.removed">
                 <div class="options">
+                    {% include 'projects/project_questions_imported.html' %}
                     {% include 'projects/project_questions_default.html' %}
                     {% include 'projects/project_questions_remove_field.html' %}
                 </div>

@@ -178,7 +178,8 @@ class ProjectValueSerializer(serializers.ModelSerializer):
             'file_url',
             'value_type',
             'unit',
-            'external_id'
+            'external_id',
+            'imported'
         )
         validators = (ValueValidator(), )
 
@@ -270,5 +271,6 @@ class ValueSerializer(serializers.ModelSerializer):
             'file_url',
             'value_type',
             'unit',
-            'external_id'
+            'external_id',
+            'imported'
         )
