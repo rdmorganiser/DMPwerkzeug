@@ -4,7 +4,9 @@
 
 {% has_perm 'projects.change_project_object' request.user project as can_change_project %}
 
-{% if project.views.exists or can_change_project %}
+{% if settings.PROJECT_VIEWS %}
+
+<div id="project-views">
 
     <h2>{% trans 'Views' %}</h2>
 
@@ -12,7 +14,7 @@
 
     {% if project.views.exists %}
 
-        <table class="table" id="project-views">
+        <table class="table">
             <thead>
                 <th style="width: 20%">{% trans 'View' %}</th>
                 <th style="width: 60%">{% trans 'Description' %}</th>
@@ -41,18 +43,22 @@
             </tbody>
         </table>
 
-    {% elif can_change_project %}
+    {% else %}
 
-        <p class="project-update">
-            <a href="{% url 'project_update_views' project.pk %}" title="{% trans 'Update project views' %}">
-                <i class="fa fa-pencil"></i>
-            </a>
-        </p>
+        {% if can_change_project %}
+            <p class="project-update">
+                <a href="{% url 'project_update_views' project.pk %}" title="{% trans 'Update project views' %}">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            </p>
+        {% endif %}
 
         <p>
             {% trans 'No views are configured for this project.' %}
         </p>
 
     {% endif %}
+
+</div>
 
 {% endif %}

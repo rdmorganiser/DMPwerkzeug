@@ -52,12 +52,16 @@
         <a href="{% url 'project_update_parent' project.pk %}">{% trans 'Update parent project' %}</a>
     </li>
     {% endif %}
+    {% if settings.PROJECT_ISSUES %}
     <li>
         <a href="{% url 'project_update_tasks' project.pk %}">{% trans 'Update project tasks' %}</a>
     </li>
+    {% endif %}
+    {% if settings.PROJECT_VIEWS %}
     <li>
         <a href="{% url 'project_update_views' project.pk %}">{% trans 'Update project views' %}</a>
     </li>
+    {% endif %}
     {% endif %}
     {% if can_delete_project %}
     <li>
@@ -86,7 +90,7 @@
 {% endif %}
 
 {% has_perm 'projects.add_integration_object' request.user project as can_add_integration %}
-{% if can_add_integration %}
+{% if providers and can_add_integration %}
 <ul class="list-unstyled">
     {% for provider_key, provider in providers.items %}
     <li>
@@ -119,7 +123,6 @@
 
 {% has_perm 'projects.import_project_object' request.user project as can_import_project %}
 {% if settings.PROJECT_IMPORTS and can_import_project %}
-
 <h2 id="import-project">{% trans 'Import values' %}</h2>
 
 <ul class="list-unstyled">

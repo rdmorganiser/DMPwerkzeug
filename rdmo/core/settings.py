@@ -190,6 +190,8 @@ SETTINGS_EXPORT = [
     'SHIBBOLETH',
     'MULTISITE',
     'EXPORT_FORMATS',
+    'PROJECT_ISSUES',
+    'PROJECT_VIEWS',
     'PROJECT_EXPORTS',
     'PROJECT_IMPORTS',
     'PROJECT_SEND_ISSUE',
@@ -246,6 +248,10 @@ EXPORT_PANDOC_ARGS = {
     'pdf': ['-V', 'geometry:margin=1in', '--pdf-engine=xelatex'],
     'rtf': ['--standalone']
 }
+
+PROJECT_ISSUES = True
+
+PROJECT_VIEWS = True
 
 PROJECT_EXPORTS = [
     ('xml', _('RDMO XML'), 'rdmo.projects.exports.RDMOXMLExport'),

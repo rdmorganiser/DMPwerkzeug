@@ -4,7 +4,9 @@
 
 {% has_perm 'projects.change_project_object' request.user project as can_change_project %}
 
-{% if issues or can_change_project %}
+{% if settings.PROJECT_ISSUES %}
+
+<div id="project-issues">
 
     <h2>{% trans 'Tasks' %}</h2>
 
@@ -12,7 +14,7 @@
 
     {% if issues %}
 
-        <table class="table" id="project-issues">
+        <table class="table">
             <thead>
                 <th style="width: 10%">{% trans 'Task' %}</th>
                 <th style="width: 50%">{% trans 'Description' %}</th>
@@ -63,22 +65,28 @@
             </tbody>
         </table>
 
-    {% elif can_change_project %}
+    {% else %}
 
-        <p class="project-update">
-            <a href="{% url 'project_update_tasks' project.pk %}" title="{% trans 'Update project tasks.' %}">
-                <i class="fa fa-pencil"></i>
-            </a>
-        </p>
-
-        <p>
-        {% if project.tasks.exists %}
-            {% trans 'No active tasks found.' %}
-        {% else %}
-            {% trans 'No tasks are configured for this project.' %}
+        {% if can_change_project %}
+            <p class="project-update">
+                <a href="{% url 'project_update_tasks' project.pk %}" title="{% trans 'Update project tasks.' %}">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            </p>
         {% endif %}
-        </p>
+
+        {% if project.tasks.exists %}
+            <p>
+                {% trans 'No active tasks found.' %}
+            </p>
+        {% else %}
+            <p>
+                {% trans 'No tasks are configured for this project.' %}
+            </p>
+        {% endif %}
 
     {% endif %}
+
+</div>
 
 {% endif %}
