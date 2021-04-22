@@ -100,12 +100,6 @@ code {
     }
 }
 
-u {
-    cursor: help;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-}
-
 table {
     p {
         margin-bottom: 5px;
@@ -462,4 +456,10 @@ li.has-warning > a.control-label > i {
 
 .inline_image {
     max-width: 100%;
+}
+
+[data-toggle="tooltip"] {
+    cursor: help;
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }

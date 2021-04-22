@@ -306,10 +306,10 @@ def human2bytes(string):
 
 def markdown2html(markdown_string):
     # adoption of the normal markdown function which also converts
-    # `[<string>]{<title>}` to <u title="<title>"><string></u> to
+    # `[<string>]{<title>}` to <span title="<title>"><string></span> to
     # allow for underlined tooltips
     html = markdown(force_text(markdown_string))
     html = re.sub(r'\[(.*?)\]\{(.*?)\}',
-                  r'<u data-toggle="tooltip" data-placement="bottom" data-html="true" title="\2">\1</u>',
+                  r'<span data-toggle="tooltip" data-placement="bottom" data-html="true" title="\2">\1</span>',
                   html)
     return html
