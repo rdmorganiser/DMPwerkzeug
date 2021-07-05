@@ -35,17 +35,15 @@ angular.module('tasks', ['core'])
     var service = {};
 
     service.init = function(options) {
-        service.catalogs = resources.catalogs.query({ list_action: 'index' });
-        service.attributes = resources.attributes.query({ list_action: 'index' });
-        service.conditions = resources.conditions.query({ list_action: 'index' });
         service.settings = resources.settings.get();
         service.sites = resources.sites.query();
         service.groups = resources.groups.query();
         service.uri_prefixes = []
         service.uri_prefix = ''
+        service.filter = sessionStorage.getItem('tasks_filter') || '';
 
         service.initView().then(function () {
-            var current_scroll_pos = sessionStorage.getItem('current_scroll_pos');
+            var current_scroll_pos = sessionStorage.getItem('tasks_scroll_pos');
             if (current_scroll_pos) {
                 $timeout(function() {
                     $window.scrollTo(0, current_scroll_pos);
@@ -54,7 +52,8 @@ angular.module('tasks', ['core'])
         });
 
         $window.addEventListener('beforeunload', function() {
-            sessionStorage.setItem('current_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('tasks_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('tasks_filter', service.filter);
         });
     };
 
@@ -78,10 +77,20 @@ angular.module('tasks', ['core'])
     service.openFormModal = function(resource, obj, create, copy) {
         service.errors = {};
         service.values = utils.fetchValues(resources['tasks'], factories['tasks'], obj, create, copy);
+        service.catalogs = resources.catalogs.query({ list_action: 'index' });
+        service.attributes = resources.attributes.query({ list_action: 'index' });
+        service.conditions = resources.conditions.query({ list_action: 'index' });
 
-        $q.when(service.values.$promise).then(function() {
+        $q.when([
+            service.values.$promise,
+            service.catalogs.$promise,
+            service.attributes.$promise,
+            service.conditions.$promise
+        ]).then(function() {
             $('#' + resource + '-form-modal').modal('show');
-            $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            $timeout(function() {
+                $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            });
         });
     };
 

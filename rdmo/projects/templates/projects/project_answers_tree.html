@@ -6,41 +6,17 @@
 
     {% for questionset in section.questionsets.all %}
 
-        <h3>{{ questionset.title }}</h3>
+        {% if not questionset.questionset %}
 
-        {% for question in questionset.questions.all %}
+            <h3>{{ questionset.title }}</h3>
 
-            <p><strong>{{ question.text }}</strong></p>
+            {% for element in questionset.elements %}
 
-            {% if questionset.is_collection %}
+                {% include 'projects/project_answers_element.html' %}
 
-                {% get_set questionset.attribute.uri project=project_wrapper as sets  %}
-                {% for set in sets %}
-                    {% if question.is_collection %}
-                    <p><em>{{ set.value }}:</em></p>
-                    <ul>
-                    {% render_set_value_list set question.attribute.uri project=project_wrapper %}
-                    </ul>
-                    {% else %}
-                    <p><em>{{ set.value }}:</em> {% render_set_value set question.attribute.uri project=project_wrapper %}</p>
-                    {% endif%}
-                {% endfor %}
+            {% endfor %}
 
-            {% else %}
-
-                {% if question.is_collection %}
-                <ul>
-                {% render_value_list question.attribute.uri project=project_wrapper %}
-                </ul>
-                {% else %}
-                <p>
-                {% render_value question.attribute.uri project=project_wrapper  %}
-                </p>
-                {% endif%}
-
-            {% endif %}
-
-        {% endfor %}
+        {% endif %}
 
     {% endfor %}
 

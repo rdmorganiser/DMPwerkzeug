@@ -1,8 +1,6 @@
 from django_filters import CharFilter, FilterSet
 from rest_framework.filters import BaseFilterBackend
 
-from rdmo.domain.models import Attribute
-
 from .models import Project
 
 
@@ -40,14 +38,8 @@ class ValueFilterBackend(BaseFilterBackend):
         if view.detail:
             return queryset
 
-        set_attribute = request.GET.get('set_attribute')
-        if set_attribute:
-            try:
-                attribute = Attribute.objects.get(pk=set_attribute)
-                attributes = attribute.get_descendants(include_self=True).filter()
-                queryset = queryset.filter(attribute__in=attributes)
-
-            except Attribute.DoesNotExist:
-                queryset = queryset.none()
+        attributes = [int(attribute) for attribute in request.GET.getlist('attribute') if attribute.isdigit()]
+        if attributes:
+            queryset = queryset.filter(attribute__in=attributes)
 
         return queryset

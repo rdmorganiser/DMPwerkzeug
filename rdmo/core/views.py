@@ -51,9 +51,11 @@ def i18n_switcher(request, language):
 
     # set the new language
     translation.activate(language)
-    request.session[translation.LANGUAGE_SESSION_KEY] = language
 
-    return HttpResponseRedirect(referer)
+    # get the response, set the cookie and return
+    response = HttpResponseRedirect(referer)
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
+    return response
 
 
 def bad_request(request, exception):

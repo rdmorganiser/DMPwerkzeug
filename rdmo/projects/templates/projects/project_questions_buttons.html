@@ -19,17 +19,17 @@
 
 {% else %}
 
-    <div class="form-group">
+    <div class="form-group questions-buttons">
         <div class="pull-right">
-            <div ng-hide="service.project.read_only || service.questionset.questions.length < 1">
+            <div ng-hide="service.project.read_only || service.questionset.elements.length < 1">
                 <button type="button" ng-click="service.save(false)" class="btn btn-default">
                     {% trans 'Save' %}
                 </button>
-                <button type="button" ng-click="service.save(true)" class="btn btn-default">
+                <button type="button" ng-click="service.save(true)" class="btn btn-primary">
                     {% trans 'Save and proceed' %}</span>
                 </button>
             </div>
-            <div ng-show="service.project.read_only || service.questionset.questions.length < 1">
+            <div ng-show="service.project.read_only || service.questionset.elements.length < 1">
                 <button type="button" ng-click="service.next()" class="btn btn-primary">
                     {% trans 'Proceed' %}</span>
                 </button>

@@ -5,21 +5,23 @@
         {% include 'projects/project_questions_question_help.html' %}
 
         <div class="checkbox-control">
-            <div class="checkbox" ng-repeat="option in question.options" ng-hide="option.hidden">
+            <div class="checkbox" ng-repeat="option in question.options" ng-hide="valueset.hidden.optionsets[option.optionset]">
                 <label>
                     <input type="checkbox"
                         ng-true-value="false"
                         ng-false-value="true"
-                        ng-model="service.values[question.attribute.id][$index].removed"
-                        ng-disabled="service.project.read_only" />
+                        ng-model="service.values[question.attribute][valueset.set_prefix][valueset.set_index][$index].removed"
+                        ng-disabled="service.project.read_only"
+                        ng-change="service.changed(service.values[question.attribute][valueset.set_prefix][valueset.set_index][$index], true)" />
 
                     <span>{$ option.text $}</span><span ng-show="option.additional_input">:</span>
 
                     <input class="form-control input-sm" type="text"
                         ng-show="option.additional_input"
-                        ng-model="service.values[question.attribute.id][$index].additional_input[option.id]"
+                        ng-model="service.values[question.attribute][valueset.set_prefix][valueset.set_index][$index].additional_input[option.id]"
                         ng-focus="checkCheckbox($event)"
-                        ng-disabled="service.project.read_only" />
+                        ng-disabled="service.project.read_only"
+                        ng-change="service.changed(service.values[question.attribute][valueset.set_prefix][valueset.set_index][$index])" />
                 </label>
             </div>
         </div>

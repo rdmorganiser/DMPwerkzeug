@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from rdmo.core.plugins import get_plugin
 

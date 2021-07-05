@@ -5,7 +5,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import CreateView, TemplateView
 from rdmo.core.views import RedirectViewMixin
 from rdmo.questions.models import Catalog

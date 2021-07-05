@@ -1,0 +1,11 @@
+{% load i18n %}
+
+{% if settings.PROJECT_QUESTIONS_AUTOSAVE %}
+<p class="help-block">
+    {% trans 'Using the navigation will save your input.' %}
+</p>
+{% else %}
+<p class="help-block">
+    {% trans 'Please note that using the navigation will discard any unsaved input.' %}
+</p>
+{% endif %}

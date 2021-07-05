@@ -32,9 +32,10 @@ angular.module('domain', ['core'])
         service.settings = resources.settings.get();
         service.uri_prefixes = []
         service.uri_prefix = ''
+        service.filter = sessionStorage.getItem('domain_filter') || '';
 
         service.initView().then(function () {
-            var current_scroll_pos = sessionStorage.getItem('current_scroll_pos');
+            var current_scroll_pos = sessionStorage.getItem('domain_scroll_pos');
             if (current_scroll_pos) {
                 $timeout(function() {
                     $window.scrollTo(0, current_scroll_pos);
@@ -43,7 +44,8 @@ angular.module('domain', ['core'])
         });
 
         $window.addEventListener('beforeunload', function() {
-            sessionStorage.setItem('current_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('domain_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('domain_filter', service.filter);
         });
     };
 
@@ -70,7 +72,9 @@ angular.module('domain', ['core'])
 
         $q.when(service.values.$promise).then(function() {
             $('#' + resource + '-form-modal').modal('show');
-            $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            $timeout(function() {
+                $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            });
         });
     };
 

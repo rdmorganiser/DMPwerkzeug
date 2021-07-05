@@ -76,7 +76,7 @@
                             <td style="width: 1%" class="import-checkbox">
                                 {% if value.attribute.uri %}
                                 <input class="import-checkbox" type="checkbox"
-                                    name="{{ value.attribute.uri }}[{{value.set_index}}][{{value.collection_index}}]" checked />
+                                    name="{{ value.attribute.uri }}[{{value.set_prefix}}][{{value.set_index}}][{{value.collection_index}}]" checked />
                                 {% else %}
                                 <i class="fa fa-ban" title="{% trans 'This Answer cannot be imported.' %}"></i>
                                 {% endif %}
@@ -139,7 +139,7 @@
                             <td style="width: 1%" class="import-checkbox">
                                 {% if value.attribute.uri %}
                                 <input type="checkbox" checked
-                                    name="{{ value.attribute.uri }}[{{snapshot.snapshot_index}}][{{value.set_index}}][{{value.collection_index}}]" />
+                                    name="{{ value.attribute.uri }}[{{snapshot.snapshot_index}}][{{value.set_prefix}}][{{value.set_index}}][{{value.collection_index}}]" />
                                 {% else %}
                                 <i class="fa fa-ban" title="{% trans 'This Answer cannot be imported.' %}"></i>
                                 {% endif %}

@@ -57,7 +57,7 @@ class SnapshotAdmin(admin.ModelAdmin):
 
 class ValueAdmin(admin.ModelAdmin):
     search_fields = ('attribute__uri', 'project__title', 'snapshot__title', 'project__user__username')
-    list_display = ('attribute', 'set_index', 'collection_index', 'project', 'snapshot_title')
+    list_display = ('attribute', 'set_prefix', 'set_index', 'collection_index', 'project', 'snapshot_title')
     list_filter = ('value_type', )
 
     def snapshot_title(self, obj):

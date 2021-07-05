@@ -28,6 +28,18 @@ def test_unique_uri_validator_create_error(db):
         })
 
 
+def test_unique_uri_validator_create_error2(db):
+    # get a questionset which contains a questionset
+    questionset = QuestionSet.objects.exclude(questionset=None).first().questionset
+
+    with pytest.raises(ValidationError):
+        QuestionUniqueURIValidator()({
+            'uri_prefix': settings.DEFAULT_URI_PREFIX,
+            'key': questionset.questionsets.first().key,
+            'questionset': questionset
+        })
+
+
 def test_unique_uri_validator_update(db):
     question = Question.objects.first()
 
@@ -70,6 +82,21 @@ def test_unique_uri_validator_serializer_create_error(db):
         validator({
             'uri_prefix': settings.DEFAULT_URI_PREFIX,
             'key': questionset.questions.last().key,
+            'questionset': questionset
+        })
+
+
+def test_unique_uri_validator_serializer_create_error2(db):
+    # get a questionset which contains a questionset
+    questionset = QuestionSet.objects.exclude(questionset=None).first().questionset
+
+    validator = QuestionUniqueURIValidator()
+    validator.set_context(QuestionSerializer())
+
+    with pytest.raises(RestFameworkValidationError):
+        validator({
+            'uri_prefix': settings.DEFAULT_URI_PREFIX,
+            'key': questionset.questionsets.first().key,
             'questionset': questionset
         })
 

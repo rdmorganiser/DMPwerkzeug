@@ -5,6 +5,7 @@ from os.path import join as pj
 from random import randint
 
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
+
 from rdmo.core.utils import get_languages
 
 logger = logging.getLogger(__name__)
@@ -94,14 +95,18 @@ def validate_instance(instance, *validators):
         for validator in validators:
             data = vars(instance)
 
-            if hasattr(instance, 'parent_field'):
-                data[instance.parent_field] = getattr(instance, instance.parent_field, None)
+            # add foreign keys to parent fields to data
+            for parent_field in getattr(instance, 'parent_fields', []):
+                data[parent_field] = getattr(instance, parent_field, None)
 
             # run the validator
             validator(instance if instance.id else None)(data)
 
     except ValidationError as e:
-        exception_message = ''.join(e.messages)
+        try:
+            exception_message = '; '.join(['{}: {}'.format(key, ', '.join(messages)) for key, messages in e.message_dict.items()])
+        except AttributeError:
+            exception_message = ''.join(e.messages)
     except ObjectDoesNotExist as e:
         exception_message = e
     else:

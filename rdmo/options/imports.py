@@ -20,7 +20,7 @@ def import_optionset(element, save=False):
 
     set_common_fields(optionset, element)
 
-    optionset.order = element.get('order')
+    optionset.order = element.get('order') or 0
     optionset.provider_key = element.get('provider_key') or ''
 
     conditions = get_m2m_instances(optionset, element.get('conditions'), Condition)
@@ -52,8 +52,8 @@ def import_option(element, parent_uri=False, save=False):
     option.parent_uri = parent_uri
     option.optionset = get_foreign_field(option, parent_uri, OptionSet)
 
-    option.order = element.get('order')
-    option.additional_input = element.get('additional_input')
+    option.order = element.get('order') or 0
+    option.additional_input = element.get('additional_input') or False
 
     set_lang_field(option, 'text', element)
 

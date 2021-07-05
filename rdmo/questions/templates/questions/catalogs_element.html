@@ -1,0 +1,71 @@
+{% load i18n %}
+
+<div class="panel panel-default panel-questionset" ng-init="questionset = element"
+     ng-hide="!element.section || service.hideQuestionSet(element) || !service.showQuestionSets">
+
+    <div class="panel-heading">
+        <div class="pull-right">
+            <span class="fa fa-warning text-danger"
+                title="{% trans 'No attribute set' %}"
+                ng-show="questionset.is_collection && !questionset.attribute"></span>
+            <span class="fa fa-warning text-warning"
+                title="{% trans 'Some languages are not configured' %}"
+                ng-show="questionset.warning"></span>
+
+            {% include 'questions/catalogs_options_questionsets.html' %}
+        </div>
+
+        <p>
+            <strong>{% trans 'Question set' %}</strong>
+            <span>{$ questionset.title $}</span>
+        </p>
+        <div>
+            <code class="code-questions" title="{% trans 'URI' %}">{$ questionset.uri $}</code>
+            <code class="code-order">{$ questionset.order $}</code>
+        </div>
+        <div ng-show="questionset.is_collection">
+            <code title="{% trans 'Attribute' %}">{$ questionset.attribute.uri $}</code>
+        </div>
+        <div ng-show="questionset.conditions" ng-repeat="condition in questionset.conditions">
+            <code class="code-conditions" title="{% trans 'Condition' %}">{$ condition.uri $}</code>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default panel-question" ng-init="question = element"
+     ng-hide="element.section || service.hideQuestion(element) || !service.showQuestionSets || !service.showQuestions">
+
+    <div class="panel-body">
+        <div class="pull-right">
+            <span class="fa fa-warning text-danger"
+                title="{% trans 'No attribute set' %}"
+                ng-show="!question.attribute" ></span>
+            <span class="fa fa-warning text-warning"
+                title="{% trans 'Some languages are not configured' %}"
+                ng-show="question.warning" ></span>
+            <span class="fa fa-asterisk text-muted"
+                title="{% trans 'Optional' %}"
+                ng-show="question.is_optional" ></span>
+            {% include 'questions/catalogs_options_questions.html' %}
+        </div>
+        <p>
+            <strong ng-class="{'text-muted': question.is_optional}">{% trans 'Question' %}</strong>
+            <span>{$ question.text $}</span>
+        </p>
+        <div>
+            <code class="code-questions" title="{% trans 'URI' %}">{$ question.uri $}</code>
+            <code class="code-order">{$ question.order $}</code>
+        </div>
+        <div ng-show="question.attribute">
+            <code title="{% trans 'Attribute' %}">{$ question.attribute.uri $}</code>
+        </div>
+        <div ng-show="question.conditions" ng-repeat="condition in question.conditions">
+            <code class="code-conditions" title="{% trans 'Condition' %}">{$ condition.uri $}</code>
+        </div>
+        <div ng-show="question.optionsets" ng-repeat="optionset in question.optionsets">
+            <code class="code-options" title="{% trans 'Option set' %}">{$ optionset.uri $}</code>
+        </div>
+    </div>
+</div>
+
+<div class="indent" ng-repeat="element in element.elements" ng-include src="'element.html'"></div>

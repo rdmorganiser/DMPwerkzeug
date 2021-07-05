@@ -25,33 +25,10 @@ class CatalogManager(CurrentSiteManagerMixin, GroupsManagerMixin, AvailabilityMa
 class QuestionSetQuerySet(models.QuerySet):
 
     def order_by_catalog(self, catalog):
-        return self.filter(section__catalog=catalog).order_by('section__order', 'order')
+        return self.filter(section__catalog=catalog, questionset=None).order_by('section__order', 'order')
 
-    def _get_pk_list(self, pk):
-        catalog = self.get(pk=pk).section.catalog
-
-        pk_list = list(self.order_by_catalog(catalog).values_list('pk', flat=True))
-        current_index = pk_list.index(int(pk))
-
-        return pk_list, current_index
-
-    def get_prev(self, pk):
-        pk_list, current_index = self._get_pk_list(pk)
-
-        if current_index > 0:
-            prev_pk = pk_list[current_index - 1]
-            return self.get(pk=prev_pk)
-        else:
-            raise self.model.DoesNotExist('QuestionSet has no previous QuestionSet. It is the first one.')
-
-    def get_next(self, pk):
-        pk_list, current_index = self._get_pk_list(pk)
-
-        if current_index < len(pk_list) - 1:
-            next_pk = pk_list[current_index + 1]
-            return self.get(pk=next_pk)
-        else:
-            raise self.model.DoesNotExist('QuestionSet has no next QuestionSet. It is the last one.')
+    def filter_by_catalog(self, catalog):
+        return self.filter(section__catalog=catalog)
 
 
 class QuestionSetManager(models.Manager):
@@ -62,11 +39,8 @@ class QuestionSetManager(models.Manager):
     def order_by_catalog(self, catalog):
         return self.get_queryset().order_by_catalog(catalog)
 
-    def get_prev(self, pk):
-        return self.get_queryset().get_prev(pk)
-
-    def get_next(self, pk):
-        return self.get_queryset().get_next(pk)
+    def filter_by_catalog(self, catalog):
+        return self.get_queryset().filter_by_catalog(catalog)
 
 
 class QuestionQuerySet(models.QuerySet):

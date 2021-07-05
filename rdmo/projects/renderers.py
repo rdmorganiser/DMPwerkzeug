@@ -57,6 +57,7 @@ class XMLRenderer(BaseXMLRenderer):
     def render_value(self, xml, value):
         xml.startElement('value', {})
         self.render_text_element(xml, 'attribute', {'dc:uri': value['attribute']}, None)
+        self.render_text_element(xml, 'set_prefix', {}, value['set_prefix'])
         self.render_text_element(xml, 'set_index', {}, value['set_index'])
         self.render_text_element(xml, 'collection_index', {}, value['collection_index'])
         self.render_text_element(xml, 'text', {}, value['text'])

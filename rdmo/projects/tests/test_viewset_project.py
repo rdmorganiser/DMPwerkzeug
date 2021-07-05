@@ -47,8 +47,8 @@ urlnames = {
 projects = [1, 2, 3, 4, 5]
 conditions = [1]
 
-project_values = 34
-project_total = 46
+project_values = 37
+project_total = 54
 catalog_id = 1
 
 

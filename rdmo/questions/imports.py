@@ -27,7 +27,7 @@ def import_catalog(element, save=False):
 
     set_common_fields(catalog, element)
 
-    catalog.order = element.get('order')
+    catalog.order = element.get('order') or 0
 
     set_lang_field(catalog, 'title', element)
 
@@ -58,7 +58,7 @@ def import_section(element, parent_uri=False, save=False):
     section.parent_uri = parent_uri
     section.catalog = get_foreign_field(section, parent_uri, Catalog)
 
-    section.order = element.get('order')
+    section.order = element.get('order') or 0
 
     set_lang_field(section, 'title', element)
 
@@ -87,10 +87,10 @@ def import_questionset(element, parent_uri=False, save=False):
 
     questionset.parent_uri = parent_uri
     questionset.section = get_foreign_field(questionset, parent_uri, Section)
-
+    questionset.questionset = get_foreign_field(questionset, element.get('questionset'), QuestionSet)
     questionset.attribute = get_foreign_field(questionset, element.get('attribute'), Attribute)
-    questionset.is_collection = element.get('is_collection')
-    questionset.order = element.get('order')
+    questionset.is_collection = element.get('is_collection') or False
+    questionset.order = element.get('order') or 0
 
     set_lang_field(questionset, 'title', element)
     set_lang_field(questionset, 'help', element)
@@ -127,9 +127,9 @@ def import_question(element, parent_uri=False, save=False):
     question.questionset = get_foreign_field(question, parent_uri, QuestionSet)
 
     question.attribute = get_foreign_field(question, element.get('attribute'), Attribute)
-    question.is_collection = element.get('is_collection')
+    question.is_collection = element.get('is_collection') or False
     question.is_optional = element.get('is_optional') or False
-    question.order = element.get('order')
+    question.order = element.get('order') or 0
 
     set_lang_field(question, 'text', element)
     set_lang_field(question, 'help', element)
@@ -146,6 +146,7 @@ def import_question(element, parent_uri=False, save=False):
     question.minimum = element.get('minimum')
     question.step = element.get('step')
     question.unit = element.get('unit') or ''
+    question.width = element.get('width')
 
     conditions = get_m2m_instances(question, element.get('conditions'), Condition)
     optionsets = get_m2m_instances(question, element.get('optionsets'), OptionSet)

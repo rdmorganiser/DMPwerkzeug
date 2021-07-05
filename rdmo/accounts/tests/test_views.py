@@ -225,7 +225,7 @@ def test_password_reset_post_valid(db, client):
         assert len(mail.outbox) == 1
 
         # get the link from the mail
-        urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', mail.outbox[0].body)
+        urls = re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', mail.outbox[0].body)
         assert len(urls) == 1
 
         # get the password_reset page

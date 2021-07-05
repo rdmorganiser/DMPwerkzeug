@@ -1,6 +1,7 @@
 import logging
 
 from django.conf import settings
+from django.db.models import Prefetch
 from django.views.generic import DetailView, TemplateView
 
 from rdmo.core.exports import XMLResponse
@@ -34,6 +35,24 @@ class CatalogExportView(ModelPermissionMixin, DetailView):
     model = Catalog
     context_object_name = 'catalog'
     permission_required = 'questions.view_catalog'
+
+    def get_queryset(self):
+        return Catalog.objects.prefetch_related(
+            'sections',
+            Prefetch('sections__questionsets', queryset=QuestionSet.objects.filter(questionset=None).prefetch_related(
+                'conditions',
+                'questions',
+                'questions__attribute',
+                'questions__optionsets',
+                'questionsets',
+                'questionsets__attribute',
+                'questionsets__conditions',
+                'questionsets__questions',
+                'questionsets__questions__attribute',
+                'questionsets__questions__optionsets',
+                'questionsets__questionsets'
+            ).select_related('attribute'))
+        )
 
     def render_to_response(self, context, **response_kwargs):
         format = self.kwargs.get('format')

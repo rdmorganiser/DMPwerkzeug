@@ -9,7 +9,7 @@ from .validators import (CatalogLockedValidator, CatalogUniqueURIValidator,
                          QuestionLockedValidator, QuestionSetLockedValidator,
                          QuestionSetUniqueURIValidator,
                          QuestionUniqueURIValidator, SectionLockedValidator,
-                         SectionUniqueURIValidator)
+                         SectionUniqueURIValidator, QuestionSetQuestionSetValidator)
 
 
 class CatalogAdminForm(forms.ModelForm):
@@ -45,6 +45,7 @@ class QuestionSetAdminForm(forms.ModelForm):
 
     def clean(self):
         QuestionSetUniqueURIValidator(self.instance)(self.cleaned_data)
+        QuestionSetQuestionSetValidator(self.instance)(self.cleaned_data)
         QuestionSetLockedValidator(self.instance)(self.cleaned_data)
 
 

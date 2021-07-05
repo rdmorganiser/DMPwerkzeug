@@ -2,7 +2,7 @@
 
     <div class="add-field-button" ng-hide="service.project.read_only">
         <button type="button" class="btn btn-success"
-                ng-click="service.addValue(question)">
+                ng-click="service.addValue(question, valueset.set_prefix, valueset.set_index)">
             {% blocktrans with name='{$ question.verbose_name $}' %}Add {{ name }}{% endblocktrans %}
         </button>
     </div>

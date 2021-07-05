@@ -1,7 +1,7 @@
 import logging
 
 from django.core.management.base import BaseCommand, CommandError
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from rdmo.core.xml import flat_xml_to_elements, read_xml_file
 from rdmo.management.imports import import_elements

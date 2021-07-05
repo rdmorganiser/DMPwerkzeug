@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
+
 from rdmo.conditions.models import Condition
 from rdmo.core.models import TranslationMixin
 from rdmo.core.plugins import get_plugin
@@ -92,6 +93,10 @@ class OptionSet(models.Model):
     @property
     def has_search(self):
         return self.has_provider and self.provider.search
+
+    @property
+    def has_conditions(self):
+        return self.conditions.exists()
 
     @property
     def is_locked(self):
@@ -193,12 +198,8 @@ class Option(models.Model, TranslationMixin):
         return copy_model(self, uri_prefix=uri_prefix, key=key, optionset=optionset or self.optionset)
 
     @property
-    def parent(self):
-        return self.optionset
-
-    @property
-    def parent_field(self):
-        return 'optionset'
+    def parent_fields(self):
+        return ('optionset', )
 
     @property
     def text(self):

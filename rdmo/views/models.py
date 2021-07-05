@@ -3,7 +3,7 @@ from django.contrib.auth.models import Group
 from django.contrib.sites.models import Site
 from django.db import models
 from django.template import Context, Template
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from rdmo.conditions.models import Condition
 from rdmo.core.models import TranslationMixin
@@ -156,13 +156,10 @@ class View(models.Model, TranslationMixin):
     def render(self, project, snapshot=None, export_format=None):
         # render the template to a html string
         # it is important not to use models here
-
+        project_wrapper = ProjectWrapper(project, snapshot)
         return Template(self.template).render(Context({
-            'project': ProjectWrapper(project, snapshot),
-            'conditions': {
-                condition.key: condition.resolve(project, snapshot)
-                for condition in Condition.objects.select_related('source')
-            },
+            'project': project_wrapper,
+            'conditions': project_wrapper.conditions,
             'format': export_format,
             'pandoc_version': get_pandoc_version()
         }))

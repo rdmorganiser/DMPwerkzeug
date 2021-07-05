@@ -49,8 +49,18 @@ angular.module('catalogs', ['core'])
             };
         },
         questionsets: function(parent) {
+            var section = null, questionset = null;
+            if (angular.isDefined(parent) && parent) {
+                if (parent.section) {
+                    section = parent.section
+                    questionset = parent.id;
+                } else {
+                    section = parent.id;
+                }
+            }
             return {
-                section: (angular.isDefined(parent) && parent) ? parent.id : null,
+                section: section,
+                questionset: questionset,
                 attribute: null,
                 order: 0,
                 uri_prefix: (angular.isDefined(parent) && parent) ? parent.uri_prefix : service.settings.default_uri_prefix
@@ -72,9 +82,6 @@ angular.module('catalogs', ['core'])
     var service = {};
 
     service.init = function() {
-        service.attributes = resources.attributes.query({list_action: 'index'});
-        service.optionsets = resources.optionsets.query({list_action: 'index'});
-        service.conditions = resources.conditions.query({list_action: 'index'});
         service.widgettypes = resources.widgettypes.query();
         service.valuetypes = resources.valuetypes.query();
         service.settings = resources.settings.get();
@@ -83,8 +90,9 @@ angular.module('catalogs', ['core'])
         service.uri_prefixes = []
         service.uri_prefix = ''
         service.options = []
-        service.showQuestionSets = true;
-        service.showQuestions = true;
+        service.filter = sessionStorage.getItem('questions_filter') || '';
+        service.showQuestionSets = !(sessionStorage.getItem('options_showQuestionSets') === 'false');
+        service.showQuestions = !(sessionStorage.getItem('options_showOptions') === 'false');
 
         resources.catalogs.query({list_action: 'index'}, function(response) {
             service.catalogs = response;
@@ -101,18 +109,20 @@ angular.module('catalogs', ['core'])
             }
 
             service.initView().then(function() {
-                var current_scroll_pos = sessionStorage.getItem('current_scroll_pos');
+                var current_scroll_pos = sessionStorage.getItem('questions_scroll_pos');
                 if (current_scroll_pos) {
                     $timeout(function() {
                         $window.scrollTo(0, current_scroll_pos);
                     });
                 }
             });
-
         });
 
         $window.addEventListener('beforeunload', function() {
-            sessionStorage.setItem('current_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('questions_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('questions_filter', service.filter);
+            sessionStorage.setItem('options_showQuestionSets', service.showQuestionSets);
+            sessionStorage.setItem('options_showOptions', service.showQuestions);
         });
     };
 
@@ -128,24 +138,14 @@ angular.module('catalogs', ['core'])
                 detail_action: 'nested'
             }, function(response) {
                 service.catalog = response;
+                service.uri_prefixes = [service.catalog.uri_prefix];
 
-                // construct list of uri_prefixes
-                service.uri_prefixes = [service.catalog.uri_prefix]
-                service.catalog.sections.map(function(section) {
-                    if (service.uri_prefixes.indexOf(section.uri_prefix) < 0) {
-                        service.uri_prefixes.push(section.uri_prefix)
-                    }
-                    section.questionsets.map(function(questionset) {
-                        if (service.uri_prefixes.indexOf(questionset.uri_prefix) < 0) {
-                            service.uri_prefixes.push(questionset.uri_prefix)
-                        }
-                        questionset.questions.map(function(question) {
-                            if (service.uri_prefixes.indexOf(question.uri_prefix) < 0) {
-                                service.uri_prefixes.push(question.uri_prefix)
-                            }
-                        });
-                    });
-                });
+                // loop over all elements in the catalog to
+                // (a) construct list of uri_prefixes
+                // (b) sort questionsets and questions by order in one list called elements
+                // using recursive functions!
+                service.catalog.sections.map(service.initSection);
+
             }).$promise;
 
             return $q.all([
@@ -162,13 +162,60 @@ angular.module('catalogs', ['core'])
         }
     };
 
+    service.initSection = function(section) {
+        if (service.uri_prefixes.indexOf(section.uri_prefix) < 0) {
+            service.uri_prefixes.push(section.uri_prefix)
+        }
+        section.questionsets.map(service.initQuestionSet);
+    };
+
+    service.initQuestionSet = function(questionset) {
+        if (service.uri_prefixes.indexOf(questionset.uri_prefix) < 0) {
+            service.uri_prefixes.push(questionset.uri_prefix)
+        }
+        questionset.questionset = true;
+        questionset.elements = questionset.questionsets.map(service.initQuestionSet)
+                       .concat(questionset.questions.map(service.initQuestion))
+                       .sort(function(a, b) {
+                           return a.order - b.order;
+                       });
+        return questionset
+    };
+
+    service.initQuestion = function(question) {
+        if (service.uri_prefixes.indexOf(question.uri_prefix) < 0) {
+            service.uri_prefixes.push(question.uri_prefix)
+        }
+        question.question = true;
+        return question
+    };
+
     service.openFormModal = function(resource, obj, create, copy) {
+        var promises = [];
+
         service.errors = {};
         service.values = utils.fetchValues(resources[resource], factories[resource], obj, create, copy);
+        promises.push(service.values.$promise);
 
-        $q.when(service.values.$promise).then(function() {
+        if (resource === 'questionsets' || resource === 'questions') {
+            service.attributes = resources.attributes.query({list_action: 'index'});
+            promises.push(service.attributes.$promise);
+
+            service.conditions = resources.conditions.query({list_action: 'index'});
+            promises.push(service.conditions.$promise);
+        }
+
+        if (resource === 'questions') {
+            service.optionsets = resources.optionsets.query({list_action: 'index'});
+            promises.push(service.optionsets.$promise);
+        }
+
+        $q.all(promises).then(function() {
+            service.updateOptions();
             $('#' + resource + '-form-modal').modal('show');
-            $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            $timeout(function() {
+                $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            });
         });
     };
 
@@ -238,21 +285,12 @@ angular.module('catalogs', ['core'])
     };
 
     service.hideQuestionSet = function(item) {
-        var hide = false;
-
         if (service.filter && item.uri.indexOf(service.filter) < 0
                            && item.title.indexOf(service.filter) < 0) {
-            hide = true;
+            return true;
         }
         if (service.uri_prefix && item.uri_prefix != service.uri_prefix) {
-            hide = true;
-        }
-
-        if (hide === true) {
-            // hide only if all questions of this questionset are hidden
-            return item.questions.every(function(question) {
-                return service.hideQuestion(question) === true;
-            });
+            return true;
         }
     };
 
@@ -267,6 +305,7 @@ angular.module('catalogs', ['core'])
     };
 
     service.updateOptions = function() {
+        if (angular.isDefined(service.optionsets) && angular.isDefined(service.values.optionsets))
         service.options = service.optionsets.reduce(function (options, optionset) {
             if (service.values.optionsets.indexOf(optionset.id) > -1) {
                 options = options.concat(optionset.options);

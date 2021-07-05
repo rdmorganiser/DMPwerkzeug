@@ -3,7 +3,7 @@ import logging
 from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import get_language
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from rdmo.core.utils import get_languages
 

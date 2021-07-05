@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 VALUE_TYPE_TEXT = 'text'
 VALUE_TYPE_URL = 'url'

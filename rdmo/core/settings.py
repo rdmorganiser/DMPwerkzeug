@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 DEBUG = False
 
@@ -153,10 +153,6 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'rdmo_default'
-    },
-    'api': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'rdmo_api'
     }
 }
 
@@ -172,10 +168,6 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     )
-}
-
-REST_FRAMEWORK_EXTENSIONS = {
-    'DEFAULT_CACHE_RESPONSE_TIMEOUT': 60
 }
 
 SETTINGS_EXPORT = [
@@ -195,7 +187,13 @@ SETTINGS_EXPORT = [
     'PROJECT_EXPORTS',
     'PROJECT_IMPORTS',
     'PROJECT_SEND_ISSUE',
+    'PROJECT_QUESTIONS_AUTOSAVE',
     'NESTED_PROJECTS'
+]
+
+SETTINGS_API = [
+    'PROJECT_QUESTIONS_AUTOSAVE',
+    'DEFAULT_URI_PREFIX'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -262,6 +260,8 @@ PROJECT_EXPORTS = [
 PROJECT_IMPORTS = [
     ('xml', _('RDMO XML'), 'rdmo.projects.imports.RDMOXMLImport'),
 ]
+
+PROJECT_QUESTIONS_AUTOSAVE = False
 
 PROJECT_FILE_QUOTA = '10Mb'
 
@@ -421,3 +421,6 @@ VENDOR = {
         ]
     }
 }
+
+# necessary since django 3.2, explicitly set primary key type to avaoid warnings
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

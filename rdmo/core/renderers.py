@@ -1,7 +1,7 @@
 from io import StringIO
 
 from django.utils.xmlutils import SimplerXMLGenerator
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_str
 from rest_framework.renderers import BaseRenderer
 
 
@@ -29,7 +29,7 @@ class BaseXMLRenderer(BaseRenderer):
 
         xml.startElement(tag, attrs)
         if text is not None:
-            xml.characters(smart_text(text))
+            xml.characters(smart_str(text))
         xml.endElement(tag)
 
     def render_document(self, xml, data):

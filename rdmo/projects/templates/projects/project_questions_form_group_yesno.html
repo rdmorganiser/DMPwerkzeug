@@ -8,7 +8,7 @@
             {% include 'projects/project_questions_add_field_help.html' %}
         </div>
 
-        <div ng-repeat="value in service.values[question.attribute.id] track by $index">
+        <div ng-repeat="value in service.values[question.attribute][valueset.set_prefix][valueset.set_index] track by $index">
             <div class="collection" ng-hide="value.removed">
                 <div class="radio-control">
 
@@ -23,6 +23,7 @@
                             <input type="radio" value="1"
                                 ng-model="value.text"
                                 ng-disabled="service.project.read_only"
+                                ng-change="service.changed(value, true)"
                                 ng-class="{'default-value': service.isDefaultValue(question, value) &&
                                                             value.text == '1'}" />
                             <span>{% trans 'Yes' %}</span>
@@ -31,6 +32,7 @@
                             <input type="radio" value="0"
                                 ng-model="value.text"
                                 ng-disabled="service.project.read_only"
+                                ng-change="service.changed(value, true)"
                                 ng-class="{'default-value': service.isDefaultValue(question, value) &&
                                                             value.text == '0'}" />
                             <span>{% trans 'No' %}</span>

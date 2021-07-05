@@ -8,6 +8,11 @@
         ng-click="service.openFormModal('questions', questionset, true)">
     </a>
 
+    <a href="" class="fa fa-plus-square"
+        title="{% trans 'Add question set' %}"
+        ng-click="service.openFormModal('questionsets', questionset, true)">
+    </a>
+
     <a href="" class="fa fa-pencil"
         title="{% trans 'Update question set' %}"
         ng-click="service.openFormModal('questionsets', questionset)">
