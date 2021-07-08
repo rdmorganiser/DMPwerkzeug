@@ -15,6 +15,8 @@ from django.template.loader import get_template
 from django.utils.encoding import force_str
 from django.utils.translation import gettext_lazy as _
 from markdown import markdown
+from bs4 import BeautifulSoup
+import json
 
 log = logging.getLogger(__name__)
 
@@ -157,6 +159,7 @@ def render_to_format(request, export_format, title, template_src, context):
     # render the template to a html string
     template = get_template(template_src)
     html = template.render(context)
+    metadata, html = parse_metadata(html)
 
     # remove empty lines
     html = os.linesep.join([line for line in html.splitlines() if line.strip()])
@@ -197,16 +200,27 @@ def render_to_format(request, export_format, title, template_src, context):
         # create a temporary file
         (tmp_fd, tmp_filename) = mkstemp('.' + export_format)
 
+        # add metadata
+        tmp_metadata_file = None
+        if metadata is not None:
+            tmp_metadata_file = save_metadata(metadata)
+            pandoc_args.append('--metadata-file=' + tmp_metadata_file)
+
         # convert the file using pandoc
         log.info('Export %s document using args %s.', export_format, pandoc_args)
-        pypandoc.convert_text(html, export_format, format='html', outputfile=tmp_filename, extra_args=pandoc_args)
+        pypandoc.convert_text(
+            html, export_format, format='html',
+            outputfile=tmp_filename, extra_args=pandoc_args
+        )
 
         # read the temporary file
         file_handler = os.fdopen(tmp_fd, 'rb')
         file_content = file_handler.read()
         file_handler.close()
 
-        # delete the temporary file
+        # delete temporary files
+        if tmp_metadata_file is not None:
+            os.remove(tmp_metadata_file)
         os.remove(tmp_filename)
 
         # create the response object
@@ -313,3 +327,27 @@ def markdown2html(markdown_string):
                   r'<span data-toggle="tooltip" data-placement="bottom" data-html="true" title="\2">\1</span>',
                   html)
     return html
+
+
+def parse_metadata(html):
+    metadata = None
+    soup = BeautifulSoup(html, 'html.parser')
+    try:
+        html_metadata = soup.find('metadata').extract()
+    except AttributeError:
+        pass
+    else:
+        html_metadata = html_metadata.text
+        metadata = json.loads(html_metadata)
+        html = str(soup)
+    return metadata, html
+
+
+def save_metadata(metadata):
+    _, tmp_metadata_file = mkstemp(suffix='.json')
+    with open(tmp_metadata_file, 'w') as f:
+        json.dump(metadata, f)
+    f = open(tmp_metadata_file)
+    data = json.load(f)
+    log.info('Save metadata file %s %s', tmp_metadata_file, str(metadata))
+    return tmp_metadata_file
