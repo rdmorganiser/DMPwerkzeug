@@ -1,0 +1,8 @@
+{% load i18n %}
+
+    <div class="add-set-button" ng-hide="service.project.read_only">
+        <button type="button" class="btn btn-success"
+                ng-click="service.addValueSet(questionset, service.joinSetPrefix(valueset.set_prefix, valueset.set_index))">
+            {% blocktrans with name='{$ question.verbose_name $}' %}Add {{ name }}{% endblocktrans %}
+        </button>
+    </div>

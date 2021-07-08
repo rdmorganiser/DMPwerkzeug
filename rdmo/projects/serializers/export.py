@@ -15,6 +15,7 @@ class ValueSerializer(serializers.ModelSerializer):
         model = Value
         fields = (
             'attribute',
+            'set_prefix',
             'set_index',
             'collection_index',
             'text',

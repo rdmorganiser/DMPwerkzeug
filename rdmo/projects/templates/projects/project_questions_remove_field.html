@@ -2,7 +2,7 @@
 
     <a href="" class="close" tabindex="-1" ng-if="question.is_collection"
         title="{% blocktrans with name='{$ question.verbose_name $}' %}Remove {{ name }}{% endblocktrans %}"
-        ng-click="service.removeValue(question.attribute.id, $index)"
+        ng-click="service.removeValue(question.attribute, valueset.set_prefix, valueset.set_index, $index)"
         ng-hide="!question.is_collection || service.project.read_only">
 
         <i class="fa fa-times" aria-hidden="true"></i>

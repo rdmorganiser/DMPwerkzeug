@@ -2,7 +2,7 @@
 
     <a href="" class="erase" tabindex="-1"
         title="{% trans 'Erase input' %}"
-        ng-click="service.eraseValue(question.attribute.id, $index)"
+        ng-click="service.eraseValue(question.attribute, valueset.set_prefix, valueset.set_index, $index)"
         ng-hide="service.project.read_only">
 
         <i class="fa fa-eraser" aria-hidden="true"></i>

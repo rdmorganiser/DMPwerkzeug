@@ -22,39 +22,56 @@ def check_permissions(elements, user):
     return user.has_perms(permissions)
 
 
+def get_parent_uri(element_uri, parent_uri, parents, uris):
+    if element_uri in parents and parents[element_uri]:
+        # parent was explicitely selected
+        return parents[element_uri]
+    elif parent_uri in uris:
+        # parent uri was changed during the import
+        return uris[parent_uri]
+    else:
+        # needs to be False, to use parent uri in file
+        return False
+
+
 def import_elements(elements, parents={}, save={}):
     instances = []
+    uris = {}
 
     for element in elements:
         element_type = element.get('type')
-        element_uri = element.get('uri')
-        parent_uri = parents.get(element_uri, False)  # needs to be False, to use parent uri in file
-        save_element = save.get(element_uri)
+        save_element = save.get(element.get('uri'))
 
         # step 1: get create model for elements
         if element_type == 'condition':
             instance = import_condition(element, save=save_element)
 
         elif element_type == 'attribute':
+            parent_uri = get_parent_uri(element.get('uri'), element.get('parent'), parents, uris)
             instance = import_attribute(element, parent_uri=parent_uri, save=save_element)
 
         elif element_type == 'optionset':
             instance = import_optionset(element, save=save_element)
 
         elif element_type == 'option':
-            instance = import_option(element, parent_uri=parent_uri, save=save_element)
+            optionset_uri = get_parent_uri(element.get('uri'), element.get('optionset'), parents, uris)
+            instance = import_option(element, optionset_uri=optionset_uri, save=save_element)
 
         elif element_type == 'catalog':
             instance = import_catalog(element, save=save_element)
 
         elif element_type == 'section':
-            instance = import_section(element, parent_uri=parent_uri, save=save_element)
+            catalog_uri = get_parent_uri(element.get('uri'), element.get('catalog'), parents, uris)
+            instance = import_section(element, catalog_uri=catalog_uri, save=save_element)
 
         elif element_type == 'questionset':
-            instance = import_questionset(element, parent_uri=parent_uri, save=save_element)
+            section_uri = get_parent_uri(element.get('uri'), element.get('section'), parents, uris)
+            questionset_uri = get_parent_uri(element.get('uri'), element.get('questionset'), {}, uris)
+            instance = import_questionset(element, section_uri=section_uri, questionset_uri=questionset_uri, save=save_element)
 
         elif element_type == 'question':
-            instance = import_question(element, parent_uri=parent_uri, save=save_element)
+            questionset_uri = get_parent_uri(element.get('uri'), element.get('questionset'), parents, uris)
+            instance = import_question(element, questionset_uri=questionset_uri, save=save_element)
 
         elif element_type == 'task':
             instance = import_task(element, save=save_element)
@@ -90,5 +107,8 @@ def import_elements(elements, parents={}, save={}):
 
             # append the instance to the list of instances
             instances.append(instance)
+
+            if element.get('uri') != instance.uri:
+                uris[element.get('uri')] = instance.uri
 
     return instances

@@ -1,0 +1,42 @@
+<div class="col-md-12" ng-hide="element.isQuestion" ng-init="questionset = element">
+    <div ng-hide="valueset.hidden.questionsets[questionset.id]">
+        <strong>{$ questionset.title $}</strong>
+
+        <div class="help-text" ng-bind-html="questionset.help"></div>
+
+        <div ng-if="questionset.is_collection">
+            {% include 'projects/project_questions_add_set_help.html' %}
+        </div>
+
+        <div class="questions-block"
+             ng-repeat="valueset in service.valuesets[questionset.id][service.joinSetPrefix(valueset.set_prefix, valueset.set_index)] | orderBy:'valueset.set_index'"
+             ng-hide="valueset.removed">
+
+            {% include 'projects/project_questions_remove_set.html' %}
+
+            <div class="row">
+                <div ng-repeat="element in questionset.elements"
+                     ng-include src="'element.html'"></div>
+            </div>
+        </div>
+
+        <div ng-if="questionset.is_collection">
+            {% include 'projects/project_questions_add_set_button.html' %}
+        </div>
+    </div>
+</div>
+
+<div class="question col-md-{$ question.width || 12 $}" ng-show="element.isQuestion" ng-init="question = element">
+    <div ng-hide="valueset.hidden.questions[question.id]">
+        {% include 'projects/project_questions_form_group_text.html' %}
+        {% include 'projects/project_questions_form_group_textarea.html' %}
+        {% include 'projects/project_questions_form_group_yesno.html' %}
+        {% include 'projects/project_questions_form_group_radio.html' %}
+        {% include 'projects/project_questions_form_group_select.html' %}
+        {% include 'projects/project_questions_form_group_autocomplete.html' %}
+        {% include 'projects/project_questions_form_group_date.html' %}
+        {% include 'projects/project_questions_form_group_range.html' %}
+        {% include 'projects/project_questions_form_group_checkbox.html' %}
+        {% include 'projects/project_questions_form_group_file.html' %}
+    </div>
+</div>

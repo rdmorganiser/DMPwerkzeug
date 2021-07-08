@@ -6,6 +6,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django_cleanup import cleanup
+
 from rdmo.core.constants import (VALUE_TYPE_BOOLEAN, VALUE_TYPE_CHOICES,
                                  VALUE_TYPE_DATETIME, VALUE_TYPE_TEXT)
 from rdmo.core.models import Model
@@ -43,15 +44,20 @@ class Value(Model):
         verbose_name=_('Attribute'),
         help_text=_('The attribute this value belongs to.')
     )
+    set_prefix = models.CharField(
+        max_length=16, blank=True, default='',
+        verbose_name=_('Set prefix'),
+        help_text=_('The position of this value with respect to superior sets (i.e. for nested question sets).')
+    )
     set_index = models.IntegerField(
         default=0,
         verbose_name=_('Set index'),
-        help_text=_('The position of this value in an entity collection (i.e. in the question set)')
+        help_text=_('The position of this value in a set (i.e. for a question set tagged as collection).')
     )
     collection_index = models.IntegerField(
         default=0,
         verbose_name=_('Collection index'),
-        help_text=_('The position of this value in an attribute collection.')
+        help_text=_('The position of this value in a list (i.e. for a question tagged as collection).')
     )
     text = models.TextField(
         blank=True,
@@ -89,12 +95,18 @@ class Value(Model):
         verbose_name = _('Value')
         verbose_name_plural = _('Values')
 
+    def __str__(self):
+        return '{} / {} / {} / {} / {}'.format(
+            self.project, self.snapshot or '-', self.set_prefix, self.set_index, self.collection_index
+        )
+
     @property
     def as_dict(self):
         value_dict = {
             'id': self.id,
             'created': self.created,
             'updated': self.updated,
+            'set_prefix': self.set_prefix,
             'set_index': self.set_index,
             'collection_index': self.collection_index,
             'value_type': self.value_type,
@@ -104,6 +116,7 @@ class Value(Model):
             'value_and_unit': self.value_and_unit,
             'is_true': self.is_true,
             'is_false': self.is_false,
+            'is_empty': self.is_empty,
             'as_number': self.as_number
         }
 
@@ -157,11 +170,15 @@ class Value(Model):
 
     @property
     def is_true(self):
-        return self.text not in self.FALSE_TEXT
+        return (self.text not in self.FALSE_TEXT) or self.option
 
     @property
     def is_false(self):
-        return self.text in self.FALSE_TEXT
+        return (self.text in self.FALSE_TEXT) and not self.option
+
+    @property
+    def is_empty(self):
+        return (self.text == '') and not self.option
 
     @property
     def as_number(self):

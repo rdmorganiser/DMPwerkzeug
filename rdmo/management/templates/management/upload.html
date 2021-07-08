@@ -31,12 +31,12 @@
                             <td>
                                 {% if element.parents %}
                                 <div class="form-group">
-                                    <label for="parent-{{ element.uri }}">Parent element</label>
+                                    <label for="parent-{{ element.uri }}">Change parent element</label>
                                     <select id="parent-{{ element.uri }}"
                                             class="form-control" name="{{ element.uri }}">
                                         <option value="null">---</option>
                                         {% for parent_uri in element.parents %}
-                                        <option value="{{ parent_uri }}" {% if parent_uri == element.parent_uri %}selected{% endif %}>
+                                        <option value="{{ parent_uri }}">
                                             {{ parent_uri }}
                                         </option>
                                         {% endfor %}

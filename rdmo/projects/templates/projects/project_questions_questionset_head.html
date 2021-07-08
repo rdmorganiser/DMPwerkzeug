@@ -5,44 +5,39 @@
         <div ng-hide="service.project.read_only">
             {% include 'projects/project_questions_questionset_head_help.html' %}
 
-            <div class="set-buttons" ng-hide="service.values">
+            <div class="set-buttons" ng-show="service.set_index === null">
                 <button type="button" class="btn btn-success"
-                    ng-click="service.openValueSetFormModal(true)">
+                    ng-click="service.openValueSetFormModal(service.questionset, service.set_prefix)">
                     {% blocktrans with name='{$ service.questionset.verbose_name $}' %}Add {{ name }}{% endblocktrans %}
                 </button>
             </div>
         </div>
 
-        <ul class="nav nav-tabs" ng-show="service.values">
-            <li ng-class="{ active: service.valuesets[set_index].values == service.values }"
-                ng-repeat="set_index in service.valueset_list">
+        <ul class="nav nav-tabs" ng-hide="service.set_index === null">
+            <li ng-repeat="valueset in service.valuesets[service.questionset.id][service.set_prefix] track by $index"
+                ng-class="{ active: valueset.set_index == service.set_index }"
+                ng-hide="valueset.removed">
 
-
-                <a href="" ng-click="service.activateValueSet(set_index)">
-                    <span ng-hide="service.valuesets[set_index].values[service.questionset.attribute.id_attribute.id][0].text">
-                        #{$ $index + 1 $}
-                    </span>
-                    <span ng-show="service.valuesets[set_index].values[service.questionset.attribute.id_attribute.id][0].text">
-                        {$ service.valuesets[set_index].values[service.questionset.attribute.id_attribute.id][0].text $}
-                    </span>
+                <a href="" ng-click="service.activateValueSet(valueset.set_index)">
+                    {$ service.getSetLabel(service.questionset, valueset.set_prefix, valueset.set_index) $}
                 </a>
             </li>
             <li ng-hide="service.project.read_only">
-                <a href="" class="add-valueset" ng-click="service.openValueSetFormModal(true)">
+                <a href="" class="add-valueset" ng-click="service.openValueSetFormModal(service.questionset, service.set_prefix)">
                     {% blocktrans with name='{$ service.questionset.verbose_name $}' %}Add {{ name }}{% endblocktrans %}
                 </a>
             </li>
         </ul>
 
-        <div class="pull-right" ng-show="service.values">
+        <div class="pull-right" ng-hide="service.set_index === null">
             <a href="" class="fa fa-pencil"
                 title="{% blocktrans with name='{$ service.questionset.verbose_name $}' %}Update {{ name }}{% endblocktrans %}"
-                ng-click="service.openValueSetFormModal(false)"
-                ng-show="service.questionset.attribute.id_attribute && !service.project.read_only">
+                ng-click="service.openValueSetFormModal(service.questionset, service.set_prefix, service.set_index)"
+                ng-show="service.questionset.attribute && !service.project.read_only">
             </a>
             <a href="" class="fa fa-trash"
                 title="{% blocktrans with name='{$ service.questionset.verbose_name $}' %}Remove {{ name }}{% endblocktrans %}"
-                ng-click="service.openValueSetDeleteModal(false)"
+                ng-click="service.openValueSetDeleteModal(service.questionset, service.set_prefix, service.set_index)"
                 ng-show="!service.project.read_only">
             </a>
         </div>

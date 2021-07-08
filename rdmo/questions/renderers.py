@@ -46,6 +46,7 @@ class XMLRenderer(BaseXMLRenderer):
         self.render_text_element(xml, 'dc:comment', {}, questionset['comment'])
         self.render_text_element(xml, 'attribute', {'dc:uri': questionset['attribute']}, None)
         self.render_text_element(xml, 'section', {'dc:uri': questionset['section']}, None)
+        self.render_text_element(xml, 'questionset', {'dc:uri': questionset['questionset']}, None)
         self.render_text_element(xml, 'is_collection', {}, questionset['is_collection'])
         self.render_text_element(xml, 'order', {}, questionset['order'])
 
@@ -62,6 +63,10 @@ class XMLRenderer(BaseXMLRenderer):
         xml.endElement('conditions')
 
         xml.endElement('questionset')
+
+        if 'questionsets' in questionset and questionset['questionsets']:
+            for qs in questionset['questionsets']:
+                self.render_questionset(xml, qs)
 
         if 'questions' in questionset and questionset['questions']:
             for question in questionset['questions']:
@@ -95,6 +100,7 @@ class XMLRenderer(BaseXMLRenderer):
         self.render_text_element(xml, 'minimum', {}, question['minimum'])
         self.render_text_element(xml, 'step', {}, question['step'])
         self.render_text_element(xml, 'unit', {}, question['unit'])
+        self.render_text_element(xml, 'width', {}, question['width'])
 
         xml.startElement('optionsets', {})
         if 'optionsets' in question and question['optionsets']:

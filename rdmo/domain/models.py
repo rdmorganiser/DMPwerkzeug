@@ -79,8 +79,8 @@ class Attribute(MPTTModel):
         return attribute
 
     @property
-    def parent_field(self):
-        return 'parent'
+    def parent_fields(self):
+        return ('parent', )
 
     @property
     def is_locked(self):

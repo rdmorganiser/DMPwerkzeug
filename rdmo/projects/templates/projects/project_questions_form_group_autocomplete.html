@@ -1,6 +1,6 @@
 {% load i18n %}
 
-    <div class="form-group" ng-if="question.widget_type === 'autocomplete'" >
+    <div class="form-group" ng-if="question.widget_type === 'autocomplete'">
         {% include 'projects/project_questions_question_label.html' %}
         {% include 'projects/project_questions_question_help.html' %}
 
@@ -8,7 +8,7 @@
             {% include 'projects/project_questions_add_field_help.html' %}
         </div>
 
-        <div ng-repeat="value in service.values[question.attribute.id] track by $index">
+        <div ng-repeat="value in service.values[question.attribute][valueset.set_prefix][valueset.set_index] track by $index">
             <div class="collection" ng-hide="value.removed">
                 <div class="options">
                     {% include 'projects/project_questions_default.html' %}
@@ -18,16 +18,16 @@
 
                 <div class="autocomplete">
                     <div class="form-control locked" ng-show="value.autocomplete_locked"
-                         ng-click="service.unlockAutocomplete(question, value, $index)"
+                         ng-click="service.unlockAutocomplete(question, value, valueset.set_prefix, valueset.set_index, $index)"
                          ng-class="{'default-value': service.isDefaultValue(question, value)}">
                         {$ value.autocomplete_text $}
                     </div>
                     <div ng-hide="value.autocomplete_locked">
                         <input type="text" class="form-control" ng-model="value.autocomplete_input"
-                            ng-attr-id="id_{$ question.attribute.id $}_{$ $index $}"
+                            ng-attr-id="id_{$ question.attribute $}_{$ valueset.set_prefix $}_{$ valueset.set_index $}_{$ $index $}"
                             ng-disabled="service.project.read_only"
                             ng-focus="service.filterAutocomplete(question, value)"
-                            ng-change="service.filterAutocomplete(question, value)"
+                            ng-change="service.filterAutocomplete(question, value); service.changed(value, true)"
                             ng-keydown="service.keydownAutocomplete(question, value, $event)"
                             ng-blur="service.blurAutocomplete(value)"
                             ng-class="{'default-value': service.isDefaultValue(question, value)}"

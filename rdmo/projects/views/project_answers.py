@@ -1,30 +1,30 @@
 import logging
 
 from django.conf import settings
+from django.db.models import Prefetch
 from django.shortcuts import redirect
 from django.views.generic import DetailView
 
 from rdmo.core.constants import VALUE_TYPE_FILE
 from rdmo.core.utils import render_to_format
 from rdmo.core.views import ObjectPermissionMixin
+from rdmo.questions.models import QuestionSet, Question
 from rdmo.views.utils import ProjectWrapper
 
 from ..models import Project, Snapshot
 from ..utils import get_value_path
-
 logger = logging.getLogger(__name__)
 
 
 class ProjectAnswersView(ObjectPermissionMixin, DetailView):
     model = Project
     queryset = Project.objects.prefetch_related(
-        'catalog',
-        'catalog__sections',
-        'catalog__sections__questionsets',
-        'catalog__sections__questionsets__attribute',
-        'catalog__sections__questionsets__questions',
-        'catalog__sections__questionsets__questions__attribute'
+        Prefetch('catalog__sections__questionsets', queryset=QuestionSet.objects.select_related('attribute')),
+        Prefetch('catalog__sections__questionsets__questions', queryset=Question.objects.select_related('attribute', 'questionset')),
+        Prefetch('catalog__sections__questionsets__questionsets', queryset=QuestionSet.objects.select_related('attribute')),
+        Prefetch('catalog__sections__questionsets__questionsets__questions', queryset=Question.objects.select_related('attribute', 'questionset')),
     )
+
     permission_required = 'projects.view_project_object'
     template_name = 'projects/project_answers.html'
     no_catalog_error_template = 'projects/project_error_no_catalog.html'
@@ -62,7 +62,12 @@ class ProjectAnswersView(ObjectPermissionMixin, DetailView):
 
 class ProjectAnswersExportView(ObjectPermissionMixin, DetailView):
     model = Project
-    queryset = Project.objects.all()
+    queryset = Project.objects.prefetch_related(
+        Prefetch('catalog__sections__questionsets', queryset=QuestionSet.objects.select_related('attribute')),
+        Prefetch('catalog__sections__questionsets__questions', queryset=Question.objects.select_related('attribute', 'questionset')),
+        Prefetch('catalog__sections__questionsets__questionsets', queryset=QuestionSet.objects.select_related('attribute')),
+        Prefetch('catalog__sections__questionsets__questionsets__questions', queryset=Question.objects.select_related('attribute', 'questionset')),
+    )
     permission_required = 'projects.view_project_object'
 
     def get_context_data(self, **kwargs):

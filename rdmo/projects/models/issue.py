@@ -51,8 +51,9 @@ class Issue(models.Model):
         return reverse('project', kwargs={'pk': self.project.pk})
 
     def resolve(self):
+        values = self.project.values.filter(snapshot=None)
         for condition in self.task.conditions.all():
-            if condition.resolve(self.project):
+            if condition.resolve(values):
                 return True
 
     @property

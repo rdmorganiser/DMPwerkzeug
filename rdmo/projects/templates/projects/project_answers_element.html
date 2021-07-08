@@ -1,0 +1,56 @@
+{% load view_tags %}
+{% load projects_tags %}
+
+{% if element.is_question %}
+
+    {% with element as question %}
+
+        <p><strong>{{ question.text }}</strong></p>
+
+        {% get_set_prefixes question.attribute.uri project=project_wrapper as set_prefixes %}
+        {% for set_prefix in set_prefixes %}
+
+            {% get_set_indexes question.attribute.uri set_prefix=set_prefix project=project_wrapper as set_indexes %}
+            {% for set_index in set_indexes %}
+
+                {% get_labels question set_prefix=set_prefix set_index=set_index project=project_wrapper as labels %}
+                {% get_values question.attribute.uri set_prefix=set_prefix set_index=set_index project=project_wrapper as values %}
+
+                {% check_question question set_prefix=set_prefix set_index=set_index project=project_wrapper as question_result %}
+                {% check_questionset question.questionset set_prefix=set_prefix set_index=set_index project=project_wrapper as questionset_result %}
+
+                {% if question_result and questionset_result %}
+                    {% if values|is_not_empty|length > 1 %}
+
+                        {% if labels %}
+                        <p>
+                            <em>{{ labels|join:', ' }}:</em>
+                        </p>
+                        {% endif %}
+
+                        <ul>
+                            {% include 'views/tags/value_list.html' %}
+                        </ul>
+
+                    {% elif values|is_not_empty|length == 1 %}
+
+                        <p>
+                            {% if labels %}<em>{{ labels|join:', ' }}:</em>&ensp;{% endif %}
+                            {% include 'views/tags/value.html' with value=values.0 %}
+                        </p>
+
+                    {% endif %}
+                {% endif %}
+
+            {% endfor %}
+        {% endfor %}
+
+    {% endwith %}
+
+{% else %}
+
+    {% for element in element.elements %}
+        {% include 'projects/project_answers_element.html' %}
+    {% endfor %}
+
+{% endif %}

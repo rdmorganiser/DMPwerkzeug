@@ -1,0 +1,7 @@
+{% load i18n %}
+
+    <p class="help-block">
+        {% blocktrans with name_plural='{$ question.verbose_name_plural $}' trimmed %}
+        Please enter the {{ name_plural }} block by block. You can add {{ name_plural }} using the green button and remove them using the blue cross (&times;).
+        {% endblocktrans %}
+    </p>

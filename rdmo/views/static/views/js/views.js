@@ -33,15 +33,15 @@ angular.module('views', ['core'])
     var service = {};
 
     service.init = function(options) {
-        service.catalogs = resources.catalogs.query();
         service.settings = resources.settings.get();
         service.sites = resources.sites.query();
         service.groups = resources.groups.query();
         service.uri_prefixes = []
         service.uri_prefix = ''
+        service.filter = sessionStorage.getItem('views_filter') || '';
 
         service.initView().then(function () {
-            var current_scroll_pos = sessionStorage.getItem('current_scroll_pos');
+            var current_scroll_pos = sessionStorage.getItem('views_scroll_pos');
             if (current_scroll_pos) {
                 $timeout(function() {
                     $window.scrollTo(0, current_scroll_pos);
@@ -50,7 +50,8 @@ angular.module('views', ['core'])
         });
 
         $window.addEventListener('beforeunload', function() {
-            sessionStorage.setItem('current_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('views_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('views_filter', service.filter);
         });
     };
 
@@ -74,8 +75,12 @@ angular.module('views', ['core'])
     service.openFormModal = function(resource, obj, create, copy) {
         service.errors = {};
         service.values = utils.fetchValues(resources['views'], factories['views'], obj, create, copy);
+        service.catalogs = resources.catalogs.query();
 
-        $q.when(service.values.$promise).then(function() {
+        $q.all([
+            service.values.$promise,
+            service.catalogs.$promise
+        ]).then(function() {
             if (service.values.template === ''){
                 service.values.template = '{% load view_tags %}'
             };

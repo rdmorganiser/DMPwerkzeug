@@ -1,8 +1,6 @@
 {% load i18n %}
 
-<p class="help-block">
-    {% trans 'Please note that using the navigation will discard any usaved input.' %}
-</p>
+{% include 'projects/project_questions_navigation_help.html' %}
 
 <ul class="list-unstyled project-questions-overview">
     <li ng-repeat="section in service.project.catalog.sections">

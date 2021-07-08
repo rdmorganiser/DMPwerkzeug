@@ -20,9 +20,9 @@ class ProjectImportMixin(object):
     def get_current_values(self, current_project):
         queryset = current_project.values.filter(snapshot=None).select_related('attribute', 'option')
 
-        current_values = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+        current_values = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(list))))
         for value in queryset:
-            current_values[value.attribute.uri][value.set_index][value.collection_index] = value
+            current_values[value.attribute.uri][value.set_prefix][value.set_index][value.collection_index] = value
         return current_values
 
     def get_questions(self, catalog):
@@ -45,6 +45,7 @@ class ProjectImportMixin(object):
                 value.pk = None
                 value.question = questions.get(value.attribute.uri)
                 value.current = current_values.get(value.attribute.uri, {}) \
+                                              .get(value.set_prefix, {}) \
                                               .get(value.set_index, {}) \
                                               .get(value.collection_index)
 
@@ -56,6 +57,7 @@ class ProjectImportMixin(object):
                     value.pk = None
                     value.question = questions.get(value.attribute.uri)
                     value.current = current_values.get(value.attribute.uri, {}) \
+                                                  .get(value.set_prefix, {}) \
                                                   .get(value.set_index, {}) \
                                                   .get(value.collection_index)
 

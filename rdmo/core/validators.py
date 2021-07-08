@@ -38,21 +38,22 @@ class UniqueURIValidator(InstanceValidator):
     model = None
 
     def __call__(self, data):
-        uri = self.get_uri(data)
+        self.validate(self.model, self.instance, self.get_uri(data))
 
+    def validate(self, model, instance, uri):
         try:
-            if self.instance:
-                self.model.objects.exclude(pk=self.instance.id).get(uri=uri)
+            if instance:
+                model.objects.exclude(pk=instance.id).get(uri=uri)
             else:
-                self.model.objects.get(uri=uri)
-        except ObjectDoesNotExist:
-            return
+                model.objects.get(uri=uri)
         except MultipleObjectsReturned:
             pass
+        except ObjectDoesNotExist:
+            return
 
         self.raise_validation_error({
             'key': _('%(model)s with the uri "%(uri)s" already exists.') % {
-                'model': self.model._meta.verbose_name.title(),
+                'model': model._meta.verbose_name.title(),
                 'uri': uri
             }
         })

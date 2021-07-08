@@ -20,10 +20,20 @@ def is_last_owner(project, user):
         return False
 
 
+def check_conditions(conditions, values, set_prefix=None, set_index=None):
+    if conditions:
+        for condition in conditions:
+            if condition.resolve(values, set_prefix, set_index):
+                return True
+        return False
+    else:
+        return True
+
+
 def save_import_values(project, values, checked):
     for value in values:
         if value.attribute:
-            value_key = '{value.attribute.uri}[{value.set_index}][{value.collection_index}]'.format(
+            value_key = '{value.attribute.uri}[{value.set_prefix}][{value.set_index}][{value.collection_index}]'.format(
                 value=value
             )
 
@@ -50,6 +60,7 @@ def save_import_values(project, values, checked):
                     # make sure we have the correct value
                     assert current_value.snapshot is None
                     assert current_value.attribute == value.attribute
+                    assert current_value.set_prefix == value.set_prefix
                     assert current_value.set_index == value.set_index
                     assert current_value.collection_index == value.collection_index
 
@@ -85,7 +96,7 @@ def save_import_snapshot_values(project, snapshots, checked):
 
         for value in snapshot.snapshot_values:
             if value.attribute:
-                value_key = '{value.attribute.uri}[{snapshot_index}][{value.set_index}][{value.collection_index}]'.format(
+                value_key = '{value.attribute.uri}[{snapshot_index}][{value.set_prefix}][{value.set_index}][{value.collection_index}]'.format(
                     value=value,
                     snapshot_index=snapshot.snapshot_index
                 )

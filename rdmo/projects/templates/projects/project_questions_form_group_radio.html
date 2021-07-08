@@ -8,7 +8,7 @@
             {% include 'projects/project_questions_add_field_help.html' %}
         </div>
 
-        <div ng-repeat="value in service.values[question.attribute.id] track by $index">
+        <div ng-repeat="value in service.values[question.attribute][valueset.set_prefix][valueset.set_index] track by $index">
             <div class="collection" ng-hide="value.removed">
                 <div class="radio-control">
                     <div class="options">
@@ -17,11 +17,12 @@
                         {% include 'projects/project_questions_remove_field.html' %}
                     </div>
 
-                    <div class="radio" ng-repeat="option in question.options" ng-hide="option.hidden">
+                    <div class="radio" ng-repeat="option in question.options" ng-hide="valueset.hidden.optionsets[option.optionset]">
                         <label>
                             <input type="radio" value="{$ option.id $}"
                                 ng-model="value.selected"
                                 ng-disabled="service.project.read_only"
+                                ng-change="service.changed(value, true)"
                                 ng-class="{'default-value': service.isDefaultValue(question, value) &&
                                                             option.id.toString() == value.selected}"/>
 
@@ -30,7 +31,7 @@
                             <input class="form-control input-sm" type="text"
                                 ng-show="option.additional_input"
                                 ng-model="value.additional_input[option.id]"
-                                ng-change="value.selected = option.id.toString()"
+                                ng-change="value.selected = option.id.toString(); service.changed(value, true)"
                                 ng-focus="value.selected = option.id.toString()"
                                 ng-disabled="service.project.read_only" />
                         </label>

@@ -1,6 +1,6 @@
 {% load i18n %}
 
-    <div class="form-group" ng-if="question.widget_type === 'text'" >
+    <div class="form-group" ng-if="question.widget_type === 'text'">
         {% include 'projects/project_questions_question_label.html' %}
         {% include 'projects/project_questions_question_help.html' %}
 
@@ -8,7 +8,7 @@
             {% include 'projects/project_questions_add_field_help.html' %}
         </div>
 
-        <div ng-repeat="value in service.values[question.attribute.id] track by $index">
+        <div ng-repeat="value in service.values[question.attribute][valueset.set_prefix][valueset.set_index] track by $index">
             <div class="collection" ng-hide="value.removed">
                 <div class="options">
                     {% include 'projects/project_questions_default.html' %}
@@ -16,8 +16,9 @@
                 </div>
 
                 <input type="text" class="form-control" ng-model="value.text"
-                    ng-attr-id="id_{$ question.attribute.id $}_{$ $index $}"
+                    ng-attr-id="id_{$ question.attribute $}_{$ valueset.set_prefix $}_{$ valueset.set_index $}_{$ $index $}"
                     ng-disabled="service.project.read_only"
+                    ng-change="service.changed(value)"
                     ng-class="{'default-value': service.isDefaultValue(question, value)}">
             </div>
         </div>

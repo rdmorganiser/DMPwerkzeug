@@ -844,7 +844,7 @@
       "locked": false,
       "parent": null,
       "lft": 1,
-      "rght": 6,
+      "rght": 22,
       "tree_id": 3,
       "level": 0
     }
@@ -1220,6 +1220,244 @@
       "lft": 11,
       "rght": 12,
       "tree_id": 4,
+      "level": 2
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 107,
+    "fields": {
+      "uri": "http://example.com/terms/domain/blocks",
+      "uri_prefix": "http://example.com/terms",
+      "key": "blocks",
+      "path": "blocks",
+      "comment": "",
+      "locked": false,
+      "parent": null,
+      "lft": 1,
+      "rght": 12,
+      "tree_id": 6,
+      "level": 0
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 108,
+    "fields": {
+      "uri": "http://example.com/terms/domain/blocks/a",
+      "uri_prefix": "http://example.com/terms",
+      "key": "a",
+      "path": "blocks/a",
+      "comment": "",
+      "locked": false,
+      "parent": 107,
+      "lft": 2,
+      "rght": 3,
+      "tree_id": 6,
+      "level": 1
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 109,
+    "fields": {
+      "uri": "http://example.com/terms/domain/blocks/b",
+      "uri_prefix": "http://example.com/terms",
+      "key": "b",
+      "path": "blocks/b",
+      "comment": "",
+      "locked": false,
+      "parent": 107,
+      "lft": 4,
+      "rght": 5,
+      "tree_id": 6,
+      "level": 1
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 110,
+    "fields": {
+      "uri": "http://example.com/terms/domain/blocks/c",
+      "uri_prefix": "http://example.com/terms",
+      "key": "c",
+      "path": "blocks/c",
+      "comment": "",
+      "locked": false,
+      "parent": 107,
+      "lft": 6,
+      "rght": 7,
+      "tree_id": 6,
+      "level": 1
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 111,
+    "fields": {
+      "uri": "http://example.com/terms/domain/blocks/x",
+      "uri_prefix": "http://example.com/terms",
+      "key": "x",
+      "path": "blocks/x",
+      "comment": "",
+      "locked": false,
+      "parent": 107,
+      "lft": 8,
+      "rght": 9,
+      "tree_id": 6,
+      "level": 1
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 112,
+    "fields": {
+      "uri": "http://example.com/terms/domain/blocks/y",
+      "uri_prefix": "http://example.com/terms",
+      "key": "y",
+      "path": "blocks/y",
+      "comment": "",
+      "locked": false,
+      "parent": 107,
+      "lft": 10,
+      "rght": 11,
+      "tree_id": 6,
+      "level": 1
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 113,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/set",
+      "uri_prefix": "http://example.com/terms",
+      "key": "set",
+      "path": "conditions/set",
+      "comment": "",
+      "locked": false,
+      "parent": 80,
+      "lft": 6,
+      "rght": 15,
+      "tree_id": 3,
+      "level": 1
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 114,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/set/bool",
+      "uri_prefix": "http://example.com/terms",
+      "key": "bool",
+      "path": "conditions/set/bool",
+      "comment": "",
+      "locked": false,
+      "parent": 113,
+      "lft": 7,
+      "rght": 8,
+      "tree_id": 3,
+      "level": 2
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 115,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/set/text",
+      "uri_prefix": "http://example.com/terms",
+      "key": "text",
+      "path": "conditions/set/text",
+      "comment": "",
+      "locked": false,
+      "parent": 113,
+      "lft": 9,
+      "rght": 10,
+      "tree_id": 3,
+      "level": 2
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 116,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/set/set",
+      "uri_prefix": "http://example.com/terms",
+      "key": "set",
+      "path": "conditions/set/set",
+      "comment": "",
+      "locked": false,
+      "parent": 113,
+      "lft": 11,
+      "rght": 14,
+      "tree_id": 3,
+      "level": 2
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 118,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/set/set/text",
+      "uri_prefix": "http://example.com/terms",
+      "key": "text",
+      "path": "conditions/set/set/text",
+      "comment": "",
+      "locked": false,
+      "parent": 116,
+      "lft": 12,
+      "rght": 13,
+      "tree_id": 3,
+      "level": 3
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 119,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/optionset",
+      "uri_prefix": "http://example.com/terms",
+      "key": "optionset",
+      "path": "conditions/optionset",
+      "comment": "",
+      "locked": false,
+      "parent": 80,
+      "lft": 16,
+      "rght": 21,
+      "tree_id": 3,
+      "level": 1
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 120,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/optionset/bool",
+      "uri_prefix": "http://example.com/terms",
+      "key": "bool",
+      "path": "conditions/optionset/bool",
+      "comment": "",
+      "locked": false,
+      "parent": 119,
+      "lft": 17,
+      "rght": 18,
+      "tree_id": 3,
+      "level": 2
+    }
+  },
+  {
+    "model": "domain.attribute",
+    "pk": 121,
+    "fields": {
+      "uri": "http://example.com/terms/domain/conditions/optionset/option",
+      "uri_prefix": "http://example.com/terms",
+      "key": "option",
+      "path": "conditions/optionset/option",
+      "comment": "",
+      "locked": false,
+      "parent": 119,
+      "lft": 19,
+      "rght": 20,
+      "tree_id": 3,
       "level": 2
     }
   }

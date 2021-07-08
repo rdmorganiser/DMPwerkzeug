@@ -156,13 +156,10 @@ class View(models.Model, TranslationMixin):
     def render(self, project, snapshot=None, export_format=None):
         # render the template to a html string
         # it is important not to use models here
-
+        project_wrapper = ProjectWrapper(project, snapshot)
         return Template(self.template).render(Context({
-            'project': ProjectWrapper(project, snapshot),
-            'conditions': {
-                condition.key: condition.resolve(project, snapshot)
-                for condition in Condition.objects.select_related('source')
-            },
+            'project': project_wrapper,
+            'conditions': project_wrapper.conditions,
             'format': export_format,
             'pandoc_version': get_pandoc_version()
         }))

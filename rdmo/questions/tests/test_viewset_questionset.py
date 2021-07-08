@@ -110,6 +110,7 @@ def test_create(db, client, username, password):
             'comment': instance.comment,
             'attribute': instance.attribute.pk if instance.attribute else '',
             'section': instance.section.pk,
+            'questionset': instance.questionset.pk if instance.questionset else '',
             'is_collection': instance.is_collection,
             'order': instance.order,
             'title_en': instance.title_lang1,
@@ -139,6 +140,7 @@ def test_update(db, client, username, password):
             'comment': instance.comment,
             'attribute': instance.attribute.pk if instance.attribute else None,
             'section': instance.section.pk,
+            'questionset': instance.questionset.pk if instance.questionset else '',
             'is_collection': instance.is_collection,
             'order': instance.order,
             'title_en': instance.title_lang1,
@@ -158,7 +160,7 @@ def test_update(db, client, username, password):
 @pytest.mark.parametrize('username,password', users)
 def test_delete(db, client, username, password):
     client.login(username=username, password=password)
-    instances = QuestionSet.objects.all()
+    instances = QuestionSet.objects.filter(questionset=None)
 
     for instance in instances:
         url = reverse(urlnames['detail'], args=[instance.pk])
@@ -193,7 +195,8 @@ def test_copy(db, client, username, password):
         data = {
             'uri_prefix': instance.uri_prefix + '-',
             'key': instance.key + '-',
-            'section': instance.section.id
+            'section': instance.section.id,
+            'questionset': instance.questionset.pk if instance.questionset else None
         }
         response = client.put(url, data, content_type='application/json')
         assert response.status_code == status_map['create'][username], response.json()

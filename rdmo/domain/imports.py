@@ -11,18 +11,17 @@ logger = logging.getLogger(__name__)
 
 
 def import_attribute(element, parent_uri=False, save=False):
-    if parent_uri is False:
-        parent_uri = element.get('parent')
-
     try:
-        attribute = Attribute.objects.get(uri=element.get('uri'), parent__uri=parent_uri)
+        if parent_uri is False:
+            attribute = Attribute.objects.get(uri=element.get('uri'))
+        else:
+            attribute = Attribute.objects.get(key=element.get('key'), parent__uri=parent_uri)
     except Attribute.DoesNotExist:
         attribute = Attribute()
 
     set_common_fields(attribute, element)
 
-    attribute.parent_uri = parent_uri
-    attribute.parent = get_foreign_field(attribute, parent_uri, Attribute)
+    attribute.parent = get_foreign_field(attribute, parent_uri or element.get('parent'), Attribute)
 
     if save and validate_instance(attribute,
                                   AttributeLockedValidator,

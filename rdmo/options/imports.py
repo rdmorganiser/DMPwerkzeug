@@ -20,7 +20,7 @@ def import_optionset(element, save=False):
 
     set_common_fields(optionset, element)
 
-    optionset.order = element.get('order')
+    optionset.order = element.get('order') or 0
     optionset.provider_key = element.get('provider_key') or ''
 
     conditions = get_m2m_instances(optionset, element.get('conditions'), Condition)
@@ -38,22 +38,20 @@ def import_optionset(element, save=False):
     return optionset
 
 
-def import_option(element, parent_uri=False, save=False):
-    if parent_uri is False:
-        parent_uri = element.get('optionset')
-
+def import_option(element, optionset_uri=False, save=False):
     try:
-        option = Option.objects.get(uri=element.get('uri'), optionset__uri=parent_uri)
+        if optionset_uri is False:
+            option = Option.objects.get(uri=element.get('uri'))
+        else:
+            option = Option.objects.get(key=element.get('key'), optionset__uri=optionset_uri)
     except Option.DoesNotExist:
         option = Option()
 
     set_common_fields(option, element)
 
-    option.parent_uri = parent_uri
-    option.optionset = get_foreign_field(option, parent_uri, OptionSet)
-
-    option.order = element.get('order')
-    option.additional_input = element.get('additional_input')
+    option.optionset = get_foreign_field(option, optionset_uri or element.get('optionset'), OptionSet)
+    option.order = element.get('order') or 0
+    option.additional_input = element.get('additional_input') or False
 
     set_lang_field(option, 'text', element)
 

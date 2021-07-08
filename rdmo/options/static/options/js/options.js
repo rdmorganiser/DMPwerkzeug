@@ -39,15 +39,15 @@ angular.module('options', ['core'])
     var service = {};
 
     service.init = function(options) {
-        service.conditions = resources.conditions.query({list_action: 'index'});
         service.providers = resources.providers.query();
         service.settings = resources.settings.get();
         service.uri_prefixes = [];
         service.uri_prefix = '';
-        service.showOptions = true;
+        service.filter = sessionStorage.getItem('options_filter') || '';
+        service.showOptions = !(sessionStorage.getItem('options_showOptions') === 'false');
 
         service.initView().then(function () {
-            var current_scroll_pos = sessionStorage.getItem('current_scroll_pos');
+            var current_scroll_pos = sessionStorage.getItem('options_scroll_pos');
             if (current_scroll_pos) {
                 $timeout(function() {
                     $window.scrollTo(0, current_scroll_pos);
@@ -56,7 +56,9 @@ angular.module('options', ['core'])
         });
 
         $window.addEventListener('beforeunload', function() {
-            sessionStorage.setItem('current_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('options_scroll_pos', $window.scrollY);
+            sessionStorage.setItem('options_filter', service.filter);
+            sessionStorage.setItem('options_showOptions', service.showOptions);
         });
     };
 
@@ -84,10 +86,16 @@ angular.module('options', ['core'])
 
         service.errors = {};
         service.values = utils.fetchValues(resources[fetch_resource], factories[resource], obj, create, copy);
+        service.conditions = resources.conditions.query({list_action: 'index'});
 
-        $q.when(service.values.$promise).then(function() {
+        $q.when([
+            service.values.$promise,
+            service.conditions.$promise
+        ]).then(function() {
             $('#' + resource + '-form-modal').modal('show');
-            $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            $timeout(function() {
+                $('formgroup[data-quicksearch="true"]').trigger('refresh');
+            });
         });
     };
 
