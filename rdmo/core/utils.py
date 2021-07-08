@@ -334,11 +334,11 @@ def parse_metadata(html):
     soup = BeautifulSoup(html, 'html.parser')
     try:
         html_metadata = soup.find('metadata').extract()
-    except AttributeError:
-        pass
-    else:
         html_metadata = html_metadata.text
         metadata = json.loads(html_metadata)
+    except (AttributeError, json.JSONDecodeError):
+        pass
+    else:
         html = str(soup)
     return metadata, html
 
@@ -348,6 +348,5 @@ def save_metadata(metadata):
     with open(tmp_metadata_file, 'w') as f:
         json.dump(metadata, f)
     f = open(tmp_metadata_file)
-    data = json.load(f)
     log.info('Save metadata file %s %s', tmp_metadata_file, str(metadata))
     return tmp_metadata_file
