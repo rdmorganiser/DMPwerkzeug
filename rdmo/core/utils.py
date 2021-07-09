@@ -15,7 +15,6 @@ from django.template.loader import get_template
 from django.utils.encoding import force_str
 from django.utils.translation import gettext_lazy as _
 from markdown import markdown
-from bs4 import BeautifulSoup
 import json
 
 log = logging.getLogger(__name__)
@@ -331,15 +330,17 @@ def markdown2html(markdown_string):
 
 def parse_metadata(html):
     metadata = None
-    soup = BeautifulSoup(html, 'html.parser')
-    try:
-        html_metadata = soup.find('metadata').extract()
-        html_metadata = html_metadata.text
-        metadata = json.loads(html_metadata)
-    except (AttributeError, json.JSONDecodeError):
-        pass
-    else:
-        html = str(soup)
+    pattern = re.compile(
+        '(<metadata>)(.*)(</metadata>)', re.MULTILINE | re.DOTALL
+    )
+    m = re.search(pattern, html)
+    if bool(m) is True:
+        try:
+            metadata = json.loads(m.group(2))
+        except json.JSONDecodeError:
+            pass
+        else:
+            html = html.replace(m.group(0), '')
     return metadata, html
 
 
