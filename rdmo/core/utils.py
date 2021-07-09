@@ -1,5 +1,5 @@
-from defusedcsv import csv
 import importlib
+import json
 import logging
 import os
 import re
@@ -7,15 +7,16 @@ from pathlib import Path
 from tempfile import mkstemp
 from urllib.parse import urlparse
 
+from markdown import markdown
+
 import pypandoc
+from defusedcsv import csv
 from django.apps import apps
 from django.conf import settings
 from django.http import Http404, HttpResponse, HttpResponseBadRequest
 from django.template.loader import get_template
 from django.utils.encoding import force_str
 from django.utils.translation import gettext_lazy as _
-from markdown import markdown
-import json
 
 log = logging.getLogger(__name__)
 
